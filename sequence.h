@@ -1,11 +1,12 @@
 #include <stdlib.h>
 #include <math.h>
 #include <universe.h>
-/*
-#include <avl.h>
-#include <arb.h>
-#include <a23.h>
-#include <ab.h>
+#include "array.h"
+/* La idea es tener 1 archivo por implementacion de arbol y sus funciones:
+#include "avl.h"
+#include "arb.h"
+#include "a23.h"
+#include "ab.h"
 */
 
 #define AVL 0
@@ -13,12 +14,14 @@
 #define A23 2
 #define AB  3
 
+/*
 #define CASEI1 4
 #define CASEI2 5
 #define CASEI3 6
 #define CASEI4 7
 #define CASEB1 8
 #define CASEB2 9
+*/
 
 typedef struct test{
 	void *tree;
@@ -26,12 +29,7 @@ typedef struct test{
 	Universe u;
 }Test;
 
-typedef struct array{
-	int values[];
-	int length;
-}Array;
-
-Test *newStructure(void *tree,int type,int n,int k,int range){
+Test *newTest(void *tree,int type,int n,int k,int range){
 	Test t;
 	t = (Test *) malloc (sizeof(Test *));
 	t->tree = tree;
@@ -43,47 +41,51 @@ Test *newStructure(void *tree,int type,int n,int k,int range){
 	return t;
 }
 
-void sequence(Test *t,Array *array,(void *)getElem(),(void *)searchElem(),(void *)delElem()) {
+/* Funcion que generara la sequencia , utilizando la distintas funciones de buscar, eliminar, e insertar elementos al arreglo*/
+void sequence(Test *t,void (* getElem)(),void (* searchElem)(),void (* delElem)()) {
 	/*
 	(i^k d^k i^k )^n f^k*n (d^k i^k d^k )^n
 	*/
+	Array *semiordenados;
 	int semiordenados[t->k];
 	int index;
 
 	index = 0;
-	semiordenados = NULL;
+	semiordenados = newArray(t->k);
 
 	for(int j=0,j<=t->n;j++){
 		for (int i=0,i<=t->k,i++)
-			insertar(type,array,getElem(semiordenados,index++,t));
+			insertar(type,getElem(semiordenados,index++,t));
 		index = 0;
 		semiordenados = NULL;
 		for (int i=0,i<=t->k,i++)
-			borrar(type,array,delElem(semiordenados,index++,t));
+			borrar(type,delElem(semiordenados,index++,t));
 		index = 0;
 		semiordenados = NULL;
 		for (int i=0,i<=t->k,i++)
-			insertar(type,array,getElem(semiordenados,index++,t));
+			insertar(type,getElem(semiordenados,index++,t));
 		index = 0;
 		semiordenados = NULL;
 	}
 	for(int j=0,j<=t->n*t->k;j++){
-		buscar(type,array,searchElem(array,t));
+		buscar(type,searchElem(array,t));
 	}
 	for(int j=0,j<=t->n;j++){
 		for (int i=0,i<=t->k,i++)
-			borrar(type,array,delElem(semiordenados,index++,t));
+			borrar(type,delElem(semiordenados,index++,t));
 		index = 0;
 		semiordenados = NULL;
 		for (int i=0,i<=t->k,i++)
-			insertar(type,array,getElem(semiordenados,index++,t));
+			insertar(type,getElem(semiordenados,index++,t));
 		index = 0;
 		semiordenados = NULL;
 		for (int i=0,i<=t->k,i++)
-			borrar(type,array,delElem(semiordenados,index++,t));
+			borrar(type,delElem(semiordenados,index++,t));
 		index = 0;
 		semiordenados = NULL;
 	}
+
+	free(semiordenados);
 	return;
 }
 
@@ -129,10 +131,10 @@ Los elementos a insertar son escogidos al azar uniformemente del universo,
 void newSequenceCase1(Test *t,Array *array){
 
 	/*busqueda del tipo 1, kn/2 búsquedas de elementos ya insertados en la estructura escogidos al azar*/
-	sequence(t,array,getElemRandom,searchElemDomain,delElemRandomDomain);
+	sequence(t,getElemRandom,searchElemDomain,delElemRandomDomain);
 
 	/*busqueda del tipo 2*, kn/2 búsquedas de elementos escogidos al azar del dominio */
-	sequence(t,array,getElemRandom,searchElemUniverse,delElemRandomDomain);
+	sequence(t,getElemRandom,searchElemUniverse,delElemRandomDomain);
 }
 
 /*

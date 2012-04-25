@@ -1,3 +1,5 @@
+#Makefile en construccion aun
+
 CC=gcc 
 CFLAGS=-Wall -pedantic
 
