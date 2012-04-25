@@ -1,15 +1,15 @@
 /*estructura*/
 typedef struct avl{
 	/*implementacion ...*/
-	struct avl izq;
-	struct avl der;
+	struct avl *izq;
+	struct avl *der;
 	int value;
 }AVL;
 
 /*interfaz*/
 
 
-newAVL(void *tree){
+AVL *newAVL(void *tree){
 	AVL *avl;
 
 	avl = (AVL *)malloc (sizeof (AVL *));
@@ -23,6 +23,6 @@ newAVL(void *tree){
 }
 /*funciones a implementar*/
 bool isEmpty();
-insertarAVL(AVL *avl,int element);
-buscarAVL(int element);
-borrarAVL(AVL *avl,int element);
+void insertarAVL(AVL *avl,int element);
+int buscarAVL(AVL *avl,int element);
+void borrarAVL(AVL *avl,int element);
