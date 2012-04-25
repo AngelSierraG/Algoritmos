@@ -1,15 +1,15 @@
 /*estructura*/
 typedef struct arb{
 	/*implementacion ...*/
-	struct arb izq;
-	struct arb der;
+	struct arb *izq;
+	struct arb *der;
 	int value;
 }ARB;
 
 /*interfaz*/
 
 
-newARB(void *tree){
+ARB *newARB(void *tree){
 	ARB *arb;
 
 	arb = (ARB *)malloc (sizeof (ARB *));
@@ -23,6 +23,6 @@ newARB(void *tree){
 }
 /*funciones a implementar*/
 bool isEmpty();
-insertarARB(ARB *arb,int element);
-buscarARB(int element);
-borrarARB(ARB *arb,int element);
+void insertarARB(ARB *arb,int element);
+int buscarARB(ARB *arb,int element);
+void borrarARB(ARB *arb,int element);
