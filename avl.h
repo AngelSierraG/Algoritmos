@@ -4,6 +4,7 @@ typedef struct avl{
 	struct avl izq;
 	struct avl der;
 	int value;
+	int Height;
 }AVL;
 
 /*interfaz*/
@@ -18,11 +19,12 @@ newAVL(void *tree){
 	avl->izq = NULL;
 	avl->der = NULL;
 	avl->value= -1;
+	avl->Height= 0;
 
 	return avl;
 }
 /*funciones a implementar*/
-bool isEmpty();
-insertarAVL(AVL *avl,int element);
-buscarAVL(int element);
-borrarAVL(AVL *avl,int element);
+bool isEmpty(AVL *p);
+AVL buscarAVL(AVL *avl,int element);
+AVL insertarAVL(AVL *avl,int element);
+AVL borrarAVL(AVL *avl,int element);
