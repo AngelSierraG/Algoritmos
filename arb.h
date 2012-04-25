@@ -10,7 +10,7 @@ typedef struct arb{
 
 
 newARB(void *tree){
-	ARB arb;
+	ARB *arb;
 
 	arb = (ARB *)malloc (sizeof (ARB *));
 	/* llenado inicial*/
@@ -23,6 +23,6 @@ newARB(void *tree){
 }
 /*funciones a implementar*/
 bool isEmpty();
-insertarARB(Array *array,int element);
+insertarARB(ARB *arb,int element);
 buscarARB(int element);
-borrarARB(Array *array,int element);
+borrarARB(ARB *arb,int element);

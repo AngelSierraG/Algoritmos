@@ -10,7 +10,7 @@ typedef struct avl{
 
 
 newAVL(void *tree){
-	AVL avl;
+	AVL *avl;
 
 	avl = (AVL *)malloc (sizeof (AVL *));
 	/* llenado inicial*/
@@ -23,6 +23,6 @@ newAVL(void *tree){
 }
 /*funciones a implementar*/
 bool isEmpty();
-insertarAVL(Array *array,int element);
+insertarAVL(AVL *avl,int element);
 buscarAVL(int element);
-borrarAVL(Array *array,int element);
+borrarAVL(AVL *avl,int element);
