@@ -10,10 +10,20 @@ Universe *newUniverse(int _range){
 	return u;
 }
 
+int mypow(int base,int expo){
+	int i,result;
+
+	if(expo == 0)
+		return 1;
+	result = base;
+	for(i=1;i<expo;i++)
+		result = result * base;
+	return result;
+}
 int getRandomNumber(Universe *u){
 	int max_number, random_number;
 
-	max_number = pow(2,u->range);
+	max_number = mypow(2,u->range);
 
 	/* Numero al azar entre 0 y max_number*/
 	srand(time(NULL));
