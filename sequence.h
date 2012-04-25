@@ -1,7 +1,7 @@
 #include <stdlib.h>
-#include <math.h>
-#include <universe.h>
-#include "array.h"
+#include <stdbool.h>
+/*#include <math.h>*/
+#include "test.h"
 /* La idea es tener 1 archivo por implementacion de arbol y sus funciones:
 #include "avl.h"
 #include "arb.h"
@@ -23,14 +23,8 @@
 #define CASEB2 9
 */
 
-typedef struct test{
-	void *tree;
-	int type,n,k,range;
-	Universe u;
-}Test;
-
 Test *newTest(void *tree,int type,int n,int k,int range){
-	Test t;
+	Test *t;
 	t = (Test *) malloc (sizeof(Test *));
 	t->tree = tree;
 	t->type = type;
@@ -42,7 +36,8 @@ Test *newTest(void *tree,int type,int n,int k,int range){
 }
 
 /* Funcion que generara la sequencia , utilizando la distintas funciones de buscar, eliminar, e insertar elementos al arreglo*/
-void sequence(Test *t,void (* getElem)(),void (* searchElem)(),void (* delElem)()) {
+void sequence(Test *t,void (* getElem)(Array *,int,void *),
+	void (* searchElem)(void *),void (* delElem)(Array *,int,void *)) {
 	/*
 	(i^k d^k i^k )^n f^k*n (d^k i^k d^k )^n
 	*/
@@ -55,73 +50,38 @@ void sequence(Test *t,void (* getElem)(),void (* searchElem)(),void (* delElem)(
 
 	for(int j=0,j<=t->n;j++){
 		for (int i=0,i<=t->k,i++)
-			insertar(type,getElem(semiordenados,index++,t));
+			insertar(t,type,getElem(semiordenados,index++,t));
 		index = 0;
-		semiordenados = NULL;
+		deleteArrayElements(semiordenados);
 		for (int i=0,i<=t->k,i++)
-			borrar(type,delElem(semiordenados,index++,t));
+			borrar(t,type,delElem(semiordenados,index++,t));
 		index = 0;
-		semiordenados = NULL;
+		deleteArrayElements(semiordenados);
 		for (int i=0,i<=t->k,i++)
-			insertar(type,getElem(semiordenados,index++,t));
+			insertar(t,type,getElem(semiordenados,index++,t));
 		index = 0;
-		semiordenados = NULL;
+		deleteArrayElements(semiordenados);
 	}
 	for(int j=0,j<=t->n*t->k;j++){
-		buscar(type,searchElem(array,t));
+		buscar(t,type,searchElem(t));
 	}
 	for(int j=0,j<=t->n;j++){
 		for (int i=0,i<=t->k,i++)
-			borrar(type,delElem(semiordenados,index++,t));
+			borrar(t,type,delElem(semiordenados,index++,t));
 		index = 0;
-		semiordenados = NULL;
+		deleteArrayElements(semiordenados);
 		for (int i=0,i<=t->k,i++)
-			insertar(type,getElem(semiordenados,index++,t));
+			insertar(t,type,getElem(semiordenados,index++,t));
 		index = 0;
-		semiordenados = NULL;
+		deleteArrayElements(semiordenados);
 		for (int i=0,i<=t->k,i++)
-			borrar(type,delElem(semiordenados,index++,t));
+			borrar(t,type,delElem(semiordenados,index++,t));
 		index = 0;
-		semiordenados = NULL;
+		deleteArrayElements(semiordenados);
 	}
 
 	free(semiordenados);
 	return;
-}
-
-int getElemRandom(Array *array,int index,void *tree){
-	return getRandomNumber(tree->u);
-}
-int getElemSemiOrden(Array *array,int index,void *tree){
-	if (array == NULL){
-		array = (Array *) malloc (sizeof (Array *));
-		array->length = t-> k;
-		array->values = int [t->k];
-		for(int i=0; i < t-> k, i++)
-			array->values[i] = getRandomNumber(t->u);
-		sort(array);
-	}
-	return array->values[index];
-
-}
-int searchElemUniverse(Array *array,void *tree){
-	return getRandomNumber(tree->u);
-}
-int searchElemDomain(Array *array,void *tree){
-	int random_index,length;
-
-	random_index = (int)(srand (time(NULL)) %(array->length -1) );
-
-	return array->values[random_index];
-}
-
-int delElemRandomDomain(Array *array,int index,void *tree){
-	int random_index,length;
-
-	random_index = (int)(srand (time(NULL)) %(array->length -1) );
-	array->length--;
-
-	return array->values[random_index];
 }
 
 /*

@@ -1,11 +1,12 @@
 #Makefile en construccion aun
 
 CC=gcc 
-CFLAGS=-Wall -pedantic
+#CFLAGS=-Wall -pedantic
 
-universe: universe.o
-sequence: sequence.o
-maintest: maintest.o
+#universe: universe.o
+#sequence: sequence.o
+#maintest: maintest.o
+main: main.o
 
 clean:
-	rm -f client client.o
+	rm -f main.o

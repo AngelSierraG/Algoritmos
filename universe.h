@@ -1,25 +1,22 @@
-#include <stdlib.h>
-#include <math.h>
-
 typedef struct universe{
  int range;
-};Universe
+}Universe;
 
-Universe *newUniverse(int range){
+Universe *newUniverse(int _range){
 	/* range = 2^24 -1 o 2^16-1*/
-	Universe u;
+	Universe *u;
 	u = (Universe *)malloc(sizeof(Universe *));
-	u->range = range;
+	u->range = _range;
 	return u;
 }
 
-int getrandomNumber(Universe *u){
-	int max_number;
-	double random_number;
+int getRandomNumber(Universe *u){
+	int max_number, random_number;
 
-	max_number = pow (2,(int)u->range);
+	max_number = pow(2,u->range);
 
 	/* Numero al azar entre 0 y max_number*/
-	random_number = (int)(srand (time(NULL)) % max_number );
+	srand(time(NULL));
+	random_number =  rand() % max_number;
 	return random_number;
 }
