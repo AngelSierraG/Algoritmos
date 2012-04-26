@@ -1,18 +1,5 @@
 #include "avl.h"
 
-newAVL(void *tree){
-	AVL *avl;
-
-	avl = (AVL *)malloc (sizeof (AVL *));
-	/* llenado inicial*/
-
-	avl->izq = NULL;
-	avl->der = NULL;
-	avl->value= -1;
-	avl->Height= 0;
-
-	return avl;
-}
 /*funciones a implementar*/
 bool isEmpty( AVL *p){
 
@@ -141,7 +128,7 @@ insertarAVL(AVL *avl,int element){
 	            /* Else X is in the tree already; we'll do nothing */
 	 
 	            AVL->Height = Max( Height( AVL->izq ), Height( AVL->der ) ) + 1;
-	            return AVL;
+	            //return AVL;
 
 
 
@@ -157,7 +144,7 @@ buscarAVL(AVL *avl,int element){
 	        if( element > AVL->value )
 	            return buscarAVL(AVL->der,element );
 	        else
-	            return AVL;
+	            return AVL->value;
 }
 
 borrarAVL(AVL *avl,int element){

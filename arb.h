@@ -3,7 +3,9 @@ typedef struct arb{
 	/*implementacion ...*/
 	struct arb *izq;
 	struct arb *der;
+	struct arb *padre;
 	int value;
+	char color;
 }ARB;
 
 /*interfaz*/
@@ -14,7 +16,7 @@ ARB *newARB(void *tree){
 
 	arb = (ARB *)malloc (sizeof (ARB *));
 	/* llenado inicial*/
-
+	arb->padre = NULL;
 	arb->izq = NULL;
 	arb->der = NULL;
 	arb->value= -1;
