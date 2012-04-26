@@ -77,3 +77,11 @@ void sortArray(Array *a){
 	qsort(a->values,sizeof(getArrayLength(a)),sizeof(a->values[0]),compareElem);
 	return;
 }
+
+Array *minus(Array *a,Array *b){
+	/*Retorna a-b*/
+	int i,j;
+
+	
+
+}

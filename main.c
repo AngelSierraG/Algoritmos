@@ -5,9 +5,17 @@
 #include "sequence.h"
 
 int main(){
-	Array *a;
-	a = newArray(5);
-	free(a);
+	int i,j,type;
+	Test *t;
+	void *tree;
+/*Test *newTest(void *tree,int type,int n,int k,int range)*/
+
+	/*AVL TESTING*/
+	newAVL(tree);
+
+	t = newTest(v);
+
+	
 	
 	return 0;
 }

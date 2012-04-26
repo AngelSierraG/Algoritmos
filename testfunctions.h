@@ -34,83 +34,58 @@ Test *newTest(void *tree,int type,int n,int k,int range){
 }
 
 /* Dispatch de funciones dependiendo del tipo de arbol*/
-void insertar(void *tree,int type,int element){
+int insertar(void *tree,int type,int element){
 	if(type == AVL){
-		insertarAVL(tree,element);
+		return insertarAVL(tree,element);
 	}
 	else if(type == ARB){
-		insertarARB(tree,element);
+		return insertarARB(tree,element);
 	}
 	else if(type == A23){
-		insertarA23(tree,element);
+		return insertarA23(tree,element);
 	}
 	else if(type == AB){
-		insertarAB(tree,element);
+		return insertarAB(tree,element);
 	}
 }
 
-void borrar(void *tree,int type,int element){
+int borrar(void *tree,int type,int element){
 	if(type == AVL){
-		borrarAVL(tree,element);
+		return borrarAVL(tree,element);
 	}
 	else if(type == ARB){
-		borrarARB(tree,element);
+		return borrarARB(tree,element);
 	}
 	else if(type == A23){
-		borrarA23(tree,element);
+		return borrarA23(tree,element);
 	}
 	else if(type == AB){
 		borrarAB(tree,element);
 	}
 }
 
-void buscar(void *tree,int type,int element){
+int buscar(void *tree,int type,int element){
 	if(type == AVL){
-		buscarAVL(tree,element);
+		return buscarAVL(tree,element);
 	}
 	else if(type == ARB){
-		buscarARB(tree,element);
+		return buscarARB(tree,element);
 	}
 	else if(type == A23){
-		buscarA23(tree,element);
+		return buscarA23(tree,element);
 	}
 	else if(type == AB){
-		buscarAB(tree,element);
+		return buscarAB(tree,element);
 	}
 }
 
-int getElemUniverse(Array *array,int index,Test *test){
-	return getRandomNumber((Universe *)test->u);
+void createRandomInsertSeq(Array *insert){
+	
+	return;
 }
-int getElemSemiOrden(Array *array,int index,Test *test){
-	int i;
-	if (isEmptyArray(array)){
-		array = newArray(test->k);
+createRandomDeleteSeq(insert,del);
 
-		for(i=0; i < test->k; i++)
-			putArrayElem(array,i,getRandomNumber(test->u));
-		sortArray(array);
-	}
-	return getArrayElem(array,index);
+createSemiOrderInsertSeq(insert);
+createSemiOrderDeleteSeq(insert,del);
 
-}
-int searchElemUniverse(Array *array,Test *test){
-	return getRandomNumber((Universe *)test->u);
-}
-int searchElemDomain(Array *array,Test *test){
-	int random_index;
-	srand(time(NULL));
-	random_index = rand() % getArrayLength(array);
-
-	return getArrayElem(array,random_index);
-}
-
-int delElemRandomDomain(Array *array,int index,Test *test){
-	int random_index;
-	srand (time(NULL));
-	random_index = rand() % getArrayLength(array);
-
-	delArrayElem(array,random_index);
-
-	return getArrayElem(array,index);
-}
+createSearchSeq(insert1,insert2,delete1,search);

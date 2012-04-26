@@ -25,6 +25,6 @@ AVL *newAVL(void *tree){
 }
 /*funciones a implementar*/
 bool isEmpty(AVL *avl);
-void insertarAVL(AVL *avl,int element);
+int insertarAVL(AVL *avl,int element);
 int buscarAVL(AVL *avl,int element);
-void borrarAVL(AVL *avl,int element);
+int borrarAVL(AVL *avl,int element);
