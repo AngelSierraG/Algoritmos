@@ -33,7 +33,7 @@ void createSSequence(Test *t,Array *insert1,Array *insert2,Array *delete1,Array 
 	return;
 }
 /* Funcion que generara la sequencia , utilizando la distintas funciones de buscar, eliminar, e insertar elementos al arreglo*/
-int dosequence(Test *t,int seqcase) {
+int dosequence(void *tree,Test *t,int seqcase) {
 	/*
 	(i^k d^k i^k )^n f^k*n (d^k i^k d^k )^n
 	*/
@@ -59,29 +59,29 @@ int dosequence(Test *t,int seqcase) {
 	for(j=0;j<=t->n;j++){
 		for(i=0;i<=t->k;i++)
 			if (contador < t->n)
-				contador= contador + insertar(t->tree,t->type,getArrayElem(insert1,i) );
+				contador= contador + insertar(tree,t->type,getArrayElem(insert1,i) );
 
 		for(i=0;i<=t->k;i++)
-			contador= contador - borrar(t->tree,t->type,getArrayElem(del1,i));
+			contador= contador - borrar(tree,t->type,getArrayElem(del1,i));
 
 		for (i=0;i<=t->k;i++)
 			if (contador < t->n)
-				contador= contador + insertar(t->tree,t->type,getArrayElem(insert2,i));
+				contador= contador + insertar(tree,t->type,getArrayElem(insert2,i));
 
 	}
 	for(j=0;j<=t->n*t->k;j++){
-		buscar(t->tree,t->type, getArrayElem(search1,j));
+		buscar(tree,t->type, getArrayElem(search1,j));
 	}
 	for(j=0;j<=t->n;j++){
 		for (i=0;i<=t->k;i++)
-			contador= contador - borrar(t->tree,t->type, getArrayElem(del2,i) );
+			contador= contador - borrar(tree,t->type, getArrayElem(del2,i) );
 
 		for (i=0;i<=t->k;i++)
 			if (contador < t->n)
-				contador= contador + insertar(t->tree,t->type,getArrayElem(insert3,i) );
+				contador= contador + insertar(tree,t->type,getArrayElem(insert3,i) );
 
 		for (i=0;i<=t->k;i++)
-			contador= contador - borrar(t->tree,t->type, getArrayElem(del3,i) );
+			contador= contador - borrar(tree,t->type, getArrayElem(del3,i) );
 
 	}
 

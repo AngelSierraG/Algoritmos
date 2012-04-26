@@ -62,7 +62,7 @@ int delArrayElem(Array *a,int k){
 	a->values[k] = -1;
 }
 
-int compareElem(const void *a,const void *b){
+static int compareElem(const void *a,const void *b){
 	if(*(int *)a<*(int *)b)
 		return(-1);
 	else if(*(int *)a>*(int *)b)

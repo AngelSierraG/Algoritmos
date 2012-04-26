@@ -28,3 +28,4 @@ bool isEmpty(AVL *avl);
 int insertarAVL(AVL *avl,int element);
 int buscarAVL(AVL *avl,int element);
 int borrarAVL(AVL *avl,int element);
+void freeAVL(AVL *avl);
