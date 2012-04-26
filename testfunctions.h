@@ -16,15 +16,13 @@
 #define AB  3
 
 typedef struct test{
-	void *tree;
 	int type,n,k,range;
 	Universe *u;
 }Test;
 
-Test *newTest(void *tree,int type,int n,int k,int range){
+Test *newTest(int type,int n,int k,int range){
 	Test *t;
 	t = (Test *) malloc (sizeof(Test *));
-	t->tree = tree;
 	t->type = type;
 	t->n = n;
 	t->k = k;
