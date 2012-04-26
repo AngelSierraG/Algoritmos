@@ -78,10 +78,40 @@ void sortArray(Array *a){
 	return;
 }
 
-Array *minus(Array *a,Array *b){
-	/*Retorna a-b*/
-	int i,j;
+void copyArray(Array *a,Array *b){
+	/*copiar a en b*/
+	int i;
+	if(getArrayLength(a)!= getArrayLength(b))
+		printf("Copy out of bounds %d into %d\n", getArrayLength(a),getArrayLength(b));
+	for(i=0; i < getArrayLength(a) ; i++){
+		putArrayElem(b,i,getArrayElem(a,i));
+	}
+	return;
+}
 
-	
+void suffleArrayElem(Array *a,int i,int j){
+	int aux;
+	aux = getArrayElem(a,i);
+	putArrayElem(a,i,getArrayElem(a,j));
+	putArrayElem(a,j,aux);
+	return;
+}
 
+void putElem(Array *a,int elem){
+	int i;
+	for(i=0; i < getArrayLength(a) ; i++)
+		if (getArrayElem(a,i)!= -1){
+			putArrayElem(a,i,elem);
+			return ;
+		}
+	return;
+}
+
+/*Arreglo desordenado*/
+int searchElem(Array *a,int elem){
+	int i;
+	for(i=0 ; i < getArrayLength(a) ; i++)
+		if(getArrayElem(a,i) == elem )
+			return 1; /*true*/
+	return 0; /*false*/
 }

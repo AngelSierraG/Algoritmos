@@ -79,13 +79,57 @@ int buscar(void *tree,int type,int element){
 	}
 }
 
-void createRandomInsertSeq(Array *insert){
-	
+void createRandomInsertSeq(Test *t,Array *insert){
+	int i;
+	for(i=0; i < getArrayLength(insert) ; i++)
+		putArrayElem(insert,i, getRandomNumber(t->u));
 	return;
 }
-createRandomDeleteSeq(insert,del);
+void createRandomDeleteSeq(Test *t,Array *insert,Array *del){
+	int i,j,k;
+	copyArray(insert,del);
+	for(i=0; i < t->n/2 ; i++){
+		srand(time(NULL));
+		j= rand() % getArrayLength(del);
+		k= rand() % getArrayLength(del);
+		suffleArrayElem(del,j,k);
+	}
+	return;
+}
 
-createSemiOrderInsertSeq(insert);
-createSemiOrderDeleteSeq(insert,del);
+void createSemiOrderInsertSeq(Test *t,Array *insert){
+	int i,j,k;
+	createRandomInsertSeq(t,insert);
+	sortArray(insert);
+	for(i=0; i < t->n/4 ; i++){
+		srand(time(NULL));
+		j= rand() % getArrayLength(insert);
+		k= rand() % getArrayLength(insert);
+		suffleArrayElem(insert,j,k);
+	}
+	return;
 
-createSearchSeq(insert1,insert2,delete1,search);
+}
+void createSemiOrderDeleteSeq(Test *t,Array* insert,Array *del){
+	int i,j,k;
+	copyArray(insert,del);
+	sortArray(del);
+	for(i=0; i < t->n/4 ; i++){
+		srand(time(NULL));
+		j= rand() % getArrayLength(del);
+		k= rand() % getArrayLength(del);
+		suffleArrayElem(del,j,k);
+	}
+	return;
+}
+
+void createSearchSeq(Test *t,Array *insert1,Array *insert2,Array *delete1,Array *search){
+	int i,j;
+
+	for(i=0; i < getArrayLength(insert1) ;i++)
+		if( searchElem(insert1,getArrayElem(delete1,i)) == 1)
+			putArrayElem(search,i,-1);
+	for(i=0; i < getArrayLength(insert2) ; i++)
+		putElem(search,getArrayElem(insert2,i));
+	return;
+}

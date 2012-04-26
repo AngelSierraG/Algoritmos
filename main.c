@@ -13,7 +13,7 @@ int main(){
 	/*AVL TESTING*/
 	newAVL(tree);
 
-	t = newTest(v);
+	/*t = newTest(v);*/
 
 	
 	
