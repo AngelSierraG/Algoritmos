@@ -1,5 +1,6 @@
 #include "universe.h"
 #include "array.h"
+
 /* La idea es tener 1 archivo por implementacion de arbol y sus funciones:*/
 
 #include "avl.h"
@@ -31,31 +32,43 @@ Test *newTest(int type,int n,int k,int range){
 	return t;
 }
 
+
+char *treeToString(int tree){
+	if(AVL == tree)
+		return "AVL";
+	else if(ARB == tree)
+		return "ARB";
+	else if(A23 == tree)
+		return "A23";
+	else if(AB == tree)
+		return "AB";
+}
+
 /* Dispatch de funciones dependiendo del tipo de arbol*/
-int insertar(void *tree,int type,int element){
+void insertar(void *tree,int type,int element){
 	if(type == AVL){
-		return insertarAVL(tree,element);
+		insertarAVL(tree,element);
 	}
 	else if(type == ARB){
-		return insertarARB(tree,element);
+		insertarARB(tree,element);
 	}
 	else if(type == A23){
-		return insertarA23(tree,element);
+		insertarA23(tree,element);
 	}
 	else if(type == AB){
-		return insertarAB(tree,element);
+		insertarAB(tree,element);
 	}
 }
 
-int borrar(void *tree,int type,int element){
+void borrar(void *tree,int type,int element){
 	if(type == AVL){
-		return borrarAVL(tree,element);
+		borrarAVL(tree,element);
 	}
 	else if(type == ARB){
-		return borrarARB(tree,element);
+		borrarARB(tree,element);
 	}
 	else if(type == A23){
-		return borrarA23(tree,element);
+		borrarA23(tree,element);
 	}
 	else if(type == AB){
 		borrarAB(tree,element);
@@ -80,54 +93,68 @@ int buscar(void *tree,int type,int element){
 void createRandomInsertSeq(Test *t,Array *insert){
 	int i;
 	for(i=0; i < getArrayLength(insert) ; i++)
-		putArrayElem(insert,i, getRandomNumber(t->u));
+		putElem(insert, getRandomNumber(t->u));
 	return;
 }
-void createRandomDeleteSeq(Test *t,Array *insert,Array *del){
-	int i,j,k;
-	copyArray(insert,del);
-	for(i=0; i < t->n/2 ; i++){
-		srand(time(NULL));
-		j= rand() % getArrayLength(del);
-		k= rand() % getArrayLength(del);
-		suffleArrayElem(del,j,k);
+
+void createRandomDeleteSearchSeq(Test *t,Array *insert,Array *del,Array *search){
+	int i,j,s,k,auxelem;
+	Array *tengo;
+
+	tengo = newArray(t->k * t->n);
+
+	for(j=0; j< t->n*t->k ;){
+		for(i=0;i < t->k;i++){
+			putElem(tengo,getArrayElem(insert,j++));
+		}
+		shuffleArray(tengo,t->k/2);
+		for(i=0;i < t->k;i++){
+			auxelem = getArrayElem(tengo,i);
+			putElem(del,auxelem);
+			delElem(tengo,auxelem);
+		}
+		for(i=0;i < t->k;i++)
+			putElem(tengo,getArrayElem(insert,j++));
 	}
+	
+	shuffleArray(tengo,t->k/2);
+	for(s=0;s< t->n*t->k;s++){
+		putElem(search,getArrayElem(tengo,s));
+	}
+	
+	for(;j< t->n*t->k ;){
+		shuffleArray(tengo,t->k/2);
+		for(i=0;i < t->k;i++){
+			auxelem = getArrayElem(tengo,i);
+			putElem(del,auxelem);
+			delElem(tengo,auxelem);
+		}
+		for(i=0;i < t->k;i++){
+			putElem(tengo,getArrayElem(insert,j++));
+		}
+		shuffleArray(tengo,t->k/2);
+		for(i=0;i < t->k;i++){
+			auxelem = getArrayElem(tengo,i);
+			putElem(del,auxelem);
+			delElem(tengo,auxelem);
+		}
+	}
+
 	return;
 }
 
 void createSemiOrderInsertSeq(Test *t,Array *insert){
-	int i,j,k;
 	createRandomInsertSeq(t,insert);
 	sortArray(insert);
-	for(i=0; i < t->n/4 ; i++){
-		srand(time(NULL));
-		j= rand() % getArrayLength(insert);
-		k= rand() % getArrayLength(insert);
-		suffleArrayElem(insert,j,k);
-	}
+	shuffleArray(insert,t->n/4);
 	return;
-
 }
-void createSemiOrderDeleteSeq(Test *t,Array* insert,Array *del){
-	int i,j,k;
-	copyArray(insert,del);
+void createSemiOrderDeleteSearchSeq(Test *t,Array* insert,Array *del,Array *search){
+	createRandomDeleteSearchSeq(t,insert,del,search);
 	sortArray(del);
-	for(i=0; i < t->n/4 ; i++){
-		srand(time(NULL));
-		j= rand() % getArrayLength(del);
-		k= rand() % getArrayLength(del);
-		suffleArrayElem(del,j,k);
-	}
-	return;
-}
+	sortArray(search);
 
-void createSearchSeq(Test *t,Array *insert1,Array *insert2,Array *delete1,Array *search){
-	int i,j;
-
-	for(i=0; i < getArrayLength(insert1) ;i++)
-		if( searchElem(insert1,getArrayElem(delete1,i)) == 1)
-			putArrayElem(search,i,-1);
-	for(i=0; i < getArrayLength(insert2) ; i++)
-		putElem(search,getArrayElem(insert2,i));
+	shuffleArray(del,t->n/4);
+	shuffleArray(search,t->n/4);
 	return;
 }

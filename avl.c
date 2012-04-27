@@ -29,9 +29,9 @@ static int Max( int Lhs, int Rhs )
 	/* Perform a rotate between a node (K2) and its izq child */
 	/* Update heights, then return new root */
 	 
-static avl SingleRotateWithizq( AVL *K2 )
+static AVL *SingleRotateWithizq( AVL *K2 )
 	{
-	    avl K1;
+	    AVL *K1;
 	 
 	    K1 = K2->izq;
 	    K2->izq = K1->der;
@@ -47,9 +47,9 @@ static avl SingleRotateWithizq( AVL *K2 )
 	/* This function can be called only if K1 has a der child */
 	/* Perform a rotate between a node (K1) and its der child */
 	/* Update heights, then return new root */
-static avl SingleRotateWithder( AVL *K1 )
+static AVL *SingleRotateWithder( AVL *K1 )
 	{
-	    avl K2;
+	    AVL *K2;
 	 
 	    K2 = K1->der;
 	    K1->der = K2->izq;
@@ -67,7 +67,7 @@ static avl SingleRotateWithder( AVL *K1 )
 	/* Do the izq-der double rotation */
 	/* Update heights, then return new root */
 	 
-static avl DoubleRotateWithizq( AVL *K3 )
+static AVL *DoubleRotateWithizq( AVL *K3 )
 	{
 	    /* Rotate between K1 and K2 */
 	    K3->izq = SingleRotateWithder( K3->izq );
@@ -82,7 +82,7 @@ static avl DoubleRotateWithizq( AVL *K3 )
 	/* Do the der-izq double rotation */
 	/* Update heights, then return new root */
 	 
-static avl DoubleRotateWithder( AVL *K1 )
+static AVL *DoubleRotateWithder( AVL *K1 )
 	{
 	    /* Rotate between K3 and K2 */
 	    K1->der = SingleRotateWithizq( K1->der );
@@ -92,7 +92,7 @@ static avl DoubleRotateWithder( AVL *K1 )
 	}
 
 
-int insertarAVL(AVL *avl,int element){
+void insertarAVL(AVL *avl,int element){
 	if( avl == NULL )
     {
 	        /* Create and return a one-node tree */
@@ -130,9 +130,6 @@ int insertarAVL(AVL *avl,int element){
 	            avl->Height = Max( Height( avl->izq ), Height( avl->der ) ) + 1;
 	            //return avl;
 
-
-
-
 }
 
 int buscarAVL(AVL *avl,int element){
@@ -147,7 +144,7 @@ int buscarAVL(AVL *avl,int element){
 	            return avl->value;
 }
 
-int borrarAVL(AVL *avl,int element){
+void borrarAVL(AVL *avl,int element){
 
 	/*avl2=buscarAVL(avl,element);*/
 

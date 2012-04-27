@@ -8,86 +8,81 @@
 #define CASE3 2
 #define CASE4 3
 
-void createIDSequence(Test *t,Array *insert,Array *del,int seqcase){
-	if(CASE1 == seqcase){
+void createISequence(Test *t,Array *insert,int seqcase){
+	if(CASE1 == seqcase || CASE4 == seqcase){
 		createRandomInsertSeq(t,insert);
-		createRandomDeleteSeq(t,insert,del);
 	}
-	else if(CASE2 == seqcase){
+	else if(CASE2 == seqcase || CASE3 == seqcase){
 		createSemiOrderInsertSeq(t,insert);
-		createSemiOrderDeleteSeq(t,insert,del);
-	}
-	else if(CASE3 == seqcase){
-		createSemiOrderInsertSeq(t,insert);
-		createRandomDeleteSeq(t,insert,del);
-	}
-	else if(CASE4 == seqcase){
-		createRandomInsertSeq(t,insert);
-		createSemiOrderDeleteSeq(t,insert,del);
 	}
 	return;
 }
 
-void createSSequence(Test *t,Array *insert1,Array *insert2,Array *delete1,Array *search){
-	createSearchSeq(t,insert1,insert2,delete1,search);
+void createDSSequence(Test *t,Array *insert,Array *del,Array *search,int seqcase){
+	if(CASE1 == seqcase || CASE3 == seqcase){
+		createRandomDeleteSearchSeq(t,insert,del,search);
+	}
+	else if(CASE2 == seqcase || CASE4 == seqcase){
+		createSemiOrderDeleteSearchSeq(t,insert,del,search);
+	}
 	return;
 }
+
 /* Funcion que generara la sequencia , utilizando la distintas funciones de buscar, eliminar, e insertar elementos al arreglo*/
 int dosequence(void *tree,Test *t,int seqcase) {
 	/*
 	(i^k d^k i^k )^n f^k*n (d^k i^k d^k )^n
 	*/
-	Array *insert1,*insert2,*insert3,*del1,*del2,*del3,*search1;
-	int index,i,j,contador,timer;
+	Array *insert,*del,*search;
+	int *index;
+	int i,j,d,s,timer;
 
-	index = 0;
+	insert = newArray(t->k * t->n * 3);
+	del = newArray(t->k * t->n * 3);
+	search = newArray(t->k * t->n * 3);
+
+	index = (int *)insert->values[0];
+
+	createISequence(t,insert,seqcase);
+	createDSSequence(t,insert,del,search,seqcase);
+
+	/*INICIAR TIEMPO SUB secuencia*/
 	timer = time(NULL);
 
-	insert1 = newArray(t->k);insert2 = newArray(t->k);insert3 = newArray(t->k);
-	del1 = newArray(t->k);del2 = newArray(t->k);del3 = newArray(t->k);
-	search1 = newArray(t->k);
+	for(j=0,d=0; j< 2*t->n*t->k ;){
+		for(i=0;i < t->k;i++)
+			insertar(tree,t->type,getArrayElem(insert,j++));
+
+		for(i=0;i < t->k;i++)
+			borrar(tree,t->type,getArrayElem(del,d++));
+
+		for(i=0;i < t->k;i++)
+			insertar(tree,t->type,getArrayElem(insert,j++));
+	}
+	printf("\tTiempo 1era sub secuencia = %d\n", time(NULL)- timer);
+
+	timer = time(NULL);
+	for(s=0;s< t->n*t->k;s++){
+		buscar(tree,t->type,getArrayElem(search,s));
+	}
+	printf("\tTiempo 2da sub secuencia = %d\n", time(NULL)- timer);
 	
-	createIDSequence(t,insert1,del1,seqcase);
-	createIDSequence(t,insert2,del2,seqcase);
-	createIDSequence(t,insert3,del3,seqcase);
+	timer = time(NULL);
+	for(;j< 3*t->n*t->k ; ){
+		for(i=0;i < t->k;i++)
+			borrar(tree,t->type,getArrayElem(del,d++));
 
-	createSSequence(t,insert1,insert2,del1,search1);
+		for(i=0;i < t->k;i++)
+			insertar(tree,t->type,getArrayElem(insert,j++));
 
-	/*INICIAR TIEMPO*/
-
-
-	for(j=0;j<=t->n;j++){
-		for(i=0;i<=t->k;i++)
-			if (contador < t->n)
-				contador= contador + insertar(tree,t->type,getArrayElem(insert1,i) );
-
-		for(i=0;i<=t->k;i++)
-			contador= contador - borrar(tree,t->type,getArrayElem(del1,i));
-
-		for (i=0;i<=t->k;i++)
-			if (contador < t->n)
-				contador= contador + insertar(tree,t->type,getArrayElem(insert2,i));
-
+		for(i=0;i < t->k;i++)
+			borrar(tree,t->type,getArrayElem(del,d++));
 	}
-	for(j=0;j<=t->n*t->k;j++){
-		buscar(tree,t->type, getArrayElem(search1,j));
-	}
-	for(j=0;j<=t->n;j++){
-		for (i=0;i<=t->k;i++)
-			contador= contador - borrar(tree,t->type, getArrayElem(del2,i) );
+	printf("\tTiempo 3era sub secuencia = %d\n", time(NULL)- timer);
 
-		for (i=0;i<=t->k;i++)
-			if (contador < t->n)
-				contador= contador + insertar(tree,t->type,getArrayElem(insert3,i) );
-
-		for (i=0;i<=t->k;i++)
-			contador= contador - borrar(tree,t->type, getArrayElem(del3,i) );
-
-	}
-
-	free(insert1);free(insert1);free(insert1);
-	free(del1);free(del2);free(del3);
-	free(search1);
+	free(insert);
+	free(del);
+	free(search);
 
 	/*FINALIZA TIEMPO*/
 
