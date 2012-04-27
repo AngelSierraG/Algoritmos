@@ -25,6 +25,6 @@ ARB *newARB(void *tree){
 }
 /*funciones a implementar*/
 bool isEmpty();
-int insertarARB(ARB *arb,int element);
+void insertarARB(ARB *arb,int element);
 int buscarARB(ARB *arb,int element);
-int borrarARB(ARB *arb,int element);
+void borrarARB(ARB *arb,int element);

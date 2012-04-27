@@ -2,6 +2,7 @@
 typedef struct array{
 	int *values;
 	int length;
+	int top;
 }Array;
 
 bool isEmptyArray(Array *a){
@@ -28,6 +29,7 @@ Array *newArray(int length){
 
 	a->length = length;
 	a->values = aux;
+	a->top =0;
 
 	for(i=0;i<length;i++)
 		(a->values)[i]= -1;
@@ -40,12 +42,14 @@ void deleteArrayElements(Array *a){
 	for(i=0;i<a->length;i++)
 		a->values[i] = -1;
 	a->length = 0;
+	a->top = 0;
 	return;
 }
 
-void putArrayElem(Array *a, int k,int elem){
+static void putArrayElem(Array *a, int k,int elem){
 	checkIndex(a,k);
 	a->values[k] = elem;
+	a->top++;
 	return;
 }
 int getArrayElem(Array *a,int k){
@@ -89,11 +93,22 @@ void copyArray(Array *a,Array *b){
 	return;
 }
 
-void suffleArrayElem(Array *a,int i,int j){
+void shuffleArrayElem(Array *a,int i,int j){
 	int aux;
 	aux = getArrayElem(a,i);
 	putArrayElem(a,i,getArrayElem(a,j));
 	putArrayElem(a,j,aux);
+	return;
+}
+
+void shuffleArray(Array *a, int iter){
+	int i,j,k;
+	for(i=0; i < iter ; i++){
+		srand(time(NULL));
+		j= rand() % getArrayLength(a);
+		k= rand() % getArrayLength(a);
+		shuffleArrayElem(a,j,k);
+	}
 	return;
 }
 
@@ -102,6 +117,16 @@ void putElem(Array *a,int elem){
 	for(i=0; i < getArrayLength(a) ; i++)
 		if (getArrayElem(a,i)!= -1){
 			putArrayElem(a,i,elem);
+			return ;
+		}
+	return;
+}
+void delElem(Array *a,int elem){
+	int i;
+	for(i=0; i < getArrayLength(a) ; i++)
+		if (getArrayElem(a,i) == elem){
+			shuffleArrayElem(a,i,getArrayLength(a)-1);
+			a->top--;
 			return ;
 		}
 	return;
@@ -115,3 +140,4 @@ int searchElem(Array *a,int elem){
 			return 1; /*true*/
 	return 0; /*false*/
 }
+

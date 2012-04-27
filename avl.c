@@ -29,9 +29,9 @@ static int Max( int Lhs, int Rhs )
 	/* Perform a rotate between a node (K2) and its izq child */
 	/* Update heights, then return new root */
 	 
-static AVL SingleRotateWithizq( AVL *K2 )
+static AVL *SingleRotateWithizq( AVL *K2 )
 	{
-	    AVL K1;
+	    AVL *K1;
 	 
 	    K1 = K2->izq;
 	    K2->izq = K1->der;
@@ -47,9 +47,9 @@ static AVL SingleRotateWithizq( AVL *K2 )
 	/* This function can be called only if K1 has a der child */
 	/* Perform a rotate between a node (K1) and its der child */
 	/* Update heights, then return new root */
-static AVL SingleRotateWithder( AVL *K1 )
+static AVL *SingleRotateWithder( AVL *K1 )
 	{
-	    AVL K2;
+	    AVL *K2;
 	 
 	    K2 = K1->der;
 	    K1->der = K2->izq;
@@ -67,7 +67,7 @@ static AVL SingleRotateWithder( AVL *K1 )
 	/* Do the izq-der double rotation */
 	/* Update heights, then return new root */
 	 
-static AVL DoubleRotateWithizq( AVL *K3 )
+static AVL *DoubleRotateWithizq( AVL *K3 )
 	{
 	    /* Rotate between K1 and K2 */
 	    K3->izq = SingleRotateWithder( K3->izq );
@@ -82,7 +82,7 @@ static AVL DoubleRotateWithizq( AVL *K3 )
 	/* Do the der-izq double rotation */
 	/* Update heights, then return new root */
 	 
-static AVL DoubleRotateWithder( AVL *K1 )
+static AVL *DoubleRotateWithder( AVL *K1 )
 	{
 	    /* Rotate between K3 and K2 */
 	    K1->der = SingleRotateWithizq( K1->der );
@@ -92,63 +92,60 @@ static AVL DoubleRotateWithder( AVL *K1 )
 	}
 
 
-insertarAVL(AVL *avl,int element){
-	if( AVL == NULL )
+void insertarAVL(AVL *avl,int element){
+	if( avl == NULL )
     {
 	        /* Create and return a one-node tree */
-	        AVL = newAVL();
-	        if( AVL == NULL )
+	        avl = newavl();
+	        if( avl == NULL )
 	            FatalError( "Out of space!!!" );
 	        else
 	        {
-	            AVL->value = element; T->Height = 0;
-	            AVL->izq = AVL->der = NULL;
+	            avl->value = element; T->Height = 0;
+	            avl->izq = avl->der = NULL;
 	        }
 	    }
 	    else
-	        if( element < AVL->value )
+	        if( element < avl->value )
 	        {
-	            AVL->izq = insertarAVL(AVL->izq,element );
-	            if( Height( AVL->izq ) - Height( AVL->der ) == 2 )
-	                if( element < AVL->izq->value )
-	                    AVL = SingleRotateWithizq( AVL );
+	            avl->izq = insertarAVL(avl->izq,element );
+	            if( Height( avl->izq ) - Height( avl->der ) == 2 )
+	                if( element < avl->izq->value )
+	                    avl = SingleRotateWithizq( avl );
 	                else
-	                    AVL = DoubleRotateWithizq( AVL );
+	                    avl = DoubleRotateWithizq( avl );
 	        }
 	        else
-	            if( element > AVL->value )
+	            if( element > avl->value )
 	            {
-	                AVL->der = insertarAVL(AVL->der, element );
-	                if( Height( AVL->der ) - Height( AVL->izq ) == 2 )
-	                    if( element > AVL->der->value )
-	                        AVL = SingleRotateWithder( AVL );
+	                avl->der = insertarAVL(avl->der, element );
+	                if( Height( avl->der ) - Height( avl->izq ) == 2 )
+	                    if( element > avl->der->value )
+	                        avl = SingleRotateWithder( avl );
 	                    else
-	                        AVL = DoubleRotateWithder( AVL );
+	                        avl = DoubleRotateWithder( avl );
 	            }
 	            /* Else X is in the tree already; we'll do nothing */
 	 
-	            AVL->Height = Max( Height( AVL->izq ), Height( AVL->der ) ) + 1;
-	            //return AVL;
-
-
-
+	            avl->Height = Max( Height( avl->izq ), Height( avl->der ) ) + 1;
+	            //return avl;
 
 }
 
-buscarAVL(AVL *avl,int element){
-	if( AVL == NULL )
+int buscarAVL(AVL *avl,int element){
+	if( avl == NULL )
 	    return NULL;
-	    if( element < AVL->value)
-	    return buscarAVL(AVL->izq,element);
+	    if( element < avl->value)
+	    return buscarAVL(avl->izq,element);
 	    else
-	        if( element > AVL->value )
-	            return buscarAVL(AVL->der,element );
+	        if( element > avl->value )
+	            return buscarAVL(avl->der,element );
 	        else
-	            return AVL->value;
+	            return avl->value;
 }
 
-borrarAVL(AVL *avl,int element){
+void borrarAVL(AVL *avl,int element){
 
-	AVL2=buscarAVL(AVL,element);
+	/*avl2=buscarAVL(avl,element);*/
 
 }
