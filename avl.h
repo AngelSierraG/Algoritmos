@@ -10,7 +10,7 @@ typedef struct avl{
 /*interfaz*/
 
 
-AVL *newAVL(void *tree){
+AVL *newAVL(){
 	AVL *avl;
 
 	avl = (AVL *)malloc (sizeof (AVL *));
@@ -24,7 +24,7 @@ AVL *newAVL(void *tree){
 	return avl;
 }
 /*funciones a implementar*/
-bool isEmpty(AVL *avl);
+bool isEmptyAVL(AVL *avl);
 void insertarAVL(AVL *avl,int element);
 int buscarAVL(AVL *avl,int element);
 void borrarAVL(AVL *avl,int element);
@@ -34,7 +34,8 @@ void freeAVL(AVL *avl){
 		free(avl);
 		return;
 	}
-	freeAVl(avl->izq);
-	freeAVl(avl->der);
+	freeAVL(avl->izq);
+	freeAVL(avl->der);
 	free(avl);
+	return;
 }

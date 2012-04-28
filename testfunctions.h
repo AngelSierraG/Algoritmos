@@ -1,23 +1,9 @@
 #include "universe.h"
 #include "array.h"
 
-/* La idea es tener 1 archivo por implementacion de arbol y sus funciones:*/
-
-#include "avl.h"
-#include "arb.h"
-
-/*
-#include "a23.h"
-#include "ab.h"
-*/
-
-#define AVL 0
-#define ARB 1
-#define A23 2
-#define AB  3
-
 typedef struct test{
 	int type,n,k,range;
+	Array *insert,*del,*search;
 	Universe *u;
 }Test;
 
@@ -29,65 +15,19 @@ Test *newTest(int type,int n,int k,int range){
 	t->k = k;
 	t->range = range;
 	t->u= (Universe *)newUniverse(range);
+	t->insert = newArray(k * n * 3);
+	t->del = newArray(k * n * 3);
+	t->search = newArray(k*n);
 	return t;
 }
 
-
-char *treeToString(int tree){
-	if(AVL == tree)
-		return "AVL";
-	else if(ARB == tree)
-		return "ARB";
-	else if(A23 == tree)
-		return "A23";
-	else if(AB == tree)
-		return "AB";
-}
-
-/* Dispatch de funciones dependiendo del tipo de arbol*/
-void insertar(void *tree,int type,int element){
-	if(type == AVL){
-		insertarAVL(tree,element);
-	}
-	else if(type == ARB){
-		insertarARB(tree,element);
-	}
-	else if(type == A23){
-		insertarA23(tree,element);
-	}
-	else if(type == AB){
-		insertarAB(tree,element);
-	}
-}
-
-void borrar(void *tree,int type,int element){
-	if(type == AVL){
-		borrarAVL(tree,element);
-	}
-	else if(type == ARB){
-		borrarARB(tree,element);
-	}
-	else if(type == A23){
-		borrarA23(tree,element);
-	}
-	else if(type == AB){
-		borrarAB(tree,element);
-	}
-}
-
-int buscar(void *tree,int type,int element){
-	if(type == AVL){
-		return buscarAVL(tree,element);
-	}
-	else if(type == ARB){
-		return buscarARB(tree,element);
-	}
-	else if(type == A23){
-		return buscarA23(tree,element);
-	}
-	else if(type == AB){
-		return buscarAB(tree,element);
-	}
+void freeTest(Test *t){
+	free(t->insert);
+	free(t->del);
+	free(t->search);
+	free(t->u);
+	free(t);
+	return ;
 }
 
 void createRandomInsertSeq(Test *t,Array *insert){
@@ -139,7 +79,6 @@ void createRandomDeleteSearchSeq(Test *t,Array *insert,Array *del,Array *search)
 			delElem(tengo,auxelem);
 		}
 	}
-
 	return;
 }
 
@@ -149,6 +88,7 @@ void createSemiOrderInsertSeq(Test *t,Array *insert){
 	shuffleArray(insert,t->n/4);
 	return;
 }
+
 void createSemiOrderDeleteSearchSeq(Test *t,Array* insert,Array *del,Array *search){
 	createRandomDeleteSearchSeq(t,insert,del,search);
 	sortArray(del);
@@ -158,3 +98,4 @@ void createSemiOrderDeleteSearchSeq(Test *t,Array* insert,Array *del,Array *sear
 	shuffleArray(search,t->n/4);
 	return;
 }
+

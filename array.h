@@ -140,4 +140,3 @@ int searchElem(Array *a,int elem){
 			return 1; /*true*/
 	return 0; /*false*/
 }
-

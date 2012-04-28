@@ -1,10 +1,11 @@
 #include "arb.h" //este es el rojo negro	
 
-bool isEmpty();
-
-
-
-
+bool isEmpty(ARB *arb){
+  if (arb == NULL)
+    return false;
+  else
+    return true;
+}
 
 void solucionarRojoRojo(ARB *inicio,ARB *node, int h){
   int ladohijo;
@@ -111,28 +112,23 @@ void insertarARB(ARB *arb,int element){
   }
 }
 
-
-
-
-
-
-
-
-
 int buscarARB(ARB *arb,int element){
 
 
 ARB *ayudante;
 ayudante=arb;
-if(!ayudante) return NULL;
+if(!ayudante)
+  return -1;
   do{
     if(element==ayudante->value) return ayudante->value;
     else if(element<ayudante->value) ayudante=ayudante->izq;
     else if(element>ayudante->value) ayudante=ayudante->der;
   }while(ayudante);
-  return NULL
+  return -1;
 
 
 }
 
-void borrarARB(ARB *arb,int element);
+void borrarARB(ARB *arb,int element){
+  return;
+}

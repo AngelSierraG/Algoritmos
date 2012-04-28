@@ -1,7 +1,7 @@
 #include "avl.h"
 
 /*funciones a implementar*/
-bool isEmpty( AVL *p){
+bool isEmptyAVL( AVL *p){
 
 	if(p->value == -1)
 		return true;
@@ -96,19 +96,23 @@ void insertarAVL(AVL *avl,int element){
 	if( avl == NULL )
     {
 	        /* Create and return a one-node tree */
-	        avl = newavl();
-	        if( avl == NULL )
-	            FatalError( "Out of space!!!" );
+	        avl = newAVL();
+	        if( avl == NULL ){
+	            /*FatalError( "Out of space!!!" );*/
+	            printf("Out of space!!!");
+	            exit(1);
+	        }
+
 	        else
 	        {
-	            avl->value = element; T->Height = 0;
+	            avl->value = element; avl->Height = 0;
 	            avl->izq = avl->der = NULL;
 	        }
 	    }
 	    else
 	        if( element < avl->value )
 	        {
-	            avl->izq = insertarAVL(avl->izq,element );
+	            insertarAVL(avl->izq,element );
 	            if( Height( avl->izq ) - Height( avl->der ) == 2 )
 	                if( element < avl->izq->value )
 	                    avl = SingleRotateWithizq( avl );
@@ -118,7 +122,7 @@ void insertarAVL(AVL *avl,int element){
 	        else
 	            if( element > avl->value )
 	            {
-	                avl->der = insertarAVL(avl->der, element );
+	                insertarAVL(avl->der, element );
 	                if( Height( avl->der ) - Height( avl->izq ) == 2 )
 	                    if( element > avl->der->value )
 	                        avl = SingleRotateWithder( avl );
@@ -134,7 +138,7 @@ void insertarAVL(AVL *avl,int element){
 
 int buscarAVL(AVL *avl,int element){
 	if( avl == NULL )
-	    return NULL;
+	    return -1;
 	    if( element < avl->value)
 	    return buscarAVL(avl->izq,element);
 	    else
