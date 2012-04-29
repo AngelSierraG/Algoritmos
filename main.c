@@ -34,7 +34,9 @@ void treeTest(int *n,int *range,int *k,int *insertcase){
 	for(i=0; i<2 ; i++)
 	for(j=0; j<2 ; j++)
 	for(r=0; r<3 ; r++){
-		t = newTest(type,n[j],k[r],range[i]);
+		printf("creando test\n");
+		t = (Test *)newTest(type,n[j],k[r],range[i]);
+
 		for(l=0 ; l<4 ; l++)
 			printf("Testeando arbol %s: k=%d\tn=%s\trango=%s\tcaso de insercion =%d\n", treeToString(type),k[r],elementToString(j),rangeToString(i),insertcase[l]);
 			createsequence(tree,t,insertcase[l]);
@@ -55,6 +57,7 @@ int main(){
 	int range[2];
 	int insertcase[4];
 	int k[3];
+	AVL *avl;ARB *arb;A23 *a23;AB *ab;
 
 	printf("Iniciando testeo\n");
 
@@ -79,12 +82,15 @@ int main(){
 
 	/*AVL TESTING*/
 	printf("testeando AVL:\n");
-	tree= (AVL *)newAVL();
+	avl= (AVL *)newAVL();
+	tree = (AVL *)avl;
 	type = cAVL;
+	printf("testing init:\n");
 	treeTest(n,range,k,insertcase);
-	freeAVL(tree);
+	freeAVL(avl);
 
 	/*ARB TESTING*/
+	/*
 	printf("testeando ARB:\n");
 	tree=(ARB *)newARB();
 	type = cARB;
@@ -92,6 +98,7 @@ int main(){
 	freeARB(tree);
 
 	/*A23 TESTING*/
+	/*
 	printf("testeando A23:\n");
 	tree=(A23 *)newA23();
 	type = cA23;
@@ -99,11 +106,13 @@ int main(){
 	freeA23(tree);
 
 	/*AB TESTING*/
+	/*
 	printf("testeando AB:\n");
 	tree=(AB *)newAB();
 	type = cAB;
 	treeTest(n,range,k,insertcase);
 	freeAB(tree);
+	*/
 
 	return 0;
 }

@@ -8,17 +8,18 @@ typedef struct test{
 }Test;
 
 Test *newTest(int type,int n,int k,int range){
-	Test *t;
-	t = (Test *) malloc (sizeof(Test *));
-	t->type = type;
-	t->n = n;
-	t->k = k;
-	t->range = range;
-	t->u= (Universe *)newUniverse(range);
-	t->insert = newArray(k * n * 3);
-	t->del = newArray(k * n * 3);
-	t->search = newArray(k*n);
-	return t;
+	Test *aux;
+	aux = (Test *) malloc(sizeof(struct test));
+	printf("creando estructura de test \n");
+	aux->type = type;
+	aux->n = n;
+	aux->k = k;
+	aux->range = range;
+	aux->u= (Universe *)newUniverse(range);
+	aux->insert = newArray(k * n * 3);
+	aux->del = newArray(k * n * 3);
+	aux->search = newArray(k*n);
+	return aux;
 }
 
 void freeTest(Test *t){

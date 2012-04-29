@@ -1,7 +1,7 @@
 #Makefile en construccion aun
 
 CC=gcc 
-#CFLAGS=-Wall -pedantic
+CFLAGS=-Wall
 
 #universe: universe.o
 #sequence: sequence.o
