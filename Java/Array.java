@@ -35,7 +35,7 @@ private boolean checkIndex(int k){
 }
 
 private void handleBounds(int k){
-	if !checkIndex(k){
+	if (!checkIndex(k)){
 		System.out.printf("Index out of bounds: %d!!!",k);
 		System.exit(true);
 	}
@@ -95,7 +95,7 @@ public void shuffle( int iter){
 	int i,j,k;
 
 	this.currentDate = new Date();
-	generator = new new Random(this.currentDate.getTime());
+	generator = new Random(this.currentDate.getTime());
 
 	for(i=0; i < iter ; i++){
 		srand(time(NULL));

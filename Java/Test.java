@@ -10,10 +10,10 @@ public Test(int type,int n,int k,int range){
 	this.n = n;
 	this.k = k;
 	this.range = range;
-	this.u= newUniverse(range);
-	this.insert = newArray(k * n * 3);
-	this.del = newArray(k * n * 3);
-	this.search = newArray(k*n);
+	this.u= new Universe(range);
+	this.insert = new Array(k * n * 3);
+	this.del = new Array(k * n * 3);
+	this.search = new Array(k*n);
 	//return this;
 }
 
@@ -23,10 +23,10 @@ private int getRandomNumber(){
 
 void createRandomInsertSeq(Test t){
 	int i;
-	//for(i=0; i < getLength(insert) ; i++)
+	
 	System.out.println("creating random inserte sequence");
-	for(i : t.insert)
-		putElem(t.insert, t.getRandomNumber());
+	for(i=0; i < getLength(insert) ; i++)
+		t.insert.putElem(i,t.getRandomNumber());
 	return;
 }
 
