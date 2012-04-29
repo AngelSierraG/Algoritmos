@@ -21,74 +21,74 @@ private int getRandomNumber(){
 	return u.getRandomNumber();
 }
 
-void createRandomInsertSeq(Test t){
+void createRandomInsertSeq(){
 	int i;
 	
 	System.out.println("creating random inserte sequence");
-	for(i=0; i < getLength(insert) ; i++)
-		t.insert.putElem(i,t.getRandomNumber());
+	for(i=0; i < t.insert.getLength() ; i++)
+		this.insert.putElem(i,this.getRandomNumber());
 	return;
 }
 
-void createRandomDeleteSearchSeq(Test t){
+void createRandomDeleteSearchSeq(){
 	int i,j,s,k,auxelem;
 	Array tengo;
 
-	tengo = newArray(t.k * t.n);
+	tengo = new Array(this.k * this.n);
 
-	for(j=0; j< t.n*t.k ;){
-		for(i=0;i < t.k;i++){
-			t.tengo.putElem(t.insert.getElem(j++));
+	for(j=0; j< this.n*this.k ;){
+		for(i=0;i < this.k;i++){
+			tengo.putElem(this.insert.getElem(j++));
 		}
-		tengo.shuffleArray(t.k/2);
-		for(i=0;i < t.k;i++){
-			auxelem = t.tengo.getElem(i);
-			t.del.putElem(auxelem);
+		tengo.shuffle(this.k/2);
+		for(i=0;i < this.k;i++){
+			auxelem = tengo.getElem(i);
+			this.del.putElem(auxelem);
 			tengo.delElem(auxelem);
 		}
-		for(i=0;i < t.k;i++)
-			t.tengo.putElem(t.insert.getElem(j++));
+		for(i=0;i < this.k;i++)
+			tengo.putElem(this.insert.getElem(j++));
 	}
 	
-	tengo.shuffleArray(t.k/2);
-	for(s=0;s< t.n*t.k;s++){
-		t.search.putElem(t.tengo.getElem(s));
+	tengo.shuffle(this.k/2);
+	for(s=0;s< this.n*this.k;s++){
+		this.search.putElem(tengo.getElem(s));
 	}
 	
-	for(;j< t.n*t.k ;){
-		tengo.shuffleArray(t.k/2);
-		for(i=0;i < t.k;i++){
+	for(;j< this.n*this.k ;){
+		tengo.shuffle(this.k/2);
+		for(i=0;i < this.k;i++){
 			auxelem = tengo.getElem(i);
-			t.del.putElem(auxelem);
+			this.del.putElem(auxelem);
 			tengo.delElem(auxelem);
 		}
-		for(i=0;i < t.k;i++){
-			t.tengo.putElem(t.insert.getElem(j++));
+		for(i=0;i < this.k;i++){
+			tengo.putElem(this.insert.getElem(j++));
 		}
-		tengo.shuffleArray(t.k/2);
-		for(i=0;i < t.k;i++){
+		tengo.shuffle(this.k/2);
+		for(i=0;i < this.k;i++){
 			auxelem = tengo.getElem(i);
-			t.del.putElem(auxelem);
+			this.del.putElem(auxelem);
 			tengo.delElem(auxelem);
 		}
 	}
 	return;
 }
 
-void createSemiOrderInsertSeq(Test t){
-	createRandomInsertSeq(t);
-	t.insert.sortArray();
-	t.insert.shuffleArray(t.n/4);
+void createSemiOrderInsertSeq(){
+	createRandomInsertSeq();
+	this.insert.sort();
+	this.insert.shuffle(this.n/4);
 	return;
 }
 
-void createSemiOrderDeleteSearchSeq(Test t){
-	createRandomDeleteSearchSeq(t);
-	t.del.sortArray();
-	t.search.sortArray();
+void createSemiOrderDeleteSearchSeq(){
+	createRandomDeleteSearchSeq();
+	this.del.sort();
+	this.search.sort();
 
-	t.del.shuffleArray(t.n/4);
-	t.search.shuffleArray(t.n/4);
+	this.del.shuffle(this.n/4);
+	this.search.shuffle(this.n/4);
 	return;
 }
 
