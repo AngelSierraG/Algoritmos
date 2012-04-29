@@ -1,5 +1,5 @@
 import javax.swing.*;
-import java.io.*;
+//import java.io.*;
 //Arboles Btree
 class Btree{
 	Bnodo p=new Bnodo();
@@ -126,7 +126,7 @@ class Btree{
 	//Elimina el registro
 	public void EliminarRegistro(Bnodo raiz, NodoPr c){
 		int pos = 0;
-		NodoPr sucesor;
+		//NodoPr sucesor;
 		if (Vacio(raiz))
 			Esta = false;
 		else{

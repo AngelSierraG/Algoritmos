@@ -6,7 +6,6 @@ public class Array {
 /*Estructura array*/
 private int values[];
 private int length;
-private int top;
 private Date currentDate;
 private Random generator;
 private SortingA s;
@@ -14,9 +13,8 @@ private SortingA s;
 public Array(int len){
 	int i;
 	
-	this.length = length;
+	this.length = len;
 	this.values = new int[len];
-	this.top =0;
 
 	for(i=0;i<length;i++)
 		(this.values)[i]= -1;
@@ -40,7 +38,7 @@ private boolean checkIndex(int k){
 private void handleBounds(int k){
 	if (!checkIndex(k)){
 		System.out.printf("Index out of bounds: %d!!!",k);
-		System.exit(true);
+		System.exit(1);
 	}
 	return;
 }
@@ -50,14 +48,12 @@ public void deleteAll(){
 	for(i=0;i<this.length;i++)
 		this.values[i] = -1;
 	this.length = 0;
-	this.top = 0;
 	return;
 }
 
-static void putElem( int k,int elem){
+public void putElem( int k,int elem){
 	handleBounds(k);
 	this.values[k] = elem;
-	this.top++;
 	return;
 }
 int getElem(int k){
@@ -69,7 +65,7 @@ int getLength(){
 	return this.length;
 }
 
-boolean delElem(int k){
+public boolean delElemI(int k){
 	handleBounds(k);
 	this.values[k] = -1;
 	return true;
@@ -101,8 +97,8 @@ public void shuffle( int iter){
 	this.generator = new Random(this.currentDate.getTime());
 
 	for(i=0; i < iter ; i++){
-		j= generator.nexInt() % this.getLength();
-		k= generator.nexInt() % this.getLength();
+		j= generator.nextInt() % this.getLength();
+		k= generator.nextInt() % this.getLength();
 		swapElems(j,k);
 	}
 	return;
@@ -122,7 +118,6 @@ void delElem(int elem){
 	for(i=0; i < this.getLength() ; i++)
 		if (this.getElem(i) == elem){
 			swapElems(i,this.getLength()-1);
-			this.top--;
 			this.length--;
 			return ;
 		}
@@ -134,8 +129,8 @@ int searchElem(int elem){
 	int i;
 	for(i=0 ; i < this.getLength() ; i++)
 		if(this.getElem(i) == elem )
-			return true; /*true*/
-	return false; /*false*/
+			return elem; /*true*/
+	return -1; /*false*/
 }
 
 void sort(){

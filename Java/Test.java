@@ -4,9 +4,8 @@ public int type,n,k,range;
 public Array insert,del,search;
 public Universe u;
 
-public Test(int type,int n,int k,int range){
-	printf("creando estructura de test \n");
-	this.type = type;
+public Test(int n,int k,int range){
+	System.out.printf("creando estructura de test \n");
 	this.n = n;
 	this.k = k;
 	this.range = range;
@@ -25,13 +24,13 @@ void createRandomInsertSeq(){
 	int i;
 	
 	System.out.println("creating random inserte sequence");
-	for(i=0; i < t.insert.getLength() ; i++)
+	for(i=0; i < this.insert.getLength() ; i++)
 		this.insert.putElem(i,this.getRandomNumber());
 	return;
 }
 
 void createRandomDeleteSearchSeq(){
-	int i,j,s,k,auxelem;
+	int i,j,s,auxelem;
 	Array tengo;
 
 	tengo = new Array(this.k * this.n);

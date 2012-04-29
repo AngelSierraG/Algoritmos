@@ -1,34 +1,28 @@
 import java.io.*;
-import java.Math;
 
 public class Main {
 static final int cAVL=0;
 static final int cARB=1;
 static final int cA23=2;
 static final int cAB =3;
+static final int case1=0;
+static final int case2=1;
+static final int case3=2;
+static final int case4=3;
 
 private String elementToString(int i){
 	if(i == 0)
 		return "2^11";
 	else if(i == 1)
 		return "2^19";
+	return "";
 }
 private String rangeToString(int i){
 	if(i == 0)
 		return "2^16";
 	else if(i == 1)
 		return "2^24";
-}
-
-private String treeToString(int tree){
-	if(cAVL == tree)
-		return "AVL";
-	else if(cARB == tree)
-		return "ARB";
-	else if(cA23 == tree)
-		return "A23";
-	else if(cAB == tree)
-		return "AB";
+	return "";
 }
 
 private void treeTest(Tree tree,int n[],int range[],int k[],int insertcase[]){
@@ -37,11 +31,11 @@ private void treeTest(Tree tree,int n[],int range[],int k[],int insertcase[]){
 	for(j=0; j<2 ; j++)
 	for(r=0; r<3 ; r++){
 		System.out.printf("creando test\n");
-		Test t = newTest(type,n[j],k[r],range[i]);
+		Test t = new Test(n[j],k[r],range[i]);
 
 		for(l=0 ; l<4 ; l++)
-			System.out.printf("Testeando arbol %s: k=%d\tn=%s\trango=%s\tcaso de insercion =%d\n", treeToString(type),k[r],elementToString(j),rangeToString(i),insertcase[l]);
-			Sequence.createsequence(tree,t,insertcase[l]);
+			System.out.printf("Testeando arbol con: k=%d\tn=%s\trango=%s\tcaso de insercion =%d\n",k[r],elementToString(j),rangeToString(i),insertcase[l]);
+			Sequence.createsequence(t,insertcase[l]);
 			Sequence.dosequence(tree,t);
 			//freeTest(t);
 	}
@@ -79,7 +73,7 @@ public static void main(String[] args) {
 	/*AVL TESTING*/
 	System.out.printf("testeando AVL:\n");
 
-	tree = (AVL)newAVL();
+	tree = (AVL)new AVL();
 
 	//type = cAVL;
 	System.out.printf("testing init:\n");
