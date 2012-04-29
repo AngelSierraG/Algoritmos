@@ -2,10 +2,10 @@ import java.io.*;
 import java.Math;
 
 public class Main {
-static final int cAVL 0;
-static final int cARB 1;
-static final int cA23 2;
-static final int cAB  3;
+static final int cAVL=0;
+static final int cARB=1;
+static final int cA23=2;
+static final int cAB =3;
 
 private String elementToString(int i){
 	if(i == 0)
@@ -50,7 +50,7 @@ private void treeTest(Tree tree,int n[],int range[],int k[],int insertcase[]){
 
 public static void main(String[] args) {
 	int n[],range[],insertcase[],k[];
-	Tree t;
+	Tree tree;
 
 	n = new int[2];
 	range = new int[2];
@@ -62,10 +62,10 @@ public static void main(String[] args) {
 	System.out.printf("Iniciando testeo\n");
 
 
-	range[0] = Math.pow(2,16);range[1] = Math.pow(2,24);
+	range[0] = MyMath.pow(2,16);range[1] = MyMath.pow(2,24);
 	System.out.printf("rango creado\n");
 
-	n[0] = Math.pow(2,11);n[1] = Math.pow(2,19);
+	n[0] = MyMath.pow(2,11);n[1] = MyMath.pow(2,19);
 	System.out.printf("n creado\n");
 
 	k[0] = 3;k[1] = 5;k[2] =7;

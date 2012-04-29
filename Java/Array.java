@@ -1,3 +1,6 @@
+import java.util.Date;
+import java.util.Random;
+
 public class Array {
 
 /*Estructura array*/
@@ -95,10 +98,9 @@ public void shuffle( int iter){
 	int i,j,k;
 
 	this.currentDate = new Date();
-	generator = new Random(this.currentDate.getTime());
+	this.generator = new Random(this.currentDate.getTime());
 
 	for(i=0; i < iter ; i++){
-		srand(time(NULL));
 		j= generator.nexInt() % this.getLength();
 		k= generator.nexInt() % this.getLength();
 		swapElems(j,k);
@@ -136,9 +138,8 @@ int searchElem(int elem){
 	return false; /*false*/
 }
 
-void sort(int type){
-	if type == 0
-		s = new Quicksort().getInstance();
-		s.sort(this.values,0,this.length-1);
+void sort(){
+	s = new Quicksort().getInstance();
+	s.sort(this.values,0,this.length-1);
 }
 }
