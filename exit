@@ -1,0 +1,119 @@
+commit a832023c752690446ec826004c637c6588d582a1
+Merge: 8f7519e d924c66
+Author: Diego <diego@diego-Inspiron-1525.(none)>
+Date:   Thu Apr 26 17:46:37 2012 -0400
+
+    Merge branch 'master' of github.com:kiel-cristian/Algoritmos
+
+commit d924c66c4e5662bf61aa0878356b3a5f6b77289b
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Thu Apr 26 18:43:02 2012 -0400
+
+    finalizado main
+
+commit 8f7519ec57762dca3e1ce98973468eec64278466
+Author: Diego <diego@diego-Inspiron-1525.(none)>
+Date:   Thu Apr 26 17:45:48 2012 -0400
+
+    a23
+
+commit ca8bee8652b0068f5c8887a21ef057a520827c1b
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Thu Apr 26 02:35:08 2012 -0400
+
+    testfunctions.h terminado
+
+commit 037b90b330a258514e41ebc157e2f7c2e33400af
+Merge: 68615c9 95b9b6b
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Thu Apr 26 01:01:16 2012 -0400
+
+    Merge branch 'master' of github.com:kiel-cristian/Algoritmos
+
+commit 68615c9a6cbbbcbcfbf4aa3b9f57554eadc0553e
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Thu Apr 26 01:01:05 2012 -0400
+
+    cambios en arb
+
+commit 95b9b6b58dad08040f5458000b4a13b42643dd8f
+Author: Diego <diego@diego-Inspiron-1525.(none)>
+Date:   Wed Apr 25 21:37:15 2012 -0400
+
+    arb
+
+commit 4856bd0b2273869d1b8e833facc6d8558c37dc2d
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 20:50:30 2012 -0400
+
+    eliminado binario
+
+commit 0f4e3c27171c50446d53ae048e98853ddf810606
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 20:49:43 2012 -0400
+
+    Fixeo de avl.h y agregados archivos adicionales.
+
+commit cb2780e132e38ccd2ac9ea2f639d06a71efcc6d5
+Merge: 22aa7ed db71d30
+Author: Diego <diego@diego-Inspiron-1525.(none)>
+Date:   Wed Apr 25 18:34:52 2012 -0400
+
+    Merge branch 'master' of github.com:kiel-cristian/Algoritmos
+    
+    Conflicts:
+    	avl.h
+
+commit 22aa7ed937a8ecaa89b43e80eb7b5d7d447f0b1d
+Author: Diego <diego@diego-Inspiron-1525.(none)>
+Date:   Wed Apr 25 18:31:39 2012 -0400
+
+    avl
+
+commit db71d30cbfedddd2510c33645fafe4643637d672
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 17:19:05 2012 -0400
+
+    modificacion de testfunctions
+
+commit 602710de8a7576a3af4342297a06b9f1e57d3fb7
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 17:14:27 2012 -0400
+
+    sequence actualizad
+
+commit d6abbbe883f52137766d950ff9d8d4013940ef9d
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 16:40:15 2012 -0400
+
+    implementado propio pow, ahora pasa el compilado.
+
+commit 6bb0cd5341f231a69e59a509f4b43773c3c4857b
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 16:23:09 2012 -0400
+
+    fix en interfaz de avl y arb ejemplo.
+
+commit 42c0ca8b35e2774b6c1e234eb9e54ec412aae96e
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 16:18:28 2012 -0400
+
+    Fixes varios en pos de compilacion
+
+commit 2baa4652ade4c09cf261122befe1fcd3aac2e319
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 12:43:30 2012 -0400
+
+    Agregando ejemplos de interfaz de arboles avl y arb.
+
+commit 136854a64abb6623baf5a218a2df2cca7b0dc1af
+Author: cristian-kiel <kiel@kiel-HP-Pavilion-dv6000-RX556LA-ABM.(none)>
+Date:   Wed Apr 25 11:35:17 2012 -0400
+
+    Archivos nuevos
+
+commit 8d5d45f32ba0c149d3670cf4b200d1bd12b06c48
+Author: kiel-cristian <kiel@acid.cl>
+Date:   Wed Apr 25 08:28:35 2012 -0700
+
+    initial commit
