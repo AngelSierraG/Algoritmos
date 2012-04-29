@@ -9,18 +9,18 @@ public interface IArbolOrdenado<T extends Comparable<? super T>> extends IArbol<
 {
 
     /**
-     * Inserta un nuevo elemento en el árbol.
+     * Inserta un nuevo elemento en el ï¿½rbol.
      * 
      * @param elem Elemento a insertar.
-     * @throws ElementoExisteException Si el elemento a insertar ya se encuentra en el árbol
+     * @throws ElementoExisteException Si el elemento a insertar ya se encuentra en el ï¿½rbol
      */
     public void insertar( T elem ) throws ElementoExisteException;
 
     /**
-     * Eliminar un elemento del árbol.
+     * Eliminar un elemento del ï¿½rbol.
      * 
-     * @param elem Elemento a eliminar del árbol.
-     * @throws ElementoNoExisteException Si el elemento a eliminar no es encontrado en el árbol.
+     * @param elem Elemento a eliminar del ï¿½rbol.
+     * @throws ElementoNoExisteException Si el elemento a eliminar no es encontrado en el ï¿½rbol.
      */
     public void eliminar( T elem ) throws ElementoNoExisteException;
 

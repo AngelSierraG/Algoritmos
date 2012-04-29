@@ -1,29 +1,29 @@
 public class Test {
 
-public int type,n,k,range;
+public long type,n,k,range;
 public Array insert,del,search;
 public Universe u;
 
-public Test(int n,int k,int range){
+public Test(long n2,long k2,long range2){
 	System.out.printf("creando estructura de test \n");
-	this.n = n;
-	this.k = k;
-	this.range = range;
-	this.u= new Universe(range);
-	this.insert = new Array(k * n * 3);
-	this.del = new Array(k * n * 3);
-	this.search = new Array(k*n);
+	this.n = n2;
+	this.k = k2;
+	this.range = range2;
+	this.u= new Universe(range2);
+	this.insert = new Array(k2 * n2 * 3);
+	this.del = new Array(k2 * n2 * 3);
+	this.search = new Array(k2*n2);
 	//return this;
 }
 
-private int getRandomNumber(){
+private long getRandomNumber(){
 	return u.getRandomNumber();
 }
 
 void createRandomInsertSeq(){
 	int i;
 	
-	System.out.println("creating random inserte sequence");
+	System.out.printf("creating random insert sequence\n");
 	for(i=0; i < this.insert.getLength() ; i++)
 		this.insert.putElem(i,this.getRandomNumber());
 	return;

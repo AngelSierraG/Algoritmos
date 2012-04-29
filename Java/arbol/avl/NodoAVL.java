@@ -8,12 +8,12 @@ import colaEncadenada.ColaEncadenada;
 import colaEncadenada.ColaVaciaException;
 import iterador.IteradorException;
 import iterador.IteradorSimple;
-import ElementoExisteException;
+import arbol.ElementoExisteException;
 import arbol.ElementoNoExisteException;
 
 /**
- * Nodo de un árbol AVL
- * @param <T> Tipo de elemento que va a contener cada nodo del árbol
+ * Nodo de un ï¿½rbol AVL
+ * @param <T> Tipo de elemento que va a contener cada nodo del ï¿½rbol
  */
 public class NodoAVL<T extends Comparable<? super T>> implements Serializable
 {
@@ -22,22 +22,22 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     // -----------------------------------------------------------------
 
     /**
-	 * Constantes para la serialización
+	 * Constantes para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-     * Constante que representa el hecho de que el nodo está balanceado hacia la izquierda.
+     * Constante que representa el hecho de que el nodo estï¿½ balanceado hacia la izquierda.
      */
     private static final int BIZQ = 1;
 
     /**
-     * Constante que representa el hecho de que el nodo está balanceado.
+     * Constante que representa el hecho de que el nodo estï¿½ balanceado.
      */
     private static final int BAL = 0;
 
     /**
-     * Constante que representa el hecho de que el nodo está balanceado hacia la derecha.
+     * Constante que representa el hecho de que el nodo estï¿½ balanceado hacia la derecha.
      */
     private static final int BDER = -1;
 
@@ -71,7 +71,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Constructor del nodo. <br>
-     * <b>post: </b> Se construyó el nodo con el elemento especificado, derNodo= null y izqNodo= null.
+     * <b>post: </b> Se construyï¿½ el nodo con el elemento especificado, derNodo= null y izqNodo= null.
      * @param pElemento Elemento que va a ser almacenado en el nodo
      */
     public NodoAVL( T pElemento )
@@ -82,13 +82,13 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Devuelve la raíz del árbol (elemento del nodo). <br>
-     * <b>post: </b> Se retornó la raíz del árbol (elemento del nodo).
-     * @return Raíz del árbol (elemento del nodo)
+     * Devuelve la raï¿½z del ï¿½rbol (elemento del nodo). <br>
+     * <b>post: </b> Se retornï¿½ la raï¿½z del ï¿½rbol (elemento del nodo).
+     * @return Raï¿½z del ï¿½rbol (elemento del nodo)
      */
     public T darRaiz( )
     {
@@ -97,7 +97,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Devuelve el hijo derecho del nodo. <br>
-     * <b>post: </b> Se retornó el hijo derecho del nodo.
+     * <b>post: </b> Se retornï¿½ el hijo derecho del nodo.
      * @return Hijo derecho del nodo
      */
     public NodoAVL<T> darHijoDerecho( )
@@ -107,7 +107,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Devuelve el hijo izquierdo del nodo. <br>
-     * <b>post: </b> Se retornó el hijo izquierdo del nodo.
+     * <b>post: </b> Se retornï¿½ el hijo izquierdo del nodo.
      * @return Hijo izquierdo del nodo
      */
     public NodoAVL<T> darHijoIzquierdo( )
@@ -116,41 +116,41 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Agrega un nuevo elemento en el árbol cuya raíz es el nodo actual. <br>
+     * Agrega un nuevo elemento en el ï¿½rbol cuya raï¿½z es el nodo actual. <br>
      * <b>pre: </b> pElemento!=null. <br>
-     * <b>post: </b> Se insertó el elemento especificado en el árbol.
+     * <b>post: </b> Se insertï¿½ el elemento especificado en el ï¿½rbol.
      * @param pElemento elemento que se va a agregar
-     * @return Raíz del árbol producto de insertar en el árbol que comienza en el nodo actual el elemento que llega como parámetro
-     * @throws ElementoExisteException El elemento ya existe en el árbol
+     * @return Raï¿½z del ï¿½rbol producto de insertar en el ï¿½rbol que comienza en el nodo actual el elemento que llega como parï¿½metro
+     * @throws ElementoExisteException El elemento ya existe en el ï¿½rbol
      */
     public NodoAVL<T> insertar( T pElemento ) throws ElementoExisteException
     {
-        // Agrega el elemento al árbol utilizando una operación auxiliar
+        // Agrega el elemento al ï¿½rbol utilizando una operaciï¿½n auxiliar
         Retorno retorno = new Retorno( null, false );
         auxInsertar( pElemento, retorno );
         return retorno.respuesta;
     }
 
     /**
-     * Elimina el elemento dado como parámetro, del árbol cuya raíz es el nodo actual. <br>
+     * Elimina el elemento dado como parï¿½metro, del ï¿½rbol cuya raï¿½z es el nodo actual. <br>
      * <b>pre: </b> pElemento!=null. <br>
-     * <b>post: </b> Se eliminó el elemento especificado si existía en el árbol.
+     * <b>post: </b> Se eliminï¿½ el elemento especificado si existï¿½a en el ï¿½rbol.
      * @param pElemento Elemento que se va a eliminar
-     * @return Raíz del árbol producto de eliminar del árbol que comienza en el nodo actual el elemento que llega como parámetro
-     * @throws ElementoNoExisteException El elemento no se encontró en el árbol
+     * @return Raï¿½z del ï¿½rbol producto de eliminar del ï¿½rbol que comienza en el nodo actual el elemento que llega como parï¿½metro
+     * @throws ElementoNoExisteException El elemento no se encontrï¿½ en el ï¿½rbol
      */
     public NodoAVL<T> eliminar( T pElemento ) throws ElementoNoExisteException
     {
-        // Elimina el elemento utilizando una operación auxiliar
+        // Elimina el elemento utilizando una operaciï¿½n auxiliar
         Retorno retorno = new Retorno( null, false );
         auxEliminar( pElemento, retorno );
         return retorno.respuesta;
     }
 
     /**
-     * Busca el elemento cuyo modelo viene dado como parámetro, en el árbol cuya raíz es el nodo actual. <br>
+     * Busca el elemento cuyo modelo viene dado como parï¿½metro, en el ï¿½rbol cuya raï¿½z es el nodo actual. <br>
      * <b>pre: </b> modelo!=null. <br>
-     * <b>post: </b> Se retornó el elemento que cumple con el modelo o null si no encuentra ninguno.
+     * <b>post: </b> Se retornï¿½ el elemento que cumple con el modelo o null si no encuentra ninguno.
      * @param modelo Modelo del elemento que se va a buscar
      * @return Elemento que cumple con el modelo o null si no encuentra ninguno
      */
@@ -160,30 +160,30 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
         int resultado = elem.compareTo( modelo );
         if( resultado == 0 )
         {
-            // Caso 1: El elemento está en el nodo raíz
+            // Caso 1: El elemento estï¿½ en el nodo raï¿½z
             return elem;
         }
         else if( resultado > 0 )
         {
-            // Caso 2: El elemento puede estar en el subárbol izquierdo
+            // Caso 2: El elemento puede estar en el subï¿½rbol izquierdo
             return ( izqNodo != null ) ? izqNodo.buscar( modelo ) : null;
         }
         else
         {
-            // Caso 3: El elemento puede estar en el subárbol derecho
+            // Caso 3: El elemento puede estar en el subï¿½rbol derecho
             return ( derNodo != null ) ? derNodo.buscar( modelo ) : null;
         }
     }
 
     /**
-     * Agrega los elementos al iterador que llega como parámetro, utilizando para esto un recorrido en inorden. <br>
+     * Agrega los elementos al iterador que llega como parï¿½metro, utilizando para esto un recorrido en inorden. <br>
      * <b>pre: </b> resultado!=null. <br>
-     * <b>post: </b> Se retornó el resultado del recorrido.
+     * <b>post: </b> Se retornï¿½ el resultado del recorrido.
      * @param resultado Resultado del recorrido
      */
     public void inorden( IteradorSimple<T> resultado )
     {
-        // Agrega los elementos del subárbol izquierdo
+        // Agrega los elementos del subï¿½rbol izquierdo
         if( izqNodo != null )
         {
             izqNodo.inorden( resultado );
@@ -196,10 +196,10 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
         }
         catch( IteradorException e )
         {
-            // Nunca debería aparecer esta excepción
+            // Nunca deberï¿½a aparecer esta excepciï¿½n
         }
 
-        // Agrega los elementos del subárbol derecho
+        // Agrega los elementos del subï¿½rbol derecho
         if( derNodo != null )
         {
             derNodo.inorden( resultado );
@@ -207,9 +207,9 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Devuelve la altura del árbol cuya raíz es el nodo actual. <br>
-     * <b>post: </b> Se retornó la altura del árbol cuya raíz es el nodo actual.
-     * @return Altura del árbol cuya raíz es el nodo actual
+     * Devuelve la altura del ï¿½rbol cuya raï¿½z es el nodo actual. <br>
+     * <b>post: </b> Se retornï¿½ la altura del ï¿½rbol cuya raï¿½z es el nodo actual.
+     * @return Altura del ï¿½rbol cuya raï¿½z es el nodo actual
      */
     public int darAltura( )
     {
@@ -219,9 +219,9 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Devuelve el elemento mayor del árbol cuya raíz es el nodo actual. <br>
-     * <b>post: </b> Se retornó el elemento mayor del árbol cuya raíz es el nodo actual.
-     * @return Elemento mayor del árbol cuya raíz es el nodo actual
+     * Devuelve el elemento mayor del ï¿½rbol cuya raï¿½z es el nodo actual. <br>
+     * <b>post: </b> Se retornï¿½ el elemento mayor del ï¿½rbol cuya raï¿½z es el nodo actual.
+     * @return Elemento mayor del ï¿½rbol cuya raï¿½z es el nodo actual
      */
     public T darMayor( )
     {
@@ -230,9 +230,9 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Devuelve el elemento menor del árbol cuya raíz es el nodo actual. <br>
-     * <b>post: </b> Se retornó el elemento menor del árbol cuya raíz es el nodo actual.
-     * @return Elemento menor del árbol cuya raíz es el nodo actual
+     * Devuelve el elemento menor del ï¿½rbol cuya raï¿½z es el nodo actual. <br>
+     * <b>post: </b> Se retornï¿½ el elemento menor del ï¿½rbol cuya raï¿½z es el nodo actual.
+     * @return Elemento menor del ï¿½rbol cuya raï¿½z es el nodo actual
      */
     public T darMenor( )
     {
@@ -245,21 +245,22 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Agrega el elemento al árbol cuya raíz es el nodo actual. <br>
+     * Agrega el elemento al ï¿½rbol cuya raï¿½z es el nodo actual. <br>
      * <b>pre: </b> pElemento!=null, retorno!=null. <br>
-     * <b>post: </b> Se insertó el elemento en el árbol.
+     * <b>post: </b> Se insertï¿½ el elemento en el ï¿½rbol.
      * @param pElemento que se va a insertar
-     * @param retorno Objeto con la información de la nueva raíz del árbol y un indicador de cambio de altura
-     * @throws ElementoExisteException El elemento ya existe en el árbol
+     * @param retorno Objeto con la informaciï¿½n de la nueva raï¿½z del ï¿½rbol y un indicador de cambio de altura
+     * @throws ElementoExisteException El elemento ya existe en el ï¿½rbol
      */
-    private void auxInsertar( T pElemento, Retorno retorno ) throws ElementoExisteException
+    private void auxInsertar( T pElemento, Retorno retorno ) 
     {
         // Compara el elemento con el valor almacenado en el nodo
         int resultado = elem.compareTo( pElemento );
         if( resultado == 0 )
         {
-            // Caso 1: El elemento está en el nodo actual
-            throw new ElementoExisteException( "El elemento ya existe en el árbol" );
+            // Caso 1: El elemento estï¿½ en el nodo actual
+        	return;
+            //throw new ElementoExisteException( "El elemento ya existe en el ï¿½rbol" );
         }
         else if( resultado > 0 )
         {
@@ -282,14 +283,14 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
             }
             else
             {
-                // Caso general de inserción por la izquierda
+                // Caso general de inserciï¿½n por la izquierda
                 izqNodo.auxInsertar( pElemento, retorno );
                 izqNodo = retorno.respuesta;
 
                 // Balancea si es necesario
                 if( retorno.diferenciaAltura )
                 {
-                    // El subárbol izquierdo aumentó de altura, debe corregirse
+                    // El subï¿½rbol izquierdo aumentï¿½ de altura, debe corregirse
                     // el balance
                     switch( balance )
                     {
@@ -335,14 +336,14 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
             }
             else
             {
-                // Caso general de inserción por la derecha
+                // Caso general de inserciï¿½n por la derecha
                 derNodo.auxInsertar( pElemento, retorno );
                 derNodo = retorno.respuesta;
 
                 // Balancea si es necesario
                 if( retorno.diferenciaAltura )
                 {
-                    // El subárbol derecho aumentó de altura, debe corregirse el
+                    // El subï¿½rbol derecho aumentï¿½ de altura, debe corregirse el
                     // balance
                     switch( balance )
                     {
@@ -370,12 +371,12 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Elimina el elemento del árbol cuya raíz es el nodo actual. <br>
+     * Elimina el elemento del ï¿½rbol cuya raï¿½z es el nodo actual. <br>
      * <b>pre: </b> pElemento!=null, retorno!=null. <br>
-     * <b>post: </b> Se eliminó el elemento del árbol si existía.
+     * <b>post: </b> Se eliminï¿½ el elemento del ï¿½rbol si existï¿½a.
      * @param pElemento Elemento que se va a eliminar
-     * @param retorno Objeto con la información de la nueva raíz del árbol y un indicador de cambio de altura
-     * @throws ElementoNoExisteException Elemento no encontrado en el árbol
+     * @param retorno Objeto con la informaciï¿½n de la nueva raï¿½z del ï¿½rbol y un indicador de cambio de altura
+     * @throws ElementoNoExisteException Elemento no encontrado en el ï¿½rbol
      */
     private void auxEliminar( T pElemento, Retorno retorno ) throws ElementoNoExisteException
     {
@@ -383,7 +384,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
         int resultado = elem.compareTo( pElemento );
         if( resultado == 0 )
         {
-            // Caso 1: El elemento está en el nodo actual
+            // Caso 1: El elemento estï¿½ en el nodo actual
             if( izqNodo == null & derNodo == null )
             {
                 // No tiene hijos, simplemente debe eliminarlo
@@ -419,7 +420,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
             // Caso 2: El elemento debe estar por la izquierda
             if( izqNodo == null )
             {
-                throw new ElementoNoExisteException( "El elemento no se encuentra en el árbol" );
+                throw new ElementoNoExisteException( "El elemento no se encuentra en el ï¿½rbol" );
             }
             izqNodo.auxEliminar( pElemento, retorno );
             izqNodo = retorno.respuesta;
@@ -439,7 +440,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
             // Caso 3: El elemento debe estar por la derecha
             if( derNodo == null )
             {
-                throw new ElementoNoExisteException( "El elemento no se encuentra en el árbol" );
+                throw new ElementoNoExisteException( "El elemento no se encuentra en el ï¿½rbol" );
             }
             derNodo.auxEliminar( pElemento, retorno );
             derNodo = retorno.respuesta;
@@ -457,8 +458,8 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Balancea el subárbol izquierdo de un árbol AVL que se ha desbalanceado por una inserción. Actualiza los factores de balanceo. <br>
-     * <b>post: </b> Se balanceó el subárbol izquierdo y se actualizarón los factores de balanceo. <br>
+     * Balancea el subï¿½rbol izquierdo de un ï¿½rbol AVL que se ha desbalanceado por una inserciï¿½n. Actualiza los factores de balanceo. <br>
+     * <b>post: </b> Se balanceï¿½ el subï¿½rbol izquierdo y se actualizarï¿½n los factores de balanceo. <br>
      * @return Nodo balanceado
      */
     private NodoAVL<T> balanceaIzq( )
@@ -494,8 +495,8 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Balancea el subárbol derecho de un árbol AVL que se ha desbalanceado por una inserción. Actualiza los factores de balanceo. <br>
-     * <b>post: </b> Se balanceó el subárbol derecho y se actualizarón los factores de balanceo.
+     * Balancea el subï¿½rbol derecho de un ï¿½rbol AVL que se ha desbalanceado por una inserciï¿½n. Actualiza los factores de balanceo. <br>
+     * <b>post: </b> Se balanceï¿½ el subï¿½rbol derecho y se actualizarï¿½n los factores de balanceo.
      * @return Nodo balanceado
      */
     private NodoAVL<T> balanceaDer( )
@@ -532,7 +533,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Rota a la izquierda un nodo y sus hijos. <br>
-     * <b>post: </b> Se rotó a la izquierda un nodo y sus hijos.
+     * <b>post: </b> Se rotï¿½ a la izquierda un nodo y sus hijos.
      * @return El nodo rotado a la izquierda
      */
     private NodoAVL<T> roteIzq( )
@@ -545,7 +546,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Rota a la derecha un nodo y sus hijos. <br>
-     * <b>post: </b> Se rotó a la derecha un nodo y sus hijos.
+     * <b>post: </b> Se rotï¿½ a la derecha un nodo y sus hijos.
      * @return Nodo El nodo rotado a la derecha
      */
     private NodoAVL<T> roteDer( )
@@ -557,8 +558,8 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Rota a la derecha y después a la izquierda un nodo y sus hijos. <br>
-     * <b>post: </b> Se rotó a la derecha y despues a la izquierda un nodo y sus hijos.
+     * Rota a la derecha y despuï¿½s a la izquierda un nodo y sus hijos. <br>
+     * <b>post: </b> Se rotï¿½ a la derecha y despues a la izquierda un nodo y sus hijos.
      * @return Nodo El nodo rotado a la derecha y luego a la izquierda
      */
     private NodoAVL<T> roteDerIzq( )
@@ -568,8 +569,8 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Rota a la izquierda y después a la derecha un nodo y sus hijos. <br>
-     * <b>post: </b> Se rotó a la izquierda y despues a la derecha un nodo y sus hijos.
+     * Rota a la izquierda y despuï¿½s a la derecha un nodo y sus hijos. <br>
+     * <b>post: </b> Se rotï¿½ a la izquierda y despues a la derecha un nodo y sus hijos.
      * @return Nodo El nodo rotado a la izquierda y luego a la derecha
      */
     private NodoAVL<T> roteIzqDer( )
@@ -579,11 +580,11 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Se ha eliminado un elemento del subárbol izquierdo y por esta razón el subárbol derecho se encuentra desbalanceado. Esta rutina reestablece el balance perdido. Al
+     * Se ha eliminado un elemento del subï¿½rbol izquierdo y por esta razï¿½n el subï¿½rbol derecho se encuentra desbalanceado. Esta rutina reestablece el balance perdido. Al
      * entrar, retorno.diferenciaAltura == TRUE. <br>
      * <b>pre: </b> retorno!=null. <br>
-     * <b>post: </b> Se restableció el balanceó perdido a causa de una eliminacón en el subárbol izquierdo.
-     * @param retorno Estructura que contiene el árbol resultado y una variable que me permite determinar si el nodo está desbalanceado
+     * <b>post: </b> Se restableciï¿½ el balanceï¿½ perdido a causa de una eliminacï¿½n en el subï¿½rbol izquierdo.
+     * @param retorno Estructura que contiene el ï¿½rbol resultado y una variable que me permite determinar si el nodo estï¿½ desbalanceado
      */
     private void balanElimDer( Retorno retorno )
     {
@@ -640,11 +641,11 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Se ha eliminado un elemento del subárbol derecho y por esta razón el subárbol izquierdo se encuentra desbalanceado. Esta rutina reestablece el balance perdido. Al
+     * Se ha eliminado un elemento del subï¿½rbol derecho y por esta razï¿½n el subï¿½rbol izquierdo se encuentra desbalanceado. Esta rutina reestablece el balance perdido. Al
      * entrar, ret.difAltura == TRUE. <br>
      * <b>pre: </b> retorno!=null. <br>
-     * <b>post: </b> Se restableció el balanceó perdido a causa de una eliminacón en el subárbol derecho.
-     * @param retorno Estructura que contiene el árbol resultado y una variable que me permite determinar si el nodo está desbalanceado
+     * <b>post: </b> Se restableciï¿½ el balanceï¿½ perdido a causa de una eliminacï¿½n en el subï¿½rbol derecho.
+     * @param retorno Estructura que contiene el ï¿½rbol resultado y una variable que me permite determinar si el nodo estï¿½ desbalanceado
      */
     private void balanElimIzq( Retorno retorno )
     {
@@ -701,9 +702,9 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Retorna el nodo con el mayor elemento de un árbol AVL. <br>
-     * <b>post: </b> Se retornó el nodo con el mayor elemento de un árbol AVL.
-     * @return Nodo Nodo con el mayor elemento de un árbol AVL
+     * Retorna el nodo con el mayor elemento de un ï¿½rbol AVL. <br>
+     * <b>post: </b> Se retornï¿½ el nodo con el mayor elemento de un ï¿½rbol AVL.
+     * @return Nodo Nodo con el mayor elemento de un ï¿½rbol AVL
      */
     private NodoAVL<T> mayorElemento( )
     {
@@ -711,9 +712,9 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Retorna el nodo con el menor elemento de un árbol AVL.<br>
-     * <b>post: </b> Se retornó el nodo con el menor elemento de un árbol AVL.
-     * @return Nodo Nodo con el menor elemento de un árbol AVL
+     * Retorna el nodo con el menor elemento de un ï¿½rbol AVL.<br>
+     * <b>post: </b> Se retornï¿½ el nodo con el menor elemento de un ï¿½rbol AVL.
+     * @return Nodo Nodo con el menor elemento de un ï¿½rbol AVL
      */
     private NodoAVL<T> menorElemento( )
     {
@@ -722,7 +723,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Agrega los elementos al arreglo utilizando un recorrido por niveles, partiendo del nodo actual. <br>
-     * <b>post: </b> Se retorno el iterador para recorrer los elementos del árbol por niveles.
+     * <b>post: </b> Se retorno el iterador para recorrer los elementos del ï¿½rbol por niveles.
      * @param resultado Resultado del recorrido
      */
     public void darRecorridoNiveles( IteradorSimple<T> resultado )
@@ -734,12 +735,12 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
             NodoAVL<T> nodo = null;
             try
             {
-                // Toma el primer árbol de la cola
+                // Toma el primer ï¿½rbol de la cola
                 nodo = cola.tomarElemento( );
             }
             catch( ColaVaciaException e )
             {
-                // Nunca debería aparecer esta excepción
+                // Nunca deberï¿½a aparecer esta excepciï¿½n
             }
             try
             {
@@ -747,10 +748,10 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
             }
             catch( IteradorException e )
             {
-                // Nunca debería aparecer esta excepción
+                // Nunca deberï¿½a aparecer esta excepciï¿½n
             }
 
-            // Agrega los dos subárboles (si no son vacíos) a la cola
+            // Agrega los dos subï¿½rboles (si no son vacï¿½os) a la cola
             if( nodo.izqNodo != null )
             {
                 cola.insertar( nodo.izqNodo );
@@ -767,7 +768,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Estructura para retornar la raíz del árbol AVL resultado de un proceso de modificación, con un indicador de si su altura ha sido modificada.
+     * Estructura para retornar la raï¿½z del ï¿½rbol AVL resultado de un proceso de modificaciï¿½n, con un indicador de si su altura ha sido modificada.
      */
     private class Retorno
     {
@@ -776,12 +777,12 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
         // -----------------------------------------------------------------
 
         /**
-         * Raíz del árbol de respuesta
+         * Raï¿½z del ï¿½rbol de respuesta
          */
         private NodoAVL<T> respuesta;
 
         /**
-         * Indicador de cambio de altura del árbol.
+         * Indicador de cambio de altura del ï¿½rbol.
          */
         private boolean diferenciaAltura;
 
@@ -790,10 +791,10 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
         // -----------------------------------------------------------------
 
         /**
-         * Método constructor de la clase Retorno<br>
-         * <b>post: </b> Se construyó en objeto retorno con los valores especificados<br>
-         * @param pRespuesta Raíz del árbol de respuesta
-         * @param pDiferenciaAltura Indicador de cambio de altura del árbol
+         * Mï¿½todo constructor de la clase Retorno<br>
+         * <b>post: </b> Se construyï¿½ en objeto retorno con los valores especificados<br>
+         * @param pRespuesta Raï¿½z del ï¿½rbol de respuesta
+         * @param pDiferenciaAltura Indicador de cambio de altura del ï¿½rbol
          */
         private Retorno( NodoAVL<T> pRespuesta, boolean pDiferenciaAltura )
         {

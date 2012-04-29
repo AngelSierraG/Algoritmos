@@ -11,8 +11,8 @@ import arbol.ElementoNoExisteException;
 import arbol.IArbolOrdenado;
 
 /**
- * Implementación de un árbol binario ordenado balanceado por altura: árbol AVL
- * @param <T> Tipo de datos que contiene cada nodo del árbol
+ * Implementaciï¿½n de un ï¿½rbol binario ordenado balanceado por altura: ï¿½rbol AVL
+ * @param <T> Tipo de datos que contiene cada nodo del ï¿½rbol
  */
 public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, IArbolOrdenado<T>
 {
@@ -21,7 +21,7 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     // -----------------------------------------------------------------
 
     /**
-	 * Constantes para la serialización
+	 * Constantes para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -30,12 +30,12 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     // -----------------------------------------------------------------
 
     /**
-     * Raíz del árbol AVL
+     * Raï¿½z del ï¿½rbol AVL
      */
     private NodoAVL<T> raiz;
 
     /**
-     * Peso del árbol AVL
+     * Peso del ï¿½rbol AVL
      */
     private int peso;
 
@@ -44,8 +44,8 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     // -----------------------------------------------------------------
 
     /**
-     * Constructor del árbol AVL vacío. <br>
-     * <b>post: </b> Se construyó un árbol AVL vacío.
+     * Constructor del ï¿½rbol AVL vacï¿½o. <br>
+     * <b>post: </b> Se construyï¿½ un ï¿½rbol AVL vacï¿½o.
      */
     public ArbolAVL( )
     {
@@ -54,10 +54,10 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     }
 
     /**
-     * Constructor del árbol AVL con raíz. <br>
-     * <b>pre: </b> r!=null y p>=0. <b>post: </b> Se construyó un árbol AVL con la raiz r.
-     * @param r Raiz del árbol
-     * @param p Peso del árbol
+     * Constructor del ï¿½rbol AVL con raï¿½z. <br>
+     * <b>pre: </b> r!=null y p>=0. <b>post: </b> Se construyï¿½ un ï¿½rbol AVL con la raiz r.
+     * @param r Raiz del ï¿½rbol
+     * @param p Peso del ï¿½rbol
      */
     public ArbolAVL( NodoAVL<T> r, int p )
     {
@@ -66,13 +66,13 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Devuelve la raíz del árbol para navegarlo. <br>
-     * <b>post: </b> Se retornó la raíz del árbol para navegarlo.
-     * @return Raíz del árbol para navegarlo
+     * Devuelve la raï¿½z del ï¿½rbol para navegarlo. <br>
+     * <b>post: </b> Se retornï¿½ la raï¿½z del ï¿½rbol para navegarlo.
+     * @return Raï¿½z del ï¿½rbol para navegarlo
      */
     public NodoAVL<T> darRaiz( )
     {
@@ -87,12 +87,12 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     {
         if( raiz == null )
         {
-            // Caso 1: el árbol es vacío
+            // Caso 1: el ï¿½rbol es vacï¿½o
             raiz = new NodoAVL<T>( elemento );
         }
         else
         {
-            // Caso 2: el árbol no es vacío
+            // Caso 2: el ï¿½rbol no es vacï¿½o
             raiz = raiz.insertar( elemento );
         }
         peso++;
@@ -105,14 +105,14 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     {
         if( raiz != null )
         {
-            // Caso 1: el árbol no es vacío
+            // Caso 1: el ï¿½rbol no es vacï¿½o
             raiz = raiz.eliminar( elemento );
             peso--;
         }
         else
         {
-            // Caso 2: el árbol es vacío
-            throw new ElementoNoExisteException( "El elemento especificado no existe en el árbol" );
+            // Caso 2: el ï¿½rbol es vacï¿½o
+            throw new ElementoNoExisteException( "El elemento especificado no existe en el ï¿½rbol" );
         }
     }
 
@@ -125,9 +125,9 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     }
 
     /**
-     * Devuelve los elementos del árbol en inorden. <br>
-     * <b>post: </b> Se retornó el iterador con los elementos del árbol en inorden.
-     * @return Iterador con los elementos del árbol en inorden
+     * Devuelve los elementos del ï¿½rbol en inorden. <br>
+     * <b>post: </b> Se retornï¿½ el iterador con los elementos del ï¿½rbol en inorden.
+     * @return Iterador con los elementos del ï¿½rbol en inorden
      */
     public Iterador<T> inorden( )
     {
@@ -156,9 +156,9 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     }
 
     /**
-     * Devuelve el elemento mayor del árbol AVL. <br>
-     * <b>post: </b> Se retornó el elemento mayor del árbol AVL o null si el árbol está vacio.
-     * @return Elemento mayor del árbol AVL o null si el árbol está vacio
+     * Devuelve el elemento mayor del ï¿½rbol AVL. <br>
+     * <b>post: </b> Se retornï¿½ el elemento mayor del ï¿½rbol AVL o null si el ï¿½rbol estï¿½ vacio.
+     * @return Elemento mayor del ï¿½rbol AVL o null si el ï¿½rbol estï¿½ vacio
      */
     public T darMayor( )
     {
@@ -166,9 +166,9 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     }
 
     /**
-     * Devuelve el elemento menor del árbol AVL. <br>
-     * <b>post: </b> Se retornó el elemento menor del árbol AVL o null si el árbol está vacio.
-     * @return Elemento menor del árbol AVL o null si el árbol está vacio
+     * Devuelve el elemento menor del ï¿½rbol AVL. <br>
+     * <b>post: </b> Se retornï¿½ el elemento menor del ï¿½rbol AVL o null si el ï¿½rbol estï¿½ vacio.
+     * @return Elemento menor del ï¿½rbol AVL o null si el ï¿½rbol estï¿½ vacio
      */
     public T darMenor( )
     {
@@ -176,9 +176,9 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     }
 
     /**
-     * Devuelve los elementos del árbol utilizando un recorrido por niveles. <br>
-     * <b>post: </b> Se retornó el iterador para recorrer los elementos del árbol por niveles.
-     * @return Iterador con los elementos del árbol en un recorrido por niveles
+     * Devuelve los elementos del ï¿½rbol utilizando un recorrido por niveles. <br>
+     * <b>post: </b> Se retornï¿½ el iterador para recorrer los elementos del ï¿½rbol por niveles.
+     * @return Iterador con los elementos del ï¿½rbol en un recorrido por niveles
      */
     public Iterador<T> darRecorridoNiveles( )
     {

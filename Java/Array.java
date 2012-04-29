@@ -4,20 +4,16 @@ import java.util.Random;
 public class Array {
 
 /*Estructura array*/
-private int values[];
-private int length;
+private BigList values;
+private long length;
 private Date currentDate;
 private Random generator;
 private SortingA s;
 
-public Array(int len){
-	int i;
+public Array(long len){
 	
 	this.length = len;
-	this.values = new int[len];
-
-	for(i=0;i<length;i++)
-		(this.values)[i]= -1;
+	this.values = new BigList(len);
 	return;
 }
 
@@ -35,9 +31,9 @@ private boolean checkIndex(int k){
 	return true;
 }
 
-private void handleBounds(int k){
-	if (!checkIndex(k)){
-		System.out.printf("Index out of bounds: %d!!!",k);
+private void handleBounds(int j){
+	if (!checkIndex(j)){
+		System.out.printf("Index out of bounds: %d!!!",j);
 		System.exit(1);
 	}
 	return;
@@ -46,28 +42,28 @@ private void handleBounds(int k){
 public void deleteAll(){
 	int i;
 	for(i=0;i<this.length;i++)
-		this.values[i] = -1;
+		this.values.deleteAll();
 	this.length = 0;
 	return;
 }
 
-public void putElem( int k,int elem){
-	handleBounds(k);
-	this.values[k] = elem;
+public void putElem( long j,long l){
+	//handleBounds(k);
+	this.values.put(j,l);
 	return;
 }
-int getElem(int k){
-	handleBounds(k);
-	return this.values[k];
+int getElem(long j){
+	//handleBounds(j);
+	return this.values.get(j);
 }
 
-int getLength(){
+long getLength(){
 	return this.length;
 }
 
 public boolean delElemI(int k){
 	handleBounds(k);
-	this.values[k] = -1;
+	this.values.delete(k);
 	return true;
 }
 
@@ -82,23 +78,23 @@ void copy(Array out){
 	return;
 }
 
-private void swapElems(int i,int j){
+private void swapElems(long j,long k){
 	int aux;
-	aux = this.getElem(i);
-	this.putElem(i,this.getElem(j));
-	this.putElem(j,aux);
+	aux = this.getElem(j);
+	this.putElem(j,this.getElem(k));
+	this.putElem(k,aux);
 	return;
 }
 
-public void shuffle( int iter){
-	int i,j,k;
+public void shuffle( long l){
+	long i,j,k;
 
 	this.currentDate = new Date();
 	this.generator = new Random(this.currentDate.getTime());
 
-	for(i=0; i < iter ; i++){
-		j= generator.nextInt() % this.getLength();
-		k= generator.nextInt() % this.getLength();
+	for(i=0; i < l ; i++){
+		j= generator.nextLong() % this.getLength();
+		k= generator.nextLong() % this.getLength();
 		swapElems(j,k);
 	}
 	return;
@@ -134,7 +130,7 @@ int searchElem(int elem){
 }
 
 void sort(){
-	s = new Quicksort().getInstance();
+	s = new BigListSort();
 	s.sort(this.values,0,this.length-1);
 }
 }

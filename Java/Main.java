@@ -1,4 +1,5 @@
-import java.io.*;
+import arbol.avl.*; 
+import arbol.*;
 
 public class Main {
 static final int cAVL=0;
@@ -10,14 +11,14 @@ static final int case2=1;
 static final int case3=2;
 static final int case4=3;
 
-private String elementToString(int i){
+private static String elementToString(int i){
 	if(i == 0)
 		return "2^11";
 	else if(i == 1)
 		return "2^19";
 	return "";
 }
-private String rangeToString(int i){
+private static String rangeToString(int i){
 	if(i == 0)
 		return "2^16";
 	else if(i == 1)
@@ -25,7 +26,7 @@ private String rangeToString(int i){
 	return "";
 }
 
-private void treeTest(Tree tree,int n[],int range[],int k[],int insertcase[]){
+private static void treeTest(IArbolOrdenado<Integer> tree,long n[],long range[],long k[],long[] insertcase) throws ElementoExisteException, ElementoNoExisteException{
 	int i,j,r,l;
 	for(i=0; i<2 ; i++)
 	for(j=0; j<2 ; j++)
@@ -33,23 +34,23 @@ private void treeTest(Tree tree,int n[],int range[],int k[],int insertcase[]){
 		System.out.printf("creando test\n");
 		Test t = new Test(n[j],k[r],range[i]);
 
-		for(l=0 ; l<4 ; l++)
+		for(l=0 ; l<4 ; l++){
 			System.out.printf("Testeando arbol con: k=%d\tn=%s\trango=%s\tcaso de insercion =%d\n",k[r],elementToString(j),rangeToString(i),insertcase[l]);
 			Sequence.createsequence(t,insertcase[l]);
-			Sequence.dosequence(tree,t);
+			Sequence.dosequence(tree,t);}
 			//freeTest(t);
 	}
 	return;
 }
 
-public static void main(String[] args) {
-	int n[],range[],insertcase[],k[];
-	Tree tree;
+public static void main(String[] args) throws ElementoExisteException, ElementoNoExisteException {
+	long n[],range[],insertcase[],k[];
+	IArbolOrdenado<Integer> tree;
 
-	n = new int[2];
-	range = new int[2];
-	insertcase = new int[4];
-	k = new int[3];
+	n = new long[2];
+	range = new long[2];
+	insertcase = new long[4];
+	k = new long[3];
 
 	//AVL *avl;ARB *arb;A23 *a23;AB *ab;
 
@@ -73,7 +74,7 @@ public static void main(String[] args) {
 	/*AVL TESTING*/
 	System.out.printf("testeando AVL:\n");
 
-	tree = (AVL)new AVL();
+	tree = new ArbolAVL<Integer>();
 
 	//type = cAVL;
 	System.out.printf("testing init:\n");

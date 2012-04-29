@@ -1,4 +1,4 @@
-package kiasan.examples.avltree;
+
 
 // Basic node stored in AVL trees
 // Note that this class is not accessible outside

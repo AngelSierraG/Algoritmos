@@ -1,11 +1,12 @@
-public class Quicksort implements SortingA{
+public class Quicksort{
 
 public Quicksort(){
     super();
 }
 private int put(int v[], int b, int t){
     int i;
-    int pivote, valor_pivote;
+    int valor_pivote;
+    int pivote;
     int temp;
  
     pivote = b;

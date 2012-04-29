@@ -1,18 +1,17 @@
 import java.util.Random;
-import java.util.Math;
 import java.util.Date;
 
 public class Universe{
-private int range;
-private int max;
+private long range;
 private Date currentDate;
 private Random generator;
 
-public Universe(int _range){
-	this.range = _range;
+public Universe(long range2){
+	this.range = range2;
 	this.currentDate = new Date();
 	this.generator = new Random(this.currentDate.getTime());
-	this.max = (Integer) MyMath.pow(2,this.range);
+	
+	System.out.printf("range=%d\n",this.range);
 	return;
 }
 
@@ -22,12 +21,22 @@ public void restart(){
 
 public void newRange(int _range){
 	this.range= _range;
-	this.max = MyMath.pow(2,this.range);
 	return;
 }
 
-public int getRandomNumber(){
-	return generator.nextInt() % max;
+public long getRandomNumber(){
+	long number;
+	
+	System.out.printf("random num=%d\t range=%d \n",this.generator.nextInt(),this.range);
+	number = this.generator.nextLong() % this.range;
+	
+	if(number <0)
+		number = number * -1;
+	
+	System.out.printf("random num=%d\t range=%d \n",this.generator.nextInt(),this.range);
+	number = this.generator.nextLong() % this.range;
+	
+	return number;
 }
 
 }

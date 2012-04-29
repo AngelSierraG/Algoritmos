@@ -1,4 +1,5 @@
 import java.util.Date;
+import arbol.*;
 
 /*CASE1
 Los elementos a insert son escogidos al azar uniformemente del universo,
@@ -21,17 +22,17 @@ static final int case2=1;
 static final int case3=2;
 static final int case4=3;
 
-private static void createISequence(Test t,int seqcase){
-	if(case1 == seqcase || case4 == seqcase){
+private static void createISequence(Test t,long insertcase){
+	if(case1 == insertcase || case4 == insertcase){
 		t.createRandomInsertSeq();
 	}
-	else if(case2 == seqcase || case3 == seqcase){
+	else if(case2 == insertcase || case3 == insertcase){
 		t.createSemiOrderInsertSeq();
 	}
 	return;
 }
 
-private static void createDSSequence(Test t,int seqcase){
+private static void createDSSequence(Test t,long seqcase){
 	if(case1 == seqcase || case3 == seqcase){
 		t.createRandomDeleteSearchSeq();
 	}
@@ -41,14 +42,14 @@ private static void createDSSequence(Test t,int seqcase){
 	return;
 }
 
-public static void createsequence(Test t,int seqcase){
-	createISequence(t,seqcase);
-	createDSSequence(t,seqcase);
+public static void createsequence(Test t,long insertcase){
+	createISequence(t,insertcase);
+	createDSSequence(t,insertcase);
 	return;
 }
 
 /* Funcion que generara la sequencia , utilizando la distintas funciones de search, eliminar, e insert elementos al arreglo*/
-public static int dosequence(Tree tree,Test t) {
+public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws ElementoExisteException, ElementoNoExisteException{
 	int i,j,d,s;
 	long timer;
 	Date currentDate;
@@ -64,32 +65,32 @@ public static int dosequence(Tree tree,Test t) {
 
 	for(j=0,d=0; j< 2*t.n*t.k ;){
 		for(i=0;i < t.k;i++)
-			tree.insert(t.insert.getElem(j++));
+			tree.insertar(t.insert.getElem(j++));
 
 		for(i=0;i < t.k;i++)
-			tree.delete(t.del.getElem(d++));
+			tree.eliminar(t.del.getElem(d++));
 
 		for(i=0;i < t.k;i++)
-			tree.insert(t.insert.getElem(j++));
+			tree.insertar(t.insert.getElem(j++));
 	}
 	System.out.printf("\tTiempo 1era sub secuencia = %d\n", currentDate.getTime()- timer);
 
 	timer = currentDate.getTime();
 	for(s=0;s< t.n*t.k;s++){
-		tree.search(t.search.getElem(s));
+		tree.buscar(t.search.getElem(s));
 	}
 	System.out.printf("\tTiempo 2da sub secuencia = %d\n", currentDate.getTime()- timer);
 	
 	timer = currentDate.getTime();
 	for(;j< 3*t.n*t.k ; ){
 		for(i=0;i < t.k;i++)
-			tree.delete(t.del.getElem(d++));
+			tree.eliminar(t.del.getElem(d++));
 
 		for(i=0;i < t.k;i++)
-			tree.insert(t.insert.getElem(j++));
+			tree.insertar(t.insert.getElem(j++));
 
 		for(i=0;i < t.k;i++)
-			tree.delete(t.del.getElem(d++));
+			tree.eliminar(t.del.getElem(d++));
 	}
 	System.out.printf("\tTiempo 3era sub secuencia = %d\n", currentDate.getTime()- timer);
 

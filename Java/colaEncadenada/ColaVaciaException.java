@@ -1,9 +1,9 @@
 
 
-package ucolaEncadenada;
+package colaEncadenada;
 
 /**
- * Excepción generada cuando se trata de tomar un elemento de una cola vacía
+ * Excepciï¿½n generada cuando se trata de tomar un elemento de una cola vacï¿½a
  */
 public class ColaVaciaException extends Exception
 {
@@ -12,7 +12,7 @@ public class ColaVaciaException extends Exception
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 	
