@@ -1,13 +1,8 @@
-//import arbol.avl.*; 
 import arbol.*;
-import tree.*;
 import arbol.avl.*;
 import arbol.arbol2_3.*;
 import arbol.arbolB.*;
 import arbol.arbolRojoNegro.*;
-
-
-//import avlTree.*;
 
 public class Main {
 static final int cAVL=0;
@@ -79,27 +74,22 @@ public static void main(String[] args) throws ElementoExisteException, ElementoN
 
 	tree = new ArbolAVL<Integer>();
 	//tree = new AvlTree();
-
-	//type = cAVL;
-	//System.out.printf("Testing init:\n");
 	treeTest(tree,n,range,k,insertcase);
 	
-	//freeAVL(avl);
-
 	/*ARB TESTING*/
 	System.out.printf("testeando ARB:\n");
 	tree= new ArbolRojoNegro();
-	//treeTest(tree,n,range,k,insertcase);
+	treeTest(tree,n,range,k,insertcase);
 
 	/*A23 TESTING*/
 	System.out.printf("testeando A23:\n");
 	tree= new Arbol2_3();
-	//treeTest(tree,n,range,k,insertcase);
+	treeTest(tree,n,range,k,insertcase);
 
 	/*AB TESTING*/
 	System.out.printf("testeando AB:\n");
-	//tree= new ArbolB();
-	//treeTest(tree,n,range,k,insertcase);
+	tree= new ArbolB(256);
+	treeTest(tree,n,range,k,insertcase);
 
 	return;
 }
