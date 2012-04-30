@@ -1,4 +1,4 @@
-public class Quicksort{
+public class Quicksort implements SortingA{
 
 public Quicksort(){
     super();

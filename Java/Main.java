@@ -26,58 +26,65 @@ private static String rangeToString(int i){
 	return "";
 }
 
-private static void treeTest(IArbolOrdenado<Integer> tree,long n[],long range[],long k[],long[] insertcase) throws ElementoExisteException, ElementoNoExisteException{
+private static void treeTest(IArbolOrdenado<Integer> tree,int n[],int range[],int k[],int[] insertcase) throws ElementoExisteException, ElementoNoExisteException{
 	int i,j,r,l;
-	for(i=0; i<2 ; i++)
-	for(j=0; j<2 ; j++)
+	for(i=0; i<2 ; i++){
+	for(j=0; j<2 ; j++){
 	for(r=0; r<3 ; r++){
-		System.out.printf("creando test\n");
+		//System.out.printf("creando test\n");
 		Test t = new Test(n[j],k[r],range[i]);
-
 		for(l=0 ; l<4 ; l++){
-			System.out.printf("Testeando arbol con: k=%d\tn=%s\trango=%s\tcaso de insercion =%d\n",k[r],elementToString(j),rangeToString(i),insertcase[l]);
+			System.out.printf("Testeando arbol con: k=%d\tn=%s\trango=%s\tcaso de insercion =%d\n",k[r],n[j],range[i],insertcase[l]);
 			Sequence.createsequence(t,insertcase[l]);
-			Sequence.dosequence(tree,t);}
+			Sequence.dosequence(tree,t);
+			t.u.restart();
+			}
 			//freeTest(t);
-	}
+	}}}
 	return;
 }
 
 public static void main(String[] args) throws ElementoExisteException, ElementoNoExisteException {
-	long n[],range[],insertcase[],k[];
+	int n[],range[],insertcase[],k[];
 	IArbolOrdenado<Integer> tree;
 
-	n = new long[2];
-	range = new long[2];
-	insertcase = new long[4];
-	k = new long[3];
+	n = new int[2];
+	range = new int[2];
+	insertcase = new int[4];
+	k = new int[3];
 
 	//AVL *avl;ARB *arb;A23 *a23;AB *ab;
 
 	System.out.printf("Iniciando testeo\n");
 
 
-	range[0] = MyMath.pow(2,16);range[1] = MyMath.pow(2,24);
-	System.out.printf("rango creado\n");
+	range[0] = MyMath.pow(2,16);
+	range[1] = MyMath.pow(2,24);
+	//System.out.printf("rango creado\n");
 
-	n[0] = MyMath.pow(2,11);n[1] = MyMath.pow(2,19);
-	System.out.printf("n creado\n");
+	//n[0] = MyMath.pow(2,11);
+	n[0] = 5;
+	//n[1] = MyMath.pow(2,19);
+	n[1] = 8;
+	//System.out.printf("n creado\n");
 
-	k[0] = 3;k[1] = 5;k[2] =7;
-	System.out.printf("k creado\n");
+	k[0] = 3;
+	k[1] = 5;
+	k[2] =7;
+	//System.out.printf("k creado\n");
 
 	insertcase[0]=case1;insertcase[1]=case2;insertcase[2]=case3;insertcase[3] = case4;
-	System.out.printf("insertcase creado\n");
+	//System.out.printf("insertcase creado\n");
 
-	System.out.printf("Variables iniciadas\n");
+	//System.out.printf("Variables iniciadas\n");
 
 	/*AVL TESTING*/
-	System.out.printf("testeando AVL:\n");
+	System.out.printf("Testeando AVL:\n");
 
 	tree = new ArbolAVL<Integer>();
 
 	//type = cAVL;
-	System.out.printf("testing init:\n");
+	//System.out.printf("Testing init:\n");
 	treeTest(tree,n,range,k,insertcase);
 	
 	//freeAVL(avl);
