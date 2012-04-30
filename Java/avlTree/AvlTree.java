@@ -36,7 +36,11 @@ public class AvlTree implements Tree{
    */
   private static AvlNode rotateWithLeftChild(final AvlNode k2) {
     final AvlNode k1 = k2.left;
+    if(k1 == null)
+      return k2;
+
     k2.left = k1.right;
+    
     k1.right = k2;
     k2.height = AvlTree.max(AvlTree.height(k2.left), AvlTree.height(k2.right)) + 1;
     k1.height = AvlTree.max(AvlTree.height(k1.left), k2.height) + 1;
@@ -45,7 +49,11 @@ public class AvlTree implements Tree{
 
 
   private static AvlNode rotateWithRightChild(final AvlNode k1) {
+        
     final AvlNode k2 = k1.right;
+    if(k2 == null)
+      return k1;
+    
     k1.right = k2.left;
     k2.left = k1;
     k1.height = AvlTree.max(AvlTree.height(k1.left), AvlTree.height(k1.right)) + 1;
@@ -248,10 +256,10 @@ public class AvlTree implements Tree{
    }
 public AvlNode remove(int x, AvlNode t) {
 	if (t==null) 	{ 
-		System.out.println("Sorry but you're mistaken, " + t + " doesn't exist in this tree :)\n");
+		//System.out.println("Sorry but you're mistaken, " + t + " doesn't exist in this tree :)\n");
 		return null;
 	}
-	System.out.println("Remove starts... " + t.element + " and " + x);
+	//System.out.println("Remove starts... " + t.element + " and " + x);
 	if (compareTo(x,t.element) < 0 ) {
 		t.left = remove(x,t.left);
 		int l = t.left != null ? t.left.height : 0;
