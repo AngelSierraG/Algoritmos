@@ -1,0 +1,198 @@
+
+%
+\documentclass[12pt,oneside,letterpaper]{report}
+\usepackage[spanish]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage[dvips]{graphicx}
+\usepackage[right=2cm,left=3cm,top=2cm,bottom=2cm,headsep=0cm,footskip=0.5cm]{geometry}
+
+%-------------------------------------------------------------------------
+%definición de comandos
+
+\newcommand{\dotrule}[1]{\parbox[t]{#1}{\dotfill}}
+
+%para código fuente
+\newenvironment{codigoenv}
+{\fontsize{10pt}{12pt} \linespread{1}} { \normalsize}
+
+%para las imagenes
+\newenvironment{figuraenv}
+{\begin{figure}[htb]\begin{center}} {\end{center}\end{figure}}
+
+
+\newcommand{\df}[2]{\textit{#1 (#2)}} %definicion de termino y sigla
+\newcommand{\cls}[1]{\mbox{\textit{#1}}} %nombre de clase o paquete o código
+\newcommand{\trm}[1]{\textit{#1}} %termino tecnico o en ingles
+\newcommand{\cod}[1]{\texttt{\footnotesize #1}} %codigo fuente
+
+%-------------------------------------------------------------------------
+
+
+\linespread{1}
+\setlength{\parskip}{1\baselineskip}
+\parindent 1cm
+\sloppy
+
+
+%-------------------------------------------------------------------------
+
+\begin{document}
+
+%-------------------------------------------------------------------------
+\thispagestyle{empty}
+\begin{center}
+
+UNIVERSIDAD DE CHILE\\
+FACULTAD DE CIENCIAS FÍSICAS Y MATEMÁTICAS\\
+DEPARTAMENTO DE CIENCIAS DE LA COMPUTACIÓN\\
+
+\vspace{4cm}
+
+CC4102 - Diseño y Analisis de Algoritmos
+
+\vspace{3cm}
+
+Tarea 1: Diccionarios1
+
+
+
+\vspace{9cm}
+\begin{flushright}
+\begin{tabular}{l}
+Cristian Carreño Medina\\
+Diego Chávez Escobar\\
+Prof. Jeremy Barbay; Aux. Mauricio Quezada
+\end{tabular}
+\end{flushright}
+\vfill
+
+
+\end{center}
+
+%-------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+\newpage \pagenumbering{roman}
+\tableofcontents
+
+%-------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------
+\newpage
+\pagenumbering{arabic}
+\chapter{Presentación}
+
+\section{Introducción}
+
+En el presente informe se detallaran los resultados en terminos de eficiencia de cuatro estructuras de datos, se pondran a prueba las funciones de insercion, busqueda y eliminacion de datos, en las siguientes estructuras:
+\begin{enumerate}
+\vspace{1cm}
+\item
+Arbol AVL
+\item
+Arbol Rojo-Negro
+\item
+Arbol 2-3
+\item
+Arbol B
+\end{enumerate}
+
+
+%-------------------------------------------------------------------------
+\newpage
+\chapter{Experimentacion}
+
+
+%-------------------------------------------------------------------------
+\section{Marco Teorico}
+
+\subsection{Estructuras}
+
+\subsubsection{Arbol AVL}
+
+Estos Arboles están siempre equilibrados de tal modo que para todos los nodos, la altura de la rama izquierda no difiere en más de una unidad de la altura de la rama derecha o viceversa. 
+Gracias a esta forma de equilibrio (o balanceo), la complejidad de una búsqueda en uno de estos árboles se mantiene siempre en orden de complejidad O(log n). 
+El factor de equilibrio puede ser almacenado directamente en cada nodo o ser computado a partir de las alturas de los subárboles.
+
+
+\subsubsection{Arbol Rojo-Negro}
+
+Un árbol rojo-negro es un árbol binario de búsqueda en el que cada nodo tiene un atributo de color cuyo valor es o bien rojo o bien negro, las hojas poseen valor nulos, los hijos de todo nodo rojo es negro, y el valor de nodos negros en el camino es constante independiente del camino, con esto se logra un arbol aproximadamente equilibrado.
+
+\subsubsection{Arbol 2-3}
+
+Un árbol 2-3 permite que un nodo tenga dos o tres hijos ademas que todas las hojas han de estar al mismo nivel. Esta característica le permite conservar el balanceo tras insertar o borrar elementos, por lo que el algoritmo de búsqueda es casi tan rápido como en un árbol de búsqueda de altura mínima. Por otro lado, es mucho más fácil de mantenerlo.
+
+\subsubsection{Arbol B}
+
+Los árboles-B poseen un numero variable de nodos hijos con un maximo predifinido. Cuando se inserta o se elimina un dato de la estructura, la cantidad de nodos hijo varía dentro de un nodo. Para que siga manteniéndose el número de nodos dentro del rango predefinido, los nodos internos se juntan o se parten. Dado que se permite un rango variable de nodos hijo, los árboles-B no necesitan rebalancearse tan frecuentemente como los árboles binarios de búsqueda auto-balanceables, pero por otro lado pueden desperdiciar memoria, porque los nodos no permanecen totalmente ocupados. Los límites superior e inferior en el número de nodos hijo son definidos para cada implementación en particular.
+
+\section{Diseño Experimental}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum. Donec elit tellus, feugiat non facilisis non, faucibus sit amet dolor. Fusce feugiat imperdiet mi, ut iaculis eros lacinia vel. Phasellus vel erat eget metus iaculis adipiscing et eu nulla. Cras nec ligula et magna tristique tempus quis sed magna. Nullam non orci at est dignissim auctor at at dui. Vestibulum molestie ultricies libero, eget sollicitudin metus venenatis eu.
+
+In quis tempor risus. Mauris dapibus porttitor nisl, nec lobortis velit fermentum in. Sed fermentum suscipit orci, at porta lorem fringilla in. Pellentesque et arcu et risus vehicula imperdiet. Sed in lorem ac turpis aliquet laoreet a et ante. Nunc ac libero quis diam semper accumsan. Proin semper lectus sed neque volutpat eget scelerisque dolor placerat. 
+
+%-------------------------------------------------------------------------
+
+\newpage
+\chapter{Resultados y Analisis}
+
+
+%-------------------------------------------------------------------------
+\section{Resultados}
+
+\subsection{Arbol AVL}
+\subsubsection{Prueba 1}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+\subsubsection{Prueba 2}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+\subsubsection{Prueba 3}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+
+\subsection{Arbol Rojo-Negro}
+\subsubsection{Prueba 1}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+\subsubsection{Prueba 2}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+\subsubsection{Prueba 3}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+
+\subsection{Arbol 2-3}
+\subsubsection{Prueba 1}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+\subsubsection{Prueba 2}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+\subsubsection{Prueba 3}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+
+\subsection{Arbol B}
+\subsubsection{Prueba 1}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+\subsubsection{Prueba 2}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+\subsubsection{Prueba 3}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum.
+
+\section{Analisis de  Resultados}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum. Donec elit tellus, feugiat non facilisis non, faucibus sit amet dolor. Fusce feugiat imperdiet mi, ut iaculis eros lacinia vel. Phasellus vel erat eget metus iaculis adipiscing et eu nulla. Cras nec ligula et magna tristique tempus quis sed magna. Nullam non orci at est dignissim auctor at at dui. Vestibulum molestie ultricies libero, eget sollicitudin metus venenatis eu.
+
+
+
+%-------------------------------------------------------------------------
+\newpage
+\chapter{Conclusiones}
+\section{Conclusiones}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum. Donec elit tellus, feugiat non facilisis non, faucibus sit amet dolor. Fusce feugiat imperdiet mi, ut iaculis eros lacinia vel. Phasellus vel erat eget metus iaculis adipiscing et eu nulla. Cras nec ligula et magna tristique tempus quis sed magna. Nullam non orci at est dignissim auctor at at dui. Vestibulum molestie ultricies libero, eget sollicitudin metus venenatis eu.
+
+In quis tempor risus. Mauris dapibus porttitor nisl, nec lobortis velit fermentum in. Sed fermentum suscipit orci, at porta lorem fringilla in. Pellentesque et arcu et risus vehicula imperdiet. Sed in lorem ac turpis aliquet laoreet a et ante. Nunc ac libero quis diam semper accumsan. Proin semper lectus sed neque volutpat eget scelerisque dolor placerat. 
+
+%-------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+\end{document}
