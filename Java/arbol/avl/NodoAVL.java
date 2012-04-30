@@ -24,22 +24,22 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     /**
 	 * Constantes para la serializaci�n
 	 */
-	private static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L;
 
 	/**
      * Constante que representa el hecho de que el nodo est� balanceado hacia la izquierda.
      */
-    private static final int BIZQ = 1;
+    public static final int BIZQ = 1;
 
     /**
      * Constante que representa el hecho de que el nodo est� balanceado.
      */
-    private static final int BAL = 0;
+    public static final int BAL = 0;
 
     /**
      * Constante que representa el hecho de que el nodo est� balanceado hacia la derecha.
      */
-    private static final int BDER = -1;
+    public static final int BDER = -1;
 
     // -----------------------------------------------------------------
     // Atributos
@@ -48,22 +48,22 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     /**
      * Elemento almacenado en el nodo
      */
-    private T elem;
+    public T elem;
 
     /**
      * Nodo a la derecha
      */
-    private NodoAVL<T> derNodo;
+    public NodoAVL<T> derNodo;
 
     /**
      * Nodo a la izquierda
      */
-    private NodoAVL<T> izqNodo;
+    public NodoAVL<T> izqNodo;
 
     /**
      * Indica el estado de balanceo del nodo
      */
-    private int balance;
+    public int balance;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -252,7 +252,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * @param retorno Objeto con la informaci�n de la nueva ra�z del �rbol y un indicador de cambio de altura
      * @throws ElementoExisteException El elemento ya existe en el �rbol
      */
-    private void auxInsertar( T pElemento, Retorno retorno ) 
+    public void auxInsertar( T pElemento, Retorno retorno ) 
     {
         // Compara el elemento con el valor almacenado en el nodo
         int resultado = elem.compareTo( pElemento );
@@ -378,7 +378,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * @param retorno Objeto con la informaci�n de la nueva ra�z del �rbol y un indicador de cambio de altura
      * @throws ElementoNoExisteException Elemento no encontrado en el �rbol
      */
-    private void auxEliminar( T pElemento, Retorno retorno ) throws ElementoNoExisteException
+    public void auxEliminar( T pElemento, Retorno retorno ) throws ElementoNoExisteException
     {
         // Compara el elemento con el valor almacenado en el nodo
         int resultado = elem.compareTo( pElemento );
@@ -420,8 +420,9 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
             // Caso 2: El elemento debe estar por la izquierda
             if( izqNodo == null )
             {
-                throw new ElementoNoExisteException( "El elemento no se encuentra en el �rbol" );
+                //throw new ElementoNoExisteException( "El elemento no se encuentra en el �rbol" );
             }
+            else{
             izqNodo.auxEliminar( pElemento, retorno );
             izqNodo = retorno.respuesta;
 
@@ -433,18 +434,20 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
             else
             {
                 retorno.respuesta = this;
-            }
+            }}
         }
         else
         {
             // Caso 3: El elemento debe estar por la derecha
             if( derNodo == null )
             {
-                throw new ElementoNoExisteException( "El elemento no se encuentra en el �rbol" );
+
+                //throw new ElementoNoExisteException( "El elemento no se encuentra en el �rbol" );
             }
+            else{
             derNodo.auxEliminar( pElemento, retorno );
             derNodo = retorno.respuesta;
-
+                }
             // Balancea si es necesario
             if( retorno.diferenciaAltura )
             {
@@ -462,7 +465,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se balance� el sub�rbol izquierdo y se actualizar�n los factores de balanceo. <br>
      * @return Nodo balanceado
      */
-    private NodoAVL<T> balanceaIzq( )
+    public NodoAVL<T> balanceaIzq( )
     {
         if( izqNodo.balance == BIZQ )
         {
@@ -499,7 +502,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se balance� el sub�rbol derecho y se actualizar�n los factores de balanceo.
      * @return Nodo balanceado
      */
-    private NodoAVL<T> balanceaDer( )
+    public NodoAVL<T> balanceaDer( )
     {
         if( derNodo.balance == BDER )
         {
@@ -536,9 +539,11 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se rot� a la izquierda un nodo y sus hijos.
      * @return El nodo rotado a la izquierda
      */
-    private NodoAVL<T> roteIzq( )
+    public NodoAVL<T> roteIzq( )
     {
         NodoAVL<T> temp = derNodo;
+        if (temp == null)
+            return null;
         derNodo = temp.izqNodo;
         temp.izqNodo = this;
         return temp;
@@ -549,9 +554,11 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se rot� a la derecha un nodo y sus hijos.
      * @return Nodo El nodo rotado a la derecha
      */
-    private NodoAVL<T> roteDer( )
+    public NodoAVL<T> roteDer( )
     {
         NodoAVL<T> temp = izqNodo;
+        if (temp == null)
+            return null;
         izqNodo = temp.derNodo;
         temp.derNodo = this;
         return temp;
@@ -562,7 +569,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se rot� a la derecha y despues a la izquierda un nodo y sus hijos.
      * @return Nodo El nodo rotado a la derecha y luego a la izquierda
      */
-    private NodoAVL<T> roteDerIzq( )
+    public NodoAVL<T> roteDerIzq( )
     {
         derNodo = derNodo.roteDer( );
         return roteIzq( );
@@ -573,7 +580,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se rot� a la izquierda y despues a la derecha un nodo y sus hijos.
      * @return Nodo El nodo rotado a la izquierda y luego a la derecha
      */
-    private NodoAVL<T> roteIzqDer( )
+    public NodoAVL<T> roteIzqDer( )
     {
         izqNodo = izqNodo.roteIzq( );
         return roteDer( );
@@ -586,7 +593,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se restableci� el balance� perdido a causa de una eliminac�n en el sub�rbol izquierdo.
      * @param retorno Estructura que contiene el �rbol resultado y una variable que me permite determinar si el nodo est� desbalanceado
      */
-    private void balanElimDer( Retorno retorno )
+    public void balanElimDer( Retorno retorno )
     {
         switch( balance )
         {
@@ -600,6 +607,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
                 retorno.respuesta = this;
                 break;
             case BDER:
+                if( derNodo != null){
                 if( derNodo.balance != BIZQ )
                 {
                     retorno.respuesta = roteIzq( );
@@ -618,6 +626,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
                 else
                 {
                     retorno.respuesta = roteDerIzq( );
+                    if( retorno.respuesta != null){
                     if( retorno.respuesta.balance == BDER )
                     {
                         retorno.respuesta.izqNodo.balance = BIZQ;
@@ -635,7 +644,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
                         retorno.respuesta.derNodo.balance = BAL;
                     }
                     retorno.respuesta.balance = BAL;
-                }
+                }}}
                 break;
         }
     }
@@ -647,11 +656,12 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se restableci� el balance� perdido a causa de una eliminac�n en el sub�rbol derecho.
      * @param retorno Estructura que contiene el �rbol resultado y una variable que me permite determinar si el nodo est� desbalanceado
      */
-    private void balanElimIzq( Retorno retorno )
+    public void balanElimIzq( Retorno retorno )
     {
         switch( balance )
         {
             case BIZQ:
+                if( izqNodo != null){
                 if( izqNodo.balance != BDER )
                 {
                     retorno.respuesta = roteDer( );
@@ -670,6 +680,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
                 else
                 {
                     retorno.respuesta = roteIzqDer( );
+                    if(retorno.respuesta != null){
                     if( retorno.respuesta.balance == BIZQ )
                     {
                         retorno.respuesta.derNodo.balance = BDER;
@@ -687,7 +698,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
                         retorno.respuesta.izqNodo.balance = BAL;
                     }
                     retorno.respuesta.balance = BAL;
-                }
+                }}}
                 break;
             case BAL:
                 balance = BIZQ;
@@ -706,7 +717,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se retorn� el nodo con el mayor elemento de un �rbol AVL.
      * @return Nodo Nodo con el mayor elemento de un �rbol AVL
      */
-    private NodoAVL<T> mayorElemento( )
+    public NodoAVL<T> mayorElemento( )
     {
         return ( derNodo == null ) ? this : derNodo.mayorElemento( );
     }
@@ -716,7 +727,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
      * <b>post: </b> Se retorn� el nodo con el menor elemento de un �rbol AVL.
      * @return Nodo Nodo con el menor elemento de un �rbol AVL
      */
-    private NodoAVL<T> menorElemento( )
+    public NodoAVL<T> menorElemento( )
     {
         return ( izqNodo == null ) ? this : izqNodo.menorElemento( );
     }
@@ -770,7 +781,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
     /**
      * Estructura para retornar la ra�z del �rbol AVL resultado de un proceso de modificaci�n, con un indicador de si su altura ha sido modificada.
      */
-    private class Retorno
+    public class Retorno
     {
         // -----------------------------------------------------------------
         // Atributos
@@ -779,12 +790,12 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
         /**
          * Ra�z del �rbol de respuesta
          */
-        private NodoAVL<T> respuesta;
+        public NodoAVL<T> respuesta;
 
         /**
          * Indicador de cambio de altura del �rbol.
          */
-        private boolean diferenciaAltura;
+        public boolean diferenciaAltura;
 
         // -----------------------------------------------------------------
         // Constructores
@@ -796,7 +807,7 @@ public class NodoAVL<T extends Comparable<? super T>> implements Serializable
          * @param pRespuesta Ra�z del �rbol de respuesta
          * @param pDiferenciaAltura Indicador de cambio de altura del �rbol
          */
-        private Retorno( NodoAVL<T> pRespuesta, boolean pDiferenciaAltura )
+        public Retorno( NodoAVL<T> pRespuesta, boolean pDiferenciaAltura )
         {
             respuesta = pRespuesta;
             diferenciaAltura = pDiferenciaAltura;

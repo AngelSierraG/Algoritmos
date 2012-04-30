@@ -85,15 +85,15 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> implements Serializ
      */
     public void eliminar( T elem ) throws ElementoNoExisteException
     {
-        if( raiz == null )
-            throw new ElementoNoExisteException( "El árbol se encuentra vacio" );
+        if( raiz != null ){
+            //throw new ElementoNoExisteException( "El árbol se encuentra vacio" );
         if( raiz.darInfoNodo( ).compareTo( elem ) == 0 && raiz.hijoDerechoHoja( ) && raiz.hijoIzquierdoHoja( ) )
             raiz = null;
         else
-        {
+        {   if (raiz.darNodo(elem) != null){
             NodoRojoNegro<T> r2 = raiz.darNodo( elem ).eliminar( );
-            raiz = r2 != null && r2.darPadre( ) == null ? r2 : raiz;
-        }
+            raiz = r2 != null && r2.darPadre( ) == null ? r2 : raiz;}
+        }}
     }
 
     /**
@@ -127,7 +127,9 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> implements Serializ
     public T buscar( T modelo )
     {
         try
-        {
+        {   
+            if (raiz.darNodo(modelo)== null)
+                return null; 
             return raiz != null ? raiz.darNodo( modelo ).darInfoNodo( ) : null;
         }
         catch( ElementoNoExisteException e )

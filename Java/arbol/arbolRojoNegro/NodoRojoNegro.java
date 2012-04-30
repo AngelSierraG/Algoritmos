@@ -331,14 +331,16 @@ public class NodoRojoNegro<T extends Comparable<? super T>> implements Serializa
             if( !hijoIzquierdoHoja( ) )
                 return hijoIzquierdo.darNodo( elem );
             else
-                throw new ElementoNoExisteException( "El elemento buscado no existe" );
+                return null;
+               // throw new ElementoNoExisteException( "El elemento buscado no existe" );
         }
         else
         {
             if( !hijoDerechoHoja( ) )
                 return hijoDerecho.darNodo( elem );
             else
-                throw new ElementoNoExisteException( "El elemento buscado no existe" );
+                return null;
+               // throw new ElementoNoExisteException( "El elemento buscado no existe" );
         }
 
     }
@@ -540,7 +542,7 @@ public class NodoRojoNegro<T extends Comparable<? super T>> implements Serializa
     {
         if( elem.compareTo( nodo.darInfoNodo( ) ) == 0 )
         {
-            throw new ElementoExisteException( "El elemento " + nodo.darInfoNodo( ).toString( ) + " ya existe en el árbol" );
+            //throw new ElementoExisteException( "El elemento " + nodo.darInfoNodo( ).toString( ) + " ya existe en el árbol" );
         }
         else if( elem.compareTo( nodo.darInfoNodo( ) ) < 0 )
         {

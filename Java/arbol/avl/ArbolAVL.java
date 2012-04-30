@@ -23,7 +23,7 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     /**
 	 * Constantes para la serializaci�n
 	 */
-	private static final long serialVersionUID = 1L;
+	public static final long serialVersionUID = 1L;
 
     // -----------------------------------------------------------------
     // Atributos
@@ -32,12 +32,12 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
     /**
      * Ra�z del �rbol AVL
      */
-    private NodoAVL<T> raiz;
+    public NodoAVL<T> raiz;
 
     /**
      * Peso del �rbol AVL
      */
-    private int peso;
+    public int peso;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -109,11 +109,11 @@ public class ArbolAVL<T extends Comparable<? super T>> implements Serializable, 
             raiz = raiz.eliminar( elemento );
             peso--;
         }
-        else
-        {
+        //else
+        //{
             // Caso 2: el �rbol es vac�o
-            throw new ElementoNoExisteException( "El elemento especificado no existe en el �rbol" );
-        }
+            //throw new ElementoNoExisteException( "El elemento especificado no existe en el �rbol" );
+        //}
     }
 
     /* (non-Javadoc)
