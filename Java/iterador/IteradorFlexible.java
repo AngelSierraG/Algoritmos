@@ -5,23 +5,23 @@ import iterador.Iterador;
 import listaEncadenada.ListaEncadenada;
 
 /**
- * Implementación de un iterador compuesto. A través de este tipo de iterador se pueden recorrer los elementos de la estructura de datos sobre la que se encuentra asociada
- * pero ésta no puede ser modificada. También se pueden agregar e insertar elementos.
+ * Implementaciï¿½n de un iterador compuesto. A travï¿½s de este tipo de iterador se pueden recorrer los elementos de la estructura de datos sobre la que se encuentra asociada
+ * pero ï¿½sta no puede ser modificada. Tambiï¿½n se pueden agregar e insertar elementos.
  * @param <T> Tipo de datos sobre los que se itera
  */
-public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<T>
+public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<T> 
 {
     // -----------------------------------------------------------------
     // Constantes
     // -----------------------------------------------------------------
 
 	/**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;	
 	
 	/**
-	 * Constante para posición del iterador por defecto
+	 * Constante para posiciï¿½n del iterador por defecto
 	 */
     private final static int NADA = -1;
 
@@ -29,7 +29,7 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
     // Atributos
     // -----------------------------------------------------------------
     /**
-     * Posición que del próximo elemento a ser visitado
+     * Posiciï¿½n que del prï¿½ximo elemento a ser visitado
      */
     private int posActual;
 
@@ -38,7 +38,7 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
     // -----------------------------------------------------------------
     /**
      * Constructor del iterador. <br>
-     * <b> post: </b> Se creó un iterador vació.
+     * <b> post: </b> Se creï¿½ un iterador vaciï¿½.
      */
     public IteradorFlexible( )
     {
@@ -47,13 +47,13 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
     }
 
     // -----------------------------------------------------------------
-    // Métodos: interface Iterador
+    // Mï¿½todos: interface Iterador
     // -----------------------------------------------------------------
 
     /**
-     * Indica si aún hay elementos sobre los cuales iterar. <br>
-     * <b>post: </b> Se retornó true si aún no se han recorrido todos los elementos o false en caso contrario.
-     * @return True si aún no se han recorrido todos los elementos o false en caso contrario
+     * Indica si aï¿½n hay elementos sobre los cuales iterar. <br>
+     * <b>post: </b> Se retornï¿½ true si aï¿½n no se han recorrido todos los elementos o false en caso contrario.
+     * @return True si aï¿½n no se han recorrido todos los elementos o false en caso contrario
      */
     public boolean haySiguiente( )
     {
@@ -62,9 +62,9 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
 
     /**
      * Retorna el elemento a ser visitado. <br>
-     * <b>pre: </b> Aún existe al menos un elemento sobre el cual iterar. <br>
-     * <b>post: </b> Se retornó el elemento a ser visitado.
-     * @return True si aún no se han recorrido todos los elementos o false en caso contrario
+     * <b>pre: </b> Aï¿½n existe al menos un elemento sobre el cual iterar. <br>
+     * <b>post: </b> Se retornï¿½ el elemento a ser visitado.
+     * @return True si aï¿½n no se han recorrido todos los elementos o false en caso contrario
      */
     public T darSiguiente( )
     {
@@ -72,10 +72,10 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
     }
     
     /**
-     * Retorna el último elemento visitado. <br>
-     * <b>pre: </b> Aún existe al menos un elemento sobre el cual retroceder. <br>
-     * <b>post: </b> Se retornó el último elemento visitado.
-     * @return El último elemento visitado o null si no hay elementos sobre los cuales retroceder.
+     * Retorna el ï¿½ltimo elemento visitado. <br>
+     * <b>pre: </b> Aï¿½n existe al menos un elemento sobre el cual retroceder. <br>
+     * <b>post: </b> Se retornï¿½ el ï¿½ltimo elemento visitado.
+     * @return El ï¿½ltimo elemento visitado o null si no hay elementos sobre los cuales retroceder.
      */
     public T darAnterior( )
     {
@@ -83,9 +83,9 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
     }
 
     /**
-     * Indica si aún hay elementos sobre los cuales retroceder. <br>
-     * <b>post: </b> Se retornó true si aún hay elementos sobre los cuales retroceder o false en caso contrario.
-     * @return True si aún hay elementos sobre los cuales retroceder o false en caso contrario
+     * Indica si aï¿½n hay elementos sobre los cuales retroceder. <br>
+     * <b>post: </b> Se retornï¿½ true si aï¿½n hay elementos sobre los cuales retroceder o false en caso contrario.
+     * @return True si aï¿½n hay elementos sobre los cuales retroceder o false en caso contrario
      */
     public boolean hayAnterior( )
     {
@@ -94,8 +94,8 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
 
 
     /**
-     * Sitúa el iterador de nuevo al inicio de la colección de datos con la que se encuentra asociado. <br>
-     * <b>post: </b> El iterador se encuentra al inicio de la colección de datos con la que se encuentra asociada.
+     * Sitï¿½a el iterador de nuevo al inicio de la colecciï¿½n de datos con la que se encuentra asociado. <br>
+     * <b>post: </b> El iterador se encuentra al inicio de la colecciï¿½n de datos con la que se encuentra asociada.
      */
     public void reiniciar( )
     {
@@ -103,12 +103,12 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
     /**
-     * Retorna la posición del próximo elemento a ser visitado. <br>
-     * <b>post: </b> Se retornó la posición del próximo elemento a ser visitado.
-     * @return La posición del próximo elemento a ser visitado
+     * Retorna la posiciï¿½n del prï¿½ximo elemento a ser visitado. <br>
+     * <b>post: </b> Se retornï¿½ la posiciï¿½n del prï¿½ximo elemento a ser visitado.
+     * @return La posiciï¿½n del prï¿½ximo elemento a ser visitado
      */
     public int darPosActual( )
     {
@@ -116,8 +116,8 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
     }
 
     /**
-     * Agrega un nuevo elemento al final del iterador. Este método hace lo mismo que insertarCola <br>
-     * <b>post: </b> Se adicionó el elemento especificado en la última posición del iterador.
+     * Agrega un nuevo elemento al final del iterador. Este mï¿½todo hace lo mismo que insertarCola <br>
+     * <b>post: </b> Se adicionï¿½ el elemento especificado en la ï¿½ltima posiciï¿½n del iterador.
      */
     public void agregar( T elem )
     {
@@ -125,8 +125,8 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
     }
 
     /**
-     * Inserta un nuevo elemento en la primera posición del iterador. Este método hace lo mismo que insertarCabeza <br>
-     * <b>post: </b> Se adicionó el elemento especificado en la primera posición del iterador. <br>
+     * Inserta un nuevo elemento en la primera posiciï¿½n del iterador. Este mï¿½todo hace lo mismo que insertarCabeza <br>
+     * <b>post: </b> Se adicionï¿½ el elemento especificado en la primera posiciï¿½n del iterador. <br>
      */
     public void insertar( T elem )
     {
@@ -135,9 +135,9 @@ public class IteradorFlexible<T> extends ListaEncadenada<T> implements Iterador<
 
     /**
      * Convierte el iterador a un String. <br>
-     * <b>post: </b> Se retornó la representación en String del iterador. El String tiene el formato "[numeroElementos]: e1-e2-e3..-en", donde e1, e2, ..., en son los
-     * elementos del iterador y numeroElementos su tamaño.
-     * @return La representación en String del iterador
+     * <b>post: </b> Se retornï¿½ la representaciï¿½n en String del iterador. El String tiene el formato "[numeroElementos]: e1-e2-e3..-en", donde e1, e2, ..., en son los
+     * elementos del iterador y numeroElementos su tamaï¿½o.
+     * @return La representaciï¿½n en String del iterador
      */
     @Override
     public String toString( )

@@ -1,6 +1,6 @@
 
 
-package colaEncadenada;
+package colaEncadenada; 
 
 /**
  * Excepci�n generada cuando se trata de tomar un elemento de una cola vac�a

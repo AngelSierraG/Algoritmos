@@ -3,23 +3,23 @@
 package iterador;
 
 /**
- * Implementación de un iterador simple. A través de este tipo de iterador sólo se pueden recorrer los elementos de la estructura de datos sobre la que se encuentra asociada
- * pero no ésta no puede ser modificada.
+ * Implementaciï¿½n de un iterador simple. A travï¿½s de este tipo de iterador sï¿½lo se pueden recorrer los elementos de la estructura de datos sobre la que se encuentra asociada
+ * pero no ï¿½sta no puede ser modificada.
  * @param <T> Tipo de datos sobre los que se itera
  */
-public class IteradorSimple<T> implements Iterador<T>
+public class IteradorSimple<T> implements Iterador<T> 
 {
     // -----------------------------------------------------------------
     // Constantes
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;	
 
 	/**
-	 * Constante para posición del iterador por defecto
+	 * Constante para posiciï¿½n del iterador por defecto
 	 */
     private final static int NADA = -1;
 
@@ -27,17 +27,17 @@ public class IteradorSimple<T> implements Iterador<T>
     // Atributos
     // -----------------------------------------------------------------
     /**
-     * Elementos sobre los que se está iterando
+     * Elementos sobre los que se estï¿½ iterando
      */
     private T[] elems;
 
     /**
-     * Posición que del próximo elemento a ser visitado
+     * Posiciï¿½n que del prï¿½ximo elemento a ser visitado
      */
     private int posActual;
 
     /**
-     * La siguiente posición libre en elems. Corresponde en realidad al número de elementos sobre los que se está iterando
+     * La siguiente posiciï¿½n libre en elems. Corresponde en realidad al nï¿½mero de elementos sobre los que se estï¿½ iterando
      */
     private int sigPosLibre;
 
@@ -46,9 +46,9 @@ public class IteradorSimple<T> implements Iterador<T>
     // -----------------------------------------------------------------
 
     /**
-     * Constructor de un iterador con el tamaño (capacidad) especificado. <br>
-     * <b> post: </b> Se creó un iterador con la capacidad especificada.<br>
-     * @param tamanio El tamaño que va a tener el iterador<br>
+     * Constructor de un iterador con el tamaï¿½o (capacidad) especificado. <br>
+     * <b> post: </b> Se creï¿½ un iterador con la capacidad especificada.<br>
+     * @param tamanio El tamaï¿½o que va a tener el iterador<br>
      */
     @SuppressWarnings("unchecked")
     public IteradorSimple( int tamanio )
@@ -59,12 +59,12 @@ public class IteradorSimple<T> implements Iterador<T>
     }
 
     // -----------------------------------------------------------------
-    // Métodos: interface Iterador
+    // Mï¿½todos: interface Iterador
     // -----------------------------------------------------------------
     /**
-     * Indica si aún hay elementos sobre los cuales iterar. <br>
-     * <b>post: </b> Se retornó true si aún no se han recorrido todos los elementos o false en caso contrario.
-     * @return True si aún no se han recorrido todos los elementos o false en caso contrario
+     * Indica si aï¿½n hay elementos sobre los cuales iterar. <br>
+     * <b>post: </b> Se retornï¿½ true si aï¿½n no se han recorrido todos los elementos o false en caso contrario.
+     * @return True si aï¿½n no se han recorrido todos los elementos o false en caso contrario
      */
     public boolean haySiguiente( )
     {
@@ -73,8 +73,8 @@ public class IteradorSimple<T> implements Iterador<T>
 
     /**
      * Retorna el elemento a ser visitado. <br>
-     * <b>pre: </b> Aún existe al menos un elemento sobre el cual iterar. <br>
-     * <b>post: </b> Se retornó el elemento a ser visitado. De no existir un siguiente se retorna null.
+     * <b>pre: </b> Aï¿½n existe al menos un elemento sobre el cual iterar. <br>
+     * <b>post: </b> Se retornï¿½ el elemento a ser visitado. De no existir un siguiente se retorna null.
      * @return El elemento a ser visitado. De no existir un siguiente se retorna null.
      */
     public T darSiguiente( )
@@ -83,10 +83,10 @@ public class IteradorSimple<T> implements Iterador<T>
     }
 
     /**
-     * Retorna el último elemento visitado. <br>
-     * <b>pre: </b> Aún existe al menos un elemento sobre el cual retroceder. <br>
-     * <b>post: </b> Se retornó el último elemento visitado.
-     * @return El último elemento visitado o null si no hay elementos sobre los cuales retroceder.
+     * Retorna el ï¿½ltimo elemento visitado. <br>
+     * <b>pre: </b> Aï¿½n existe al menos un elemento sobre el cual retroceder. <br>
+     * <b>post: </b> Se retornï¿½ el ï¿½ltimo elemento visitado.
+     * @return El ï¿½ltimo elemento visitado o null si no hay elementos sobre los cuales retroceder.
      */
     public T darAnterior( )
     {
@@ -94,9 +94,9 @@ public class IteradorSimple<T> implements Iterador<T>
     }
 
     /**
-     * Indica si aún hay elementos sobre los cuales retroceder. <br>
-     * <b>post: </b> Se retornó true si aún hay elementos sobre los cuales retroceder o false en caso contrario.
-     * @return True si aún hay elementos sobre los cuales retroceder o false en caso contrario
+     * Indica si aï¿½n hay elementos sobre los cuales retroceder. <br>
+     * <b>post: </b> Se retornï¿½ true si aï¿½n hay elementos sobre los cuales retroceder o false en caso contrario.
+     * @return True si aï¿½n hay elementos sobre los cuales retroceder o false en caso contrario
      */
     public boolean hayAnterior( )
     {
@@ -104,8 +104,8 @@ public class IteradorSimple<T> implements Iterador<T>
     }
 
     /**
-     * Sitúa el iterador de nuevo al inicio de la colección de datos con la que se encuentra asociado. <br>
-     * <b>post: </b> El iterador se encuentra al inicio de la colección de datos con la que se encuentra asociada.
+     * Sitï¿½a el iterador de nuevo al inicio de la colecciï¿½n de datos con la que se encuentra asociado. <br>
+     * <b>post: </b> El iterador se encuentra al inicio de la colecciï¿½n de datos con la que se encuentra asociada.
      */
     public void reiniciar( )
     {
@@ -113,13 +113,13 @@ public class IteradorSimple<T> implements Iterador<T>
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Agrega un nuevo elemento al final del iterador. <br>
-     * <b>post: </b> Se adicionó el elemento especificado en la última posición del iterador, y sigPosLibre= sigPosLibre+1.
-     * @throws IteradorException Si el iterador no tiene capacidad para más elementos
+     * <b>post: </b> Se adicionï¿½ el elemento especificado en la ï¿½ltima posiciï¿½n del iterador, y sigPosLibre= sigPosLibre+1.
+     * @throws IteradorException Si el iterador no tiene capacidad para mï¿½s elementos
      */
     public void agregar( T elem ) throws IteradorException
     {
@@ -128,18 +128,18 @@ public class IteradorSimple<T> implements Iterador<T>
             elems[ sigPosLibre++ ] = elem;
         }
         else
-            throw new IteradorException( "Límite del iterador alcanzado" );
+            throw new IteradorException( "Lï¿½mite del iterador alcanzado" );
     }
 
     /**
-     * Inserta un nuevo elemento en la primera posición del iterador. <br>
-     * <b>post: </b> Se adicionó el elemento especificado en la primera posición del iterador, y sigPosLibre= sigPosLibre+1. <br>
-     * @throws IteradorException Si el iterador no tiene capacidad para más elementos
+     * Inserta un nuevo elemento en la primera posiciï¿½n del iterador. <br>
+     * <b>post: </b> Se adicionï¿½ el elemento especificado en la primera posiciï¿½n del iterador, y sigPosLibre= sigPosLibre+1. <br>
+     * @throws IteradorException Si el iterador no tiene capacidad para mï¿½s elementos
      */
     public void insertar( T elem ) throws IteradorException
     {
         if( sigPosLibre >= elems.length )
-            throw new IteradorException( "Límite del iterador alcanzado" );
+            throw new IteradorException( "Lï¿½mite del iterador alcanzado" );
         // Abre espacio para el nuevo elemento
         for( int i = sigPosLibre; i > 0; i-- )
         {
@@ -151,9 +151,9 @@ public class IteradorSimple<T> implements Iterador<T>
 
     /**
      * Convierte el iterador a un String. <br>
-     * <b>post: </b> Se retornó la representación en String del iterador. El String tiene el formato "[numeroElementos]: e1-e2-e3..-en", donde e1, e2, ..., en son los
-     * elementos del iterador y numeroElementos su tamaño.
-     * @return La representación en String del iterador
+     * <b>post: </b> Se retornï¿½ la representaciï¿½n en String del iterador. El String tiene el formato "[numeroElementos]: e1-e2-e3..-en", donde e1, e2, ..., en son los
+     * elementos del iterador y numeroElementos su tamaï¿½o.
+     * @return La representaciï¿½n en String del iterador
      */
     @Override
     public String toString( )
@@ -167,9 +167,9 @@ public class IteradorSimple<T> implements Iterador<T>
     }
 
     /**
-     * Retorna la siguiente posición libre del iterador (número de elementos sobre los que se está iterando).<br>
-     * <b>post: </b> Se retornó la siguente posición libre en el iterador.
-     * @return La siguente posición libre en el iterador
+     * Retorna la siguiente posiciï¿½n libre del iterador (nï¿½mero de elementos sobre los que se estï¿½ iterando).<br>
+     * <b>post: </b> Se retornï¿½ la siguente posiciï¿½n libre en el iterador.
+     * @return La siguente posiciï¿½n libre en el iterador
      */
     public int darSigPosLibre( )
     {
@@ -177,9 +177,9 @@ public class IteradorSimple<T> implements Iterador<T>
     }
 
     /**
-     * Retorna la posición del próximo elemento a ser visitado. <br>
-     * <b>post: </b> Se retornó la posición del próximo elemento a ser visitado.
-     * @return La posición del próximo elemento a ser visitado
+     * Retorna la posiciï¿½n del prï¿½ximo elemento a ser visitado. <br>
+     * <b>post: </b> Se retornï¿½ la posiciï¿½n del prï¿½ximo elemento a ser visitado.
+     * @return La posiciï¿½n del prï¿½ximo elemento a ser visitado
      */
     public int darPosActual( )
     {
@@ -187,9 +187,9 @@ public class IteradorSimple<T> implements Iterador<T>
     }
 
     /**
-     * Retorna el tamaño del iterador (número máximo de elementos que puede recorrer). <br>
-     * <b>post: </b> Se retornó el tamaño del iterador.
-     * @return El tamaño del iterador
+     * Retorna el tamaï¿½o del iterador (nï¿½mero mï¿½ximo de elementos que puede recorrer). <br>
+     * <b>post: </b> Se retornï¿½ el tamaï¿½o del iterador.
+     * @return El tamaï¿½o del iterador
      */
     public int darLongitud( )
     {

@@ -22,7 +22,7 @@ private int put(int v[], int b, int t){
     temp=v[b];
     v[b]=v[pivote];
     v[pivote]=temp;
-    return pivote;
+    return pivote; 
 } 
  
 public void sort(int v[], int b, int t){

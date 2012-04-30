@@ -1,6 +1,6 @@
 
 
-package listaEncadenada;
+package listaEncadenada; 
 
 import java.io.Serializable;
 
@@ -17,7 +17,7 @@ public class NodoLista<T> implements Serializable, INodo<T>
     // -----------------------------------------------------------------
 
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -42,7 +42,7 @@ public class NodoLista<T> implements Serializable, INodo<T>
 
     /**
      * Constructor del nodo con el elemento especificado. <br>
-     * <b>post: </b> Se construyó el nodo con el elemento especificado, sigNodo= null, antNodo= null, elemento= pElemento.
+     * <b>post: </b> Se construyï¿½ el nodo con el elemento especificado, sigNodo= null, antNodo= null, elemento= pElemento.
      * @param pElemento Elemento del nodo
      * @param pLista Lista Encadenada a la cual pertenece el nodo
      */
@@ -54,12 +54,12 @@ public class NodoLista<T> implements Serializable, INodo<T>
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Retorna el elemento que se encuentra en el nodo. <br>
-     * <b>post: </b> Se retornó el elemento del nodo.<br>
+     * <b>post: </b> Se retornï¿½ el elemento del nodo.<br>
      * @return Elemento del nodo<br>
      */
     public T darElemento( )
@@ -69,7 +69,7 @@ public class NodoLista<T> implements Serializable, INodo<T>
 
     /**
      * Retorna el siguiente nodo en la lista. <br>
-     * <b>post: </b> Se retornó el siguiente nodo en la lista.<br>
+     * <b>post: </b> Se retornï¿½ el siguiente nodo en la lista.<br>
      * @return Siguiente nodo en la lista. Puede ser null<br>
      */
     public NodoLista<T> darSiguiente( )
@@ -79,7 +79,7 @@ public class NodoLista<T> implements Serializable, INodo<T>
 
     /**
      * Retorna el nodo anterior en la lista. <br>
-     * <b>post: </b>Se retornó el nodo anterior en la lista.<br>
+     * <b>post: </b>Se retornï¿½ el nodo anterior en la lista.<br>
      * @return Nodo anterior en la lista. Puede ser null<br>
      */
     public NodoLista<T> darAnterior( )
@@ -90,7 +90,7 @@ public class NodoLista<T> implements Serializable, INodo<T>
     /**
      * Inserta el nodo antes del actual. <br>
      * <b>pre: </b> nodo!=null. <br>
-     * <b>post: </b> Se insertó el nodo especificado antes del actual.<br>
+     * <b>post: </b> Se insertï¿½ el nodo especificado antes del actual.<br>
      * @param nodo Nodo a insertar.<br>
      */
     public void insertarAntes( NodoLista<T> nodo )
@@ -103,9 +103,9 @@ public class NodoLista<T> implements Serializable, INodo<T>
     }
 
     /**
-     * Inserta el nodo después del actual. <br>
+     * Inserta el nodo despuï¿½s del actual. <br>
      * <b>pre: </b> nodo!=null. <br>
-     * <b>post: </b> Se insertó el nodo especificado después del nodo actual.<br>
+     * <b>post: </b> Se insertï¿½ el nodo especificado despuï¿½s del nodo actual.<br>
      * @param nodo Nodo a insertar<br>
      */
     public void insertarDespues( NodoLista<T> nodo )
@@ -120,7 +120,7 @@ public class NodoLista<T> implements Serializable, INodo<T>
     /**
      * Desconecta el nodo de la lista suponiendo que es el primero. <br>
      * <b>pre: </b> El nodo es el primero de la lista. <br>
-     * <b>post: </b> Se desconectó el nodo de la lista, sigNodo= null y antNodo= null.<br>
+     * <b>post: </b> Se desconectï¿½ el nodo de la lista, sigNodo= null y antNodo= null.<br>
      * @return Nodo con el cual comienza la lista ahora<br>
      */
     public NodoLista<T> desconectarPrimero( )
@@ -154,8 +154,8 @@ public class NodoLista<T> implements Serializable, INodo<T>
 
     /**
      * Convierte el nodo a un String. <br>
-     * <b>post: </b> Se retornó la representación en String del nodo. Dicha representación corresponde a la representación en String del elemento que contiene. <br>
-     * @return La representación en String del nodo<br>
+     * <b>post: </b> Se retornï¿½ la representaciï¿½n en String del nodo. Dicha representaciï¿½n corresponde a la representaciï¿½n en String del elemento que contiene. <br>
+     * @return La representaciï¿½n en String del nodo<br>
      */
     @Override
     public String toString( )

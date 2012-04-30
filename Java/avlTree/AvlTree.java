@@ -1,9 +1,9 @@
+package avlTree;
 
+import range.*;
+import tree.*;
 
-import kiasan.examples.common.Range;
-
-
-public class AvlTree {
+public class AvlTree implements Tree{
 
   private static AvlNode doubleWithLeftChild(final AvlNode k3) {
     k3.left = AvlTree.rotateWithRightChild(k3.left);
@@ -252,7 +252,7 @@ public AvlNode remove(int x, AvlNode t) {
 		return null;
 	}
 	System.out.println("Remove starts... " + t.element + " and " + x);
-	if (x.compareTo(t.element) < 0 ) {
+	if (compareTo(x,t.element) < 0 ) {
 		t.left = remove(x,t.left);
 		int l = t.left != null ? t.left.height : 0;
 		
@@ -266,7 +266,7 @@ public AvlNode remove(int x, AvlNode t) {
 				t = doubleWithRightChild(t);
 		}
 	}
-	else if (x.compareTo(t.element) > 0) {
+	else if (compareTo(x,t.element) > 0) {
 		t.right = remove(x,t.right);
 		int r = t.right != null ? t.right.height : 0;
 		if((t.left != null) && (t.left.height - r >= 2)) {
@@ -319,5 +319,14 @@ public AvlNode remove(int x, AvlNode t) {
       return false;
     }
     return wellFormed(an.left) && wellFormed(an.right);
+  }
+  
+  private int compareTo(int x,int elem){
+	  if (x < elem)
+		  return -1;
+	  else if (x == elem)
+		  return 0;
+	  else
+		  return 1;
   }
 }

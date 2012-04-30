@@ -2,11 +2,11 @@
 
 package interadorSinMemoria;
 
-import iterador.Iterador;
+import iterador.Iterador; 
 
 /**
- * Implementación de un iterador sin memoria. A través de este tipo de iterador se pueden recorrer los elementos de la estructura de datos sobre la que se encuentra asociado,
- * manteniendo en memoria únicamente el nodo actual sobre el que se encuentra el iterador.
+ * Implementaciï¿½n de un iterador sin memoria. A travï¿½s de este tipo de iterador se pueden recorrer los elementos de la estructura de datos sobre la que se encuentra asociado,
+ * manteniendo en memoria ï¿½nicamente el nodo actual sobre el que se encuentra el iterador.
  * @param <T> Tipo de datos sobre los que se itera
  */
 public class IteradorSinMemoria<T> implements Iterador<T>
@@ -16,7 +16,7 @@ public class IteradorSinMemoria<T> implements Iterador<T>
     // -----------------------------------------------------------------
 
     /**
-     * Constante para la serialización
+     * Constante para la serializaciï¿½n
      */
     private static final long serialVersionUID = 1L;
 
@@ -35,7 +35,7 @@ public class IteradorSinMemoria<T> implements Iterador<T>
     INodo<T> primero;
 
     /**
-     * Último nodo
+     * ï¿½ltimo nodo
      */
     INodo<T> ultimo;
 
@@ -45,7 +45,7 @@ public class IteradorSinMemoria<T> implements Iterador<T>
 
     /**
      * Constructor de la clase<br>
-     * <b>pos:</b> El nodo actual y primero se han inicializado con el nodo dado por parámetro
+     * <b>pos:</b> El nodo actual y primero se han inicializado con el nodo dado por parï¿½metro
      * @param nNodo Es el nodo actual del iterador
      */
     public IteradorSinMemoria( INodo<T> nNodo )
@@ -56,7 +56,7 @@ public class IteradorSinMemoria<T> implements Iterador<T>
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /*

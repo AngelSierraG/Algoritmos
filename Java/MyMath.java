@@ -1,5 +1,5 @@
 public class MyMath{
-	static public int pow(int base,int range){
+	static public int pow(int base,int range){ 
 	int i;
 	int result;
 

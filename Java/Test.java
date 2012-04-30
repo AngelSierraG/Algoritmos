@@ -73,7 +73,7 @@ void createSemiOrderInsertSeq(){
 	//System.out.println("Insert semi ordenado: " + insert.print());
 	
 	randomInsert = false;
-	semiOrdered = true;
+	semiOrdered = true;  
 	return;
 }
 

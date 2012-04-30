@@ -1,5 +1,6 @@
 import java.util.Date;
-import arbol.*;
+//import arbol.*;
+import tree.*;
 
 public class Sequence {
 
@@ -18,7 +19,8 @@ public static void createsequence(Test t,int insertcase){
 }
 
 /* Funcion que generara la sequencia , utilizando la distintas funciones de search, eliminar, e insert elementos al arreglo*/
-public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws ElementoExisteException, ElementoNoExisteException{
+public static int dosequence(Tree tree,Test t) //throws ElementoExisteException, ElementoNoExisteException{
+{
 	int i,j,d,s;
 	long timer;
 	Date currentDate;
@@ -39,7 +41,7 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 	for(j=0,s=0,d=0; s < t.k*t.n ;){
 		for(i=0;i < t.k;i++){
 			debug.putElem(t.insert.getElem(j));
-			tree.insertar(t.insert.getElem(j++));
+			tree.insert(t.insert.getElem(j++));
 			s++;
 			}
 		
@@ -48,7 +50,7 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 		for(i=0;i < t.k;i++){
 			debug.delElem(t.del.getElem(d));
 			System.out.println("borrando " +t.del.getElem(d));
-			tree.eliminar(t.del.getElem(d++));
+			tree.delete(t.del.getElem(d++));
 			
 			s--;
 			}
@@ -56,7 +58,7 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 
 		for(i=0;i < t.k;i++){
 			debug.putElem(t.insert.getElem(j));
-			tree.insertar(t.insert.getElem(j++));
+			tree.insert(t.insert.getElem(j++));
 			s++;
 			}
 		System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
@@ -65,7 +67,7 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 
 	timer = currentDate.getTime();
 	for(s=0;s< t.n*t.k;s++){
-		tree.buscar(t.search.getElem(s));
+		tree.find(t.search.getElem(s));
 	}
 	System.out.printf("\tTiempo 2da sub secuencia = %d\n", currentDate.getTime()- timer);
 	
@@ -75,13 +77,13 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 			System.out.println("borrando " +t.del.getElem(d));
 			debug.delElem(t.del.getElem(d));
 			//System.out.println("Eliminando :" + t.del.getElem(d));
-			tree.eliminar(t.del.getElem(d++));
+			tree.delete(t.del.getElem(d++));
 			s--;
 			}
 		System.out.println("del Tengo debug " + debug.getNElems() + ":" + debug.print());
 		for(i=0;i < t.k;i++){
 			debug.putElem(t.insert.getElem(j));
-			tree.insertar(t.insert.getElem(j++));
+			tree.insert(t.insert.getElem(j++)); 
 			s++;
 			}
 		System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
@@ -89,7 +91,7 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 			System.out.println("borrando " +t.del.getElem(d));
 			debug.delElem(t.del.getElem(d));
 			//System.out.println("Eliminando :" + t.del.getElem(d));
-			tree.eliminar(t.del.getElem(d++));
+			tree.delete(t.del.getElem(d++));
 			s--;
 			}
 		System.out.println("final Tengo debug " + debug.getNElems() + ":" + debug.print());

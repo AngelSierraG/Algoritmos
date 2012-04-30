@@ -11,9 +11,9 @@ import arbol.ElementoNoExisteException;
 import arbol.IArbolOrdenado;
 
 /**
- * Implementación de un árbol 2-3
+ * Implementaciï¿½n de un ï¿½rbol 2-3
  * 
- * @param <T> Tipo de datos que contiene cada nodo del árbol. Los nodos deben implementar la interface comparable
+ * @param <T> Tipo de datos que contiene cada nodo del ï¿½rbol. Los nodos deben implementar la interface comparable
  */
 public class Arbol2_3<T extends Comparable<? super T>> implements Serializable, IArbolOrdenado<T>
 {
@@ -22,7 +22,7 @@ public class Arbol2_3<T extends Comparable<? super T>> implements Serializable, 
     // -----------------------------------------------------------------
 
 	/**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -30,12 +30,12 @@ public class Arbol2_3<T extends Comparable<? super T>> implements Serializable, 
     // Atributos
     // -----------------------------------------------------------------
     /**
-     * Raíz del árbol 2-3
+     * Raï¿½z del ï¿½rbol 2-3
      */
     private Nodo2_3<T> raiz;
 
     /**
-     * Peso del árbol 2-3
+     * Peso del ï¿½rbol 2-3
      */
     private int peso;
 
@@ -44,8 +44,8 @@ public class Arbol2_3<T extends Comparable<? super T>> implements Serializable, 
     // -----------------------------------------------------------------
 
     /**
-     * Construye un nuevo árbol vacío. <br>
-     * <b>post: </b> Se construyó un árbol vacío, con raíz null.
+     * Construye un nuevo ï¿½rbol vacï¿½o. <br>
+     * <b>post: </b> Se construyï¿½ un ï¿½rbol vacï¿½o, con raï¿½z null.
      */
     public Arbol2_3( )
     {
@@ -53,13 +53,13 @@ public class Arbol2_3<T extends Comparable<? super T>> implements Serializable, 
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Devuelve la raíz del árbol para ser navegada. <br>
-     * <b>post: </b> Se retornó la raíz del árbol.
-     * @return Raíz del árbol
+     * Devuelve la raï¿½z del ï¿½rbol para ser navegada. <br>
+     * <b>post: </b> Se retornï¿½ la raï¿½z del ï¿½rbol.
+     * @return Raï¿½z del ï¿½rbol
      */
     public Nodo2_3<T> darRaiz( )
     {
@@ -99,12 +99,12 @@ public class Arbol2_3<T extends Comparable<? super T>> implements Serializable, 
     {
         if( raiz == null )
         {
-            // Caso 1: el árbol es vacío
+            // Caso 1: el ï¿½rbol es vacï¿½o
             raiz = new Nodo2_3<T>( elemento );
         }
         else
         {
-            // Caso 2: el árbol no es vacío
+            // Caso 2: el ï¿½rbol no es vacï¿½o
             raiz = raiz.insertar( elemento );
         }
         peso++;
@@ -118,21 +118,21 @@ public class Arbol2_3<T extends Comparable<? super T>> implements Serializable, 
     {
         if( raiz != null )
         {
-            // Caso 1: el árbol no es vacío
+            // Caso 1: el ï¿½rbol no es vacï¿½o
             raiz = raiz.eliminar( elemento );
             peso--;
         }
         else
         {
-            // Caso 2: el árbol es vacío
-            throw new ElementoNoExisteException( "El elemento especificado no existe en el árbol" );
+            // Caso 2: el ï¿½rbol es vacï¿½o
+            throw new ElementoNoExisteException( "El elemento especificado no existe en el ï¿½rbol" );
         }
     }
 
     /**
-     * Devuelve los elementos del árbol en inorden. <br>
-     * <b>post: </b> Se retorno el iterador para recorrer los elementos del árbol en inorden.
-     * @return Iterador para recorrer los elementos del árbol en inorden. Diferente de null.
+     * Devuelve los elementos del ï¿½rbol en inorden. <br>
+     * <b>post: </b> Se retorno el iterador para recorrer los elementos del ï¿½rbol en inorden.
+     * @return Iterador para recorrer los elementos del ï¿½rbol en inorden. Diferente de null.
      */
     public Iterador<T> inorden( )
     {
@@ -145,8 +145,8 @@ public class Arbol2_3<T extends Comparable<? super T>> implements Serializable, 
             }
             catch( IteradorException e )
             {
-                // Nunca debería lanzar esta excepción porque el tamaño del
-                // iterador es el peso del árbol
+                // Nunca deberï¿½a lanzar esta excepciï¿½n porque el tamaï¿½o del
+                // iterador es el peso del ï¿½rbol
             }
         }
         return resultado;

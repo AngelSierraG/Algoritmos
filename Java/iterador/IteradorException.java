@@ -3,16 +3,16 @@
 package iterador;
 
 /**
- * Excepción que indica un error sobre las operaciones del iterador simple
+ * Excepciï¿½n que indica un error sobre las operaciones del iterador simple
  */
-public class IteradorException extends Exception
+public class IteradorException extends Exception 
 {
     // -----------------------------------------------------------------
     // Constantes
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;	
 	
@@ -21,8 +21,8 @@ public class IteradorException extends Exception
     // -----------------------------------------------------------------
 	
     /**
-     * Constructor de la excepción
-     * @param mensaje Mensaje de excepción
+     * Constructor de la excepciï¿½n
+     * @param mensaje Mensaje de excepciï¿½n
      */
     public IteradorException( String mensaje )
     {

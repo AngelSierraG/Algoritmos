@@ -2,11 +2,11 @@
 package interadorSinMemoria;
 
 /**
- * Métodos básicos que debe ofrecer todo nodo de cupi2 Collections, para una estructura<br>
+ * Mï¿½todos bï¿½sicos que debe ofrecer todo nodo de cupi2 Collections, para una estructura<br>
  * que use un iterador sin memoria
  * @param <T> Tipo de datos que maneja el nodo
  */
-public interface INodo<T>
+public interface INodo<T> 
 {
     /**
      * Retorna el nodo anterior

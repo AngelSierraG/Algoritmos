@@ -1,9 +1,9 @@
 
 
-package lista;
+package lista; 
 
 /**
- * Excepción que indica que el índice pasado como parámetro está fuera de rango
+ * Excepciï¿½n que indica que el ï¿½ndice pasado como parï¿½metro estï¿½ fuera de rango
  */
 public class IndiceFueraDeRangoException extends RuntimeException
 {
@@ -12,7 +12,7 @@ public class IndiceFueraDeRangoException extends RuntimeException
     // -----------------------------------------------------------------
 
     /**
-	 * Constante para serialización
+	 * Constante para serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -21,11 +21,11 @@ public class IndiceFueraDeRangoException extends RuntimeException
     // -----------------------------------------------------------------
 
 	/**
-     * Constructor de la excepción
+     * Constructor de la excepciï¿½n
      * @param valor Valor fuera de rango
      */
     public IndiceFueraDeRangoException( int valor )
     {
-        super( "Índice: " + valor );
+        super( "ï¿½ndice: " + valor );
     }
 }

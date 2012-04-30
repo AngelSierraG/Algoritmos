@@ -157,7 +157,7 @@ void sort(){
 }
 
 String print(){
-	if(nelem == 0){
+	if(nelem == 0){ 
 		return "[]";
 	}
 	String out;

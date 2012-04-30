@@ -3,28 +3,28 @@ package arbol;
 
 /**
  * Representa un arbol. 
- * @param <T> Tipo de información almacenada por el árbol.
+ * @param <T> Tipo de informaciï¿½n almacenada por el ï¿½rbol.
  */
-public interface IArbol<T>
+public interface IArbol<T> 
 {
     
     /**
-     * Retorna la altura del árbol.
-     * @return La altura del árbol.
+     * Retorna la altura del ï¿½rbol.
+     * @return La altura del ï¿½rbol.
      */
     public int darAltura();
     
     /**
-     * Retorna el número de elementos del árbol.
-     * @return El número de elementos del árbol.
+     * Retorna el nï¿½mero de elementos del ï¿½rbol.
+     * @return El nï¿½mero de elementos del ï¿½rbol.
      */
     public int darPeso();
     
     /**
-     * Busca un elemento en el árbol dado su modelo.
-     * @param modelo Descripción del elemento que se va a buscar en el árbol. Debe contener por lo menos la información mínima necesaria para que el método de comparación del
-     *        nodo pueda establecer una relación de orden.
-     * @return T elemento del árbol que corresponde al modelo o <code>null</code> si este no existe.
+     * Busca un elemento en el ï¿½rbol dado su modelo.
+     * @param modelo Descripciï¿½n del elemento que se va a buscar en el ï¿½rbol. Debe contener por lo menos la informaciï¿½n mï¿½nima necesaria para que el mï¿½todo de comparaciï¿½n del
+     *        nodo pueda establecer una relaciï¿½n de orden.
+     * @return T elemento del ï¿½rbol que corresponde al modelo o <code>null</code> si este no existe.
      */
     public T buscar(T modelo);
     

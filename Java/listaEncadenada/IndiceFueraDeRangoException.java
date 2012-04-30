@@ -1,9 +1,9 @@
 
 
 package listaEncadenada;
-
+ 
 /**
- * Excepción que indica que el índice pasado como parámetro está fuera de rango
+ * Excepciï¿½n que indica que el ï¿½ndice pasado como parï¿½metro estï¿½ fuera de rango
  */
 public class IndiceFueraDeRangoException extends RuntimeException
 {
@@ -12,7 +12,7 @@ public class IndiceFueraDeRangoException extends RuntimeException
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;	
 	
@@ -20,11 +20,11 @@ public class IndiceFueraDeRangoException extends RuntimeException
     // Constructores
     // -----------------------------------------------------------------
     /**
-     * Constructor de la excepción
-     * @param mensaje Mensaje de excepción
+     * Constructor de la excepciï¿½n
+     * @param mensaje Mensaje de excepciï¿½n
      */
     public IndiceFueraDeRangoException( int valor )
     {
-        super( "Índice: " + valor );
+        super( "ï¿½ndice: " + valor );
     }
 }

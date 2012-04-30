@@ -3,16 +3,16 @@
 package arbol;
 
 /**
- * Excepción es lanzanda cuando un elemento del árbol no es encontrado
+ * Excepciï¿½n es lanzanda cuando un elemento del ï¿½rbol no es encontrado
  */
-public class ElementoNoExisteException extends Exception
+public class ElementoNoExisteException extends Exception 
 {
 	// -----------------------------------------------------------------
     // Constantes
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 

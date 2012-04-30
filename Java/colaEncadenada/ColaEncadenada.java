@@ -2,10 +2,10 @@
 
 package colaEncadenada;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 
 /**
- * Implementación de una cola encadenada
+ * Implementaciï¿½n de una cola encadenada
  * @param <T> Tipo de datos que contiene cada nodo de la cola
  */
 public class ColaEncadenada<T> implements Serializable
@@ -15,7 +15,7 @@ public class ColaEncadenada<T> implements Serializable
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +33,7 @@ public class ColaEncadenada<T> implements Serializable
     protected NodoCola<T> ultimo;
 
     /**
-     * Número de elementos de la cola
+     * Nï¿½mero de elementos de la cola
      */
     protected int numElems;
 
@@ -42,8 +42,8 @@ public class ColaEncadenada<T> implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Constructor de la cola encadenada vacía. <br>
-     * <b>post: </b> Se construyó una cola vacía. primero==null, ultimo==null, numElems = 0<br>
+     * Constructor de la cola encadenada vacï¿½a. <br>
+     * <b>post: </b> Se construyï¿½ una cola vacï¿½a. primero==null, ultimo==null, numElems = 0<br>
      */
     public ColaEncadenada( )
     {
@@ -53,12 +53,12 @@ public class ColaEncadenada<T> implements Serializable
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
     /**
-     * Retorna la longitud de la cola (número de elementos). <br>
-     * <b>post: </b> Se retornó la longitud de la cola<br>.
-     * @return El número de elementos de la cola. Entero positivo o cero.<br>
+     * Retorna la longitud de la cola (nï¿½mero de elementos). <br>
+     * <b>post: </b> Se retornï¿½ la longitud de la cola<br>.
+     * @return El nï¿½mero de elementos de la cola. Entero positivo o cero.<br>
      */
     public int darLongitud( )
     {
@@ -67,7 +67,7 @@ public class ColaEncadenada<T> implements Serializable
 
     /**
      * Retorna el primer elemento y lo elimina de la cola. <br>
-     * <b>post: </b> Se retornó y eliminó el primer elemento de la cola. Si es el único elemento, el primero y el ultimo son null. La cantidad de los elementos se reduce en 1<br>
+     * <b>post: </b> Se retornï¿½ y eliminï¿½ el primer elemento de la cola. Si es el ï¿½nico elemento, el primero y el ultimo son null. La cantidad de los elementos se reduce en 1<br>
      * @return El primer elemento de la cola. Diferente de null<br>
      * @throws ColaVaciaException Si la cola no tiene elementos<br>
      */
@@ -88,7 +88,7 @@ public class ColaEncadenada<T> implements Serializable
 
     /**
      * Inserta un elemento al final de la cola. <br>
-     * <b>post: </b> Se agregó el elemento especificado al final de la cola. Si la cola es vacía, el primer y el ultimo elemento son iguales<br>
+     * <b>post: </b> Se agregï¿½ el elemento especificado al final de la cola. Si la cola es vacï¿½a, el primer y el ultimo elemento son iguales<br>
      * @param elemento El elemento a ser insertado. Diferente de null.<br>
      */
     public void insertar( T elemento )
@@ -108,7 +108,7 @@ public class ColaEncadenada<T> implements Serializable
 
     /**
      * Retorna el primer nodo de la cola. Sin eliminarlo<br>
-     * <b>post: </b> Se retornó el primer nodo de la cola.
+     * <b>post: </b> Se retornï¿½ el primer nodo de la cola.
      * @return El primer nodo de la cola
      */
     public NodoCola<T> darPrimero( )
@@ -117,9 +117,9 @@ public class ColaEncadenada<T> implements Serializable
     }
 
     /**
-     * Retorna el último nodo de la cola. Sin eliminarlo<br>
-     * <b>post: </b> Se retornó el último nodo de la cola.<br>
-     * @return El último nodo de la cola<br>
+     * Retorna el ï¿½ltimo nodo de la cola. Sin eliminarlo<br>
+     * <b>post: </b> Se retornï¿½ el ï¿½ltimo nodo de la cola.<br>
+     * @return El ï¿½ltimo nodo de la cola<br>
      */
     public NodoCola<T> darUltimo( )
     {
@@ -127,8 +127,8 @@ public class ColaEncadenada<T> implements Serializable
     }
 
     /**
-     * Indica si la cola se encuentra vacía (no tiene elementos). <br>
-     * <b>post: </b> Se retornó true si primero==null o false en caso contrario.<br>
+     * Indica si la cola se encuentra vacï¿½a (no tiene elementos). <br>
+     * <b>post: </b> Se retornï¿½ true si primero==null o false en caso contrario.<br>
      * @return True si primero==null o false en caso contrario<br>
      */
     public boolean estaVacia( )
@@ -138,9 +138,9 @@ public class ColaEncadenada<T> implements Serializable
 
     /**
      * Convierte la cola a un String. <br>
-     * <b>post: </b> Se retornó la representación en String de la cola. El String tiene el formato "[numeroElementos]: e1->e2->e3..->en", donde e1, e2, ..., en son los los
-     * elementos de la cola y numeroElementos su tamaño. <br>
-     * @return La representación en String de la cola
+     * <b>post: </b> Se retornï¿½ la representaciï¿½n en String de la cola. El String tiene el formato "[numeroElementos]: e1->e2->e3..->en", donde e1, e2, ..., en son los los
+     * elementos de la cola y numeroElementos su tamaï¿½o. <br>
+     * @return La representaciï¿½n en String de la cola
      */
     @Override
     public String toString( )

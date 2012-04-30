@@ -29,7 +29,7 @@ class ListaSimpleEst{
 		      	while(Actual.siguiente != UltimoNodo)
 		        	Actual = Actual.siguiente;
 		      	UltimoNodo =Actual;
-		      	Actual.siguiente = null;
+		      	Actual.siguiente = null; 
 		    }
 	 	}
 	}

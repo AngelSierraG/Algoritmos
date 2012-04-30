@@ -1,9 +1,9 @@
 
 
-package listaEncadenada;
+package listaEncadenada; 
 
 /**
- * Excepción generada cuando un elemento de la lista no es encontrado
+ * Excepciï¿½n generada cuando un elemento de la lista no es encontrado
  */
 public class NoExisteException extends Exception
 {
@@ -12,7 +12,7 @@ public class NoExisteException extends Exception
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;	
 	

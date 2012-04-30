@@ -5,7 +5,7 @@ package arbol;
  * Representa un arbol que ordene sus elementos de alguna forma.
  * @param <T> Tipo de elemento a guardar en el arbol.
  */
-public interface IArbolOrdenado<T extends Comparable<? super T>> extends IArbol<T>
+public interface IArbolOrdenado<T extends Comparable<? super T>> extends IArbol<T>  
 {
 
     /**

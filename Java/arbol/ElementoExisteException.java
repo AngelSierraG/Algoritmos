@@ -3,16 +3,16 @@
 package arbol;
 
 /**
- * Excepción es lanzada que el elemento que se va a agregar ya existe en el árbol
+ * Excepciï¿½n es lanzada que el elemento que se va a agregar ya existe en el ï¿½rbol
  */
-public class ElementoExisteException extends Exception
+public class ElementoExisteException extends Exception 
 {
 	// -----------------------------------------------------------------
     // Constantes
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 	

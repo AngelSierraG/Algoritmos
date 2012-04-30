@@ -2,7 +2,7 @@
 
 package colaEncadenada;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 
 /**
  * Nodo de la cola encadenada
@@ -15,7 +15,7 @@ public class NodoCola<T> implements Serializable
     // -----------------------------------------------------------------
 	
     /**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -37,8 +37,8 @@ public class NodoCola<T> implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Constructor por parámetros del nodo. <br>
-     * <b>post: </b> Se construyó el nodo con el elemento especificado, sigNodo=null y elemento = pElemento.<br>
+     * Constructor por parï¿½metros del nodo. <br>
+     * <b>post: </b> Se construyï¿½ el nodo con el elemento especificado, sigNodo=null y elemento = pElemento.<br>
      * @param pElemento Elemento que va a ser almacenado en el nodo. Diferente de null<br>
      */
     public NodoCola( T pElemento )
@@ -48,12 +48,12 @@ public class NodoCola<T> implements Serializable
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Retorna el elemento del nodo. <br>
-     * <b>post: </b> Se retornó el elemento contenido en el nodo.<br>
+     * <b>post: </b> Se retornï¿½ el elemento contenido en el nodo.<br>
      * @return El elemento contenido en el nodo. Diferente de null<br>
      */
     public T darElemento( )
@@ -64,7 +64,7 @@ public class NodoCola<T> implements Serializable
     /**
      * Desconecta el nodo de la cola suponiendo que es el primero. <br>
      * <b>pre: </b> El nodo actual es el primer nodo de la cola. <br>
-     * <b>post: </b> Se retornó el nodo con el cual comienza la cola ahora, sigNodo=null.<br>
+     * <b>post: </b> Se retornï¿½ el nodo con el cual comienza la cola ahora, sigNodo=null.<br>
      * @return Nodo con el cual comienza la cola ahora.<br>
      */
     public NodoCola<T> desconectarPrimero( )
@@ -77,10 +77,10 @@ public class NodoCola<T> implements Serializable
     
 
     /**
-     * Inserta el nodo especificado después del nodo actual. <br>
-     * <b>post: </b> Se insertó el nodo después del nodo actual lo que implica que sigNodo=nodo.<br>
+     * Inserta el nodo especificado despuï¿½s del nodo actual. <br>
+     * <b>post: </b> Se insertï¿½ el nodo despuï¿½s del nodo actual lo que implica que sigNodo=nodo.<br>
      * @param nodo El nodo a ser insertado<br>
-     * @return Nodo que se insertó después del nodo actual<br>
+     * @return Nodo que se insertï¿½ despuï¿½s del nodo actual<br>
      */
     public NodoCola<T> insertarDespues( NodoCola<T> nodo )
     {
@@ -90,7 +90,7 @@ public class NodoCola<T> implements Serializable
 
     /**
      * Retorna el siguiente nodo. <br>
-     * <b>post: </b> Se retornó el siguiente nodo.<br>
+     * <b>post: </b> Se retornï¿½ el siguiente nodo.<br>
      * @return El nodo siguiente<br>
      */
     public NodoCola<T> darSiguiente( )
@@ -100,8 +100,8 @@ public class NodoCola<T> implements Serializable
 
     /**
      * Convierte el nodo a un String. <br>
-     * <b>post: </b> Se retornó la representación en String del nodo. Dicha representación corresponde a la representación en String del elemento que contiene.
-     * @return La representación en String del nodo
+     * <b>post: </b> Se retornï¿½ la representaciï¿½n en String del nodo. Dicha representaciï¿½n corresponde a la representaciï¿½n en String del elemento que contiene.
+     * @return La representaciï¿½n en String del nodo
      */
     @Override
     public String toString( )

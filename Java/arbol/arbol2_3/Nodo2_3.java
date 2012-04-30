@@ -10,9 +10,9 @@ import arbol.ElementoExisteException;
 import arbol.ElementoNoExisteException;
 
 /**
- * Nodo del árbol 2-3
+ * Nodo del ï¿½rbol 2-3
  * 
- * @param <T> Tipo de datos que contiene cada nodo del árbol. Debe comprar la interface Comparable.
+ * @param <T> Tipo de datos que contiene cada nodo del ï¿½rbol. Debe comprar la interface Comparable.
  */
 public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
 {
@@ -21,7 +21,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     // -----------------------------------------------------------------
 
 	/**
-	 * Constante para la serialización
+	 * Constante para la serializaciï¿½n
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -29,27 +29,27 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     // Atributos
     // -----------------------------------------------------------------
     /**
-     * Raíz izquierda del nodo
+     * Raï¿½z izquierda del nodo
      */
     private T raizIzq;
 
     /**
-     * Raíz derecha del nodo
+     * Raï¿½z derecha del nodo
      */
     private T raizDer;
 
     /**
-     * Subárbol izquierdo
+     * Subï¿½rbol izquierdo
      */
     private Nodo2_3<T> hijoIzq;
 
     /**
-     * Subárbol central
+     * Subï¿½rbol central
      */
     private Nodo2_3<T> hijoCent;
 
     /**
-     * Subárbol derecho
+     * Subï¿½rbol derecho
      */
     private Nodo2_3<T> hijoDer;
 
@@ -59,7 +59,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Constructor del nodo con el primer elemento. <br>
-     * <b> post: </b> Se construyó el nodo con el elemento especificado.
+     * <b> post: </b> Se construyï¿½ el nodo con el elemento especificado.
      * @param obj Elemento a agregar al nodo
      */
     public Nodo2_3( T obj )
@@ -72,13 +72,13 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Devuelve la raíz izquierda del nodo. <br>
-     * <b>post: </b> Se retornó la raíz izquierda del nodo.
-     * @return Raíz izquierda del nodo.
+     * Devuelve la raï¿½z izquierda del nodo. <br>
+     * <b>post: </b> Se retornï¿½ la raï¿½z izquierda del nodo.
+     * @return Raï¿½z izquierda del nodo.
      */
     public T darRaizIzq( )
     {
@@ -86,9 +86,9 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Devuelve la raíz derecha del nodo. <br>
-     * <b>post: </b> Se retornó la raíz derecha del nodo.
-     * @return Raíz derecha del nodo
+     * Devuelve la raï¿½z derecha del nodo. <br>
+     * <b>post: </b> Se retornï¿½ la raï¿½z derecha del nodo.
+     * @return Raï¿½z derecha del nodo
      */
     public T darRaizDer( )
     {
@@ -97,7 +97,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Devuelve el hijo izquierdo del nodo.<br>
-     * <b>post: </b> Se retornó el hijo izquierdo del nodo.
+     * <b>post: </b> Se retornï¿½ el hijo izquierdo del nodo.
      * @return Hijo izquierdo del nodo
      */
     public Nodo2_3<T> darHijoIzq( )
@@ -107,7 +107,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Devuelve el Hijo central del nodo. <br>
-     * <b>post: </b> Se retornó el hijo central del nodo. <br>
+     * <b>post: </b> Se retornï¿½ el hijo central del nodo. <br>
      * @return Hijo central del nodo
      */
     public Nodo2_3<T> darHijoCent( )
@@ -117,7 +117,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Devuelve el Hijo derecho del nodo. <br>
-     * <b>post: </b> Se retornó el hijo 3 del nodo. <br>
+     * <b>post: </b> Se retornï¿½ el hijo 3 del nodo. <br>
      * @return Hijo 3 del nodo
      */
     public Nodo2_3<T> darHijoDer( )
@@ -127,7 +127,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
 
     /**
      * Indica si el nodo es una hoja.<br>
-     * <b>post: </b> Se retornó true si el nodo es una hoja o false de lo contrario. Un nodo es una hoja si sus tres hijos se encuentran en null.
+     * <b>post: </b> Se retornï¿½ true si el nodo es una hoja o false de lo contrario. Un nodo es una hoja si sus tres hijos se encuentran en null.
      * @return True si es hoja, False si no
      */
     public boolean esHoja( )
@@ -136,9 +136,9 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Informa si un elemento se encuentra presente en el árbol 2-3 cuya raíz es el nodo actual. <br>
+     * Informa si un elemento se encuentra presente en el ï¿½rbol 2-3 cuya raï¿½z es el nodo actual. <br>
      * <b>pre: </b> modelo!=null. <br>
-     * <b>post: </b> Se retorno un elemento que corresponde al modelo dado. Si ningún elemento corresponde al elemento se retorna null.
+     * <b>post: </b> Se retorno un elemento que corresponde al modelo dado. Si ningï¿½n elemento corresponde al elemento se retorna null.
      * 
      * @param modelo Modelo del elemento que se desea buscar
      * @return Elemento encontrado o null si no lo encuentra
@@ -180,9 +180,9 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Calcula la altura del árbol 2-3 cuya raíz es este nodo. <br>
-     * <b>post: </b> Se retornó la altura del árbol.
-     * @return Devuelve la altura del árbol
+     * Calcula la altura del ï¿½rbol 2-3 cuya raï¿½z es este nodo. <br>
+     * <b>post: </b> Se retornï¿½ la altura del ï¿½rbol.
+     * @return Devuelve la altura del ï¿½rbol
      */
     public int darAltura( )
     {
@@ -197,14 +197,14 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Agrega un nuevo elemento al árbol 2-3 cuya raíz el nodo actual y retorna el nodo que corresponde a la nueva raíz del árbol<br>
+     * Agrega un nuevo elemento al ï¿½rbol 2-3 cuya raï¿½z el nodo actual y retorna el nodo que corresponde a la nueva raï¿½z del ï¿½rbol<br>
      * <b>pre: </b> obj es diferente de null. <br>
      * <b>pre: </b> obj!=null. <br>
-     * <b>post: </b> Se insertó un elemento en el árbol si este no existía previamente en la estructura.
+     * <b>post: </b> Se insertï¿½ un elemento en el ï¿½rbol si este no existï¿½a previamente en la estructura.
      * 
      * @param obj != null
      * @return Nodo nuevo
-     * @throws ElementoExisteException El elemento ya existe en el árbol
+     * @throws ElementoExisteException El elemento ya existe en el ï¿½rbol
      */
     public Nodo2_3<T> insertar( T obj ) throws ElementoExisteException
     {
@@ -223,13 +223,13 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Elimina un valor dado del árbol 2-3 cuya raíz es este nodo, y retorna una referencia al nodo raíz de la estructura resultante. <br>
+     * Elimina un valor dado del ï¿½rbol 2-3 cuya raï¿½z es este nodo, y retorna una referencia al nodo raï¿½z de la estructura resultante. <br>
      * <b>pre: </b> obj!=null. <br>
-     * <b>post: </b> Se eliminó un elemento del árbol si este existía en la estructura.
+     * <b>post: </b> Se eliminï¿½ un elemento del ï¿½rbol si este existï¿½a en la estructura.
      * 
      * @param obj El objeto a ser eliminado
-     * @return Nodo resultado de la operación
-     * @throws ElementoNoExisteException Excepción generada si el elemento especificado no existe
+     * @return Nodo resultado de la operaciï¿½n
+     * @throws ElementoNoExisteException Excepciï¿½n generada si el elemento especificado no existe
      */
     public Nodo2_3<T> eliminar( T obj ) throws ElementoNoExisteException
     {
@@ -237,11 +237,11 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Devuelve los elementos del árbol en inorden. <br>
+     * Devuelve los elementos del ï¿½rbol en inorden. <br>
      * <b>pre: </b> resultado!=null. <br>
-     * <b>post: </b> Se retorno un vector con el recorrido en inorden del árbol.
+     * <b>post: </b> Se retorno un vector con el recorrido en inorden del ï¿½rbol.
      * 
-     * @param resultado Vector con los elementos del árbol en inorden
+     * @param resultado Vector con los elementos del ï¿½rbol en inorden
      */
     public void inorden( IteradorSimple<T> resultado ) throws IteradorException
     {
@@ -269,15 +269,15 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Inserta el objeto en el árbol, sin aumentar de altura. Si debe aumentar de altura retorna true, y en la estructura de retorno, envía los dos árboles 2-3 que deben
-     * subir, y la raíz del nuevo nivel. <br>
-     * <b>post: </b> Se insertó un elemento en el árbol si este no existía previamente en la estructura. Se retornó true si se tuvo que aumentar la altura o false de lo
+     * Inserta el objeto en el ï¿½rbol, sin aumentar de altura. Si debe aumentar de altura retorna true, y en la estructura de retorno, envï¿½a los dos ï¿½rboles 2-3 que deben
+     * subir, y la raï¿½z del nuevo nivel. <br>
+     * <b>post: </b> Se insertï¿½ un elemento en el ï¿½rbol si este no existï¿½a previamente en la estructura. Se retornï¿½ true si se tuvo que aumentar la altura o false de lo
      * contrario.
      * 
      * @param elemento Elemento a insertar
-     * @param ret Retorno de la operación
+     * @param ret Retorno de la operaciï¿½n
      * @return True si debe aumentar altura, False si no
-     * @throws ElementoExisteException Excepción generada si el elemento especificado ya existe en el árbol.
+     * @throws ElementoExisteException Excepciï¿½n generada si el elemento especificado ya existe en el ï¿½rbol.
      */
     private boolean auxInsertar( T elemento, Retorno ret ) throws ElementoExisteException
     {
@@ -288,7 +288,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
         // Verifica que el elemento que llega no se encuentre en el nodo
         if( resultado1 == 0 || ( raizDer != null && resultado2 == 0 ) )
         {
-            throw new ElementoExisteException( "El elemento ya existe en el árbol" );
+            throw new ElementoExisteException( "El elemento ya existe en el ï¿½rbol" );
         }
         else if( esHoja( ) )
         {
@@ -309,9 +309,9 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Inserta un elemento en una hoja del árbol. Si debe aumentar de altura retorna true, y en la estructura de retorno envía los dos nodos en los que se dividió la hoja y la
-     * raíz del nuevo nivel. <br>
-     * <b>post: </b> Se insertó un elemento en el árbol si este no existía previamente en la estructura. Se retornó true si se debe aumentar la altura o false de lo contrario.
+     * Inserta un elemento en una hoja del ï¿½rbol. Si debe aumentar de altura retorna true, y en la estructura de retorno envï¿½a los dos nodos en los que se dividiï¿½ la hoja y la
+     * raï¿½z del nuevo nivel. <br>
+     * <b>post: </b> Se insertï¿½ un elemento en el ï¿½rbol si este no existï¿½a previamente en la estructura. Se retornï¿½ true si se debe aumentar la altura o false de lo contrario.
      * 
      * @param elemento Elemento a insertar
      * @param ret Variable de retorno
@@ -322,7 +322,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
         if( raizDer == null )
         {
             // Caso 1: hay espacio en el nodo: no hay que aumentar un nivel.
-            // Basta con ordenar las raíces
+            // Basta con ordenar las raï¿½ces
             if( elemento.compareTo( raizIzq ) < 0 )
             {
                 raizDer = raizIzq;
@@ -339,7 +339,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
             // Caso 2: no hay espacio en el nodo y se debe partir
             if( elemento.compareTo( raizIzq ) < 0 )
             {
-                // Sube la raíz 1
+                // Sube la raï¿½z 1
                 ret.val = raizIzq;
                 ret.izq = new Nodo2_3<T>( elemento );
                 raizIzq = raizDer;
@@ -357,7 +357,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
             }
             else
             {
-                // Sube la raíz 2
+                // Sube la raï¿½z 2
                 ret.val = raizDer;
                 ret.der = new Nodo2_3<T>( elemento );
                 raizDer = null;
@@ -368,8 +368,8 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * La inserción se hizo sobre el primer subárbol, vienen subiendo en la estructura de retorno un elemento y dos subárboles. <br>
-     * <b>post: </b> Se retornó true si se debe aumentar la altura del árbol o false de lo contrario.
+     * La inserciï¿½n se hizo sobre el primer subï¿½rbol, vienen subiendo en la estructura de retorno un elemento y dos subï¿½rboles. <br>
+     * <b>post: </b> Se retornï¿½ true si se debe aumentar la altura del ï¿½rbol o false de lo contrario.
      * 
      * @param ret Variable de retorno
      * @return True si debe aumentar la altura, False si no
@@ -406,8 +406,8 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * La inserción se hizo sobre el segundo subárbol, vienen subiendo en la estructura de retorno un elemento y dos subárboles. <br>
-     * <b>post: </b> True si se debe aumentar la altura del árbol o false de lo contrario.
+     * La inserciï¿½n se hizo sobre el segundo subï¿½rbol, vienen subiendo en la estructura de retorno un elemento y dos subï¿½rboles. <br>
+     * <b>post: </b> True si se debe aumentar la altura del ï¿½rbol o false de lo contrario.
      * 
      * @param ret Variable de retorno
      * @return True si debe aumentar la altura, False si no
@@ -438,8 +438,8 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * La inserción se hizo sobre el tercer subárbol, vienen subiendo en la estructura de retorno un elemento y dos subárboles. <br>
-     * <b>post: </b> Se retornó true si se debe aumentar la altura del árbol o false de lo contrario.
+     * La inserciï¿½n se hizo sobre el tercer subï¿½rbol, vienen subiendo en la estructura de retorno un elemento y dos subï¿½rboles. <br>
+     * <b>post: </b> Se retornï¿½ true si se debe aumentar la altura del ï¿½rbol o false de lo contrario.
      * @param ret Variable de retorno
      * @return True si debe aumentar la altura, False si no
      */
@@ -458,12 +458,12 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Elimina un elemento del árbol 2-3. Retorna true si el árbol resultado ha perdido un nivel. <br>
+     * Elimina un elemento del ï¿½rbol 2-3. Retorna true si el ï¿½rbol resultado ha perdido un nivel. <br>
      * <b>pre: </b> obj!=null. <br>
-     * <b>post: </b> Se retornó si la altura del árbol disminuye o false de lo contrario.
+     * <b>post: </b> Se retornï¿½ si la altura del ï¿½rbol disminuye o false de lo contrario.
      * 
      * @param obj Elemento a eliminar
-     * @return True si la altura cambió, False si no
+     * @return True si la altura cambiï¿½, False si no
      * @throws ElementoNoExisteException El elemento especificado no existe en el nodo
      */
     private boolean auxEliminar( T obj ) throws ElementoNoExisteException
@@ -519,15 +519,15 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
             return hijoDer.auxEliminar( obj ) ? restaurarHijoDer( ) : false;
         }
         else
-            throw new ElementoNoExisteException( "El elemento especificado no existe en el árbol" );
+            throw new ElementoNoExisteException( "El elemento especificado no existe en el ï¿½rbol" );
 
     }
 
     /**
-     * Retorna el menor elemento del árbol 2-3 cuya raíz es este nodo. <br>
-     * <b>post: </b> Se retornó el menor elemento del árbol cuya raíz es este nodo.
+     * Retorna el menor elemento del ï¿½rbol 2-3 cuya raï¿½z es este nodo. <br>
+     * <b>post: </b> Se retornï¿½ el menor elemento del ï¿½rbol cuya raï¿½z es este nodo.
      * 
-     * @return Menor elemento del árbol
+     * @return Menor elemento del ï¿½rbol
      */
     private T calcularMenorElem( )
     {
@@ -538,8 +538,8 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Se ha eliminado un elemento del hijo 1, y por esta razón se ha perdido altura. Debe rebalancear la información del nodo actual. <br>
-     * <b>post: </b> Se retornó true si es necesario rebalancear el árbol o false de lo contrario
+     * Se ha eliminado un elemento del hijo 1, y por esta razï¿½n se ha perdido altura. Debe rebalancear la informaciï¿½n del nodo actual. <br>
+     * <b>post: </b> Se retornï¿½ true si es necesario rebalancear el ï¿½rbol o false de lo contrario
      * 
      * @return True si debe continuar rebalanceando, False si no
      */
@@ -563,8 +563,8 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Se ha eliminado un elemento del hijo 2, y por esa razón se ha perdido altura. Debe rebalancear la información del nodo actual. <br>
-     * <b>post: </b> Se retornó true si es necesario rebalancear el árbol o false de lo contrario.
+     * Se ha eliminado un elemento del hijo 2, y por esa razï¿½n se ha perdido altura. Debe rebalancear la informaciï¿½n del nodo actual. <br>
+     * <b>post: </b> Se retornï¿½ true si es necesario rebalancear el ï¿½rbol o false de lo contrario.
      * 
      * @return True si debe continuar rebalanceando, False si no
      */
@@ -608,8 +608,8 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     }
 
     /**
-     * Se ha eliminado un elemento del hijo 3, y por esta razón se ha perdido altura. Debe rebalancear la información del nodo actual. <br>
-     * <b>post: </b> Se retornó true si es necesario rebalancear el árbol o false de lo contrario.
+     * Se ha eliminado un elemento del hijo 3, y por esta razï¿½n se ha perdido altura. Debe rebalancear la informaciï¿½n del nodo actual. <br>
+     * <b>post: </b> Se retornï¿½ true si es necesario rebalancear el ï¿½rbol o false de lo contrario.
      * 
      * @return True si debe continuar rebalanceando, False si no
      */
@@ -639,7 +639,7 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
     // -----------------------------------------------------------------
 
     /**
-     * Contiene dos nodos de árbol 2-3, que vienen desplazándose como parte del proceso de modificación
+     * Contiene dos nodos de ï¿½rbol 2-3, que vienen desplazï¿½ndose como parte del proceso de modificaciï¿½n
      */
     private class Retorno
     {
@@ -652,12 +652,12 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
         private T val;
 
         /**
-         * Nodo izquierdo desplazándose
+         * Nodo izquierdo desplazï¿½ndose
          */
         private Nodo2_3<T> izq;
 
         /**
-         * Nodo derecho desplazándose
+         * Nodo derecho desplazï¿½ndose
          */
         private Nodo2_3<T> der;
 
