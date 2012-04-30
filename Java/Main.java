@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import arbol.avl.*; 
 import arbol.arbolRojoNegro.*; 
 import arbol.*;
@@ -9,6 +10,13 @@ import lista.*;
 import colaEncadenada.*;
 import interadorSinMemoria.*;
 import listaEncadenada.*;
+=======
+import arbol.*;
+import arbol.avl.*;
+import arbol.arbol2_3.*;
+import arbol.arbolB.*;
+import arbol.arbolRojoNegro.*;
+>>>>>>> 17318ba776d3d8836c51666ac2969019093bbef2
 
 public class Main {
 static final int cAVL=0;
@@ -80,14 +88,10 @@ public static void main(String[] args) throws ElementoExisteException, ElementoN
 
 	tree = new ArbolAVL<Integer>();
 	//tree = new AvlTree();
-
-	//type = cAVL;
-	//System.out.printf("Testing init:\n");
 	treeTest(tree,n,range,k,insertcase);
 	
-	//freeAVL(avl);
-
 	/*ARB TESTING*/
+<<<<<<< HEAD
 	System.out.printf("Testeando ARB:\n");
 
 	tree = new ArbolRojoNegro<Integer>();
@@ -101,28 +105,21 @@ public static void main(String[] args) throws ElementoExisteException, ElementoN
 
 	/*ARB TESTING*/
 	/*
+=======
+>>>>>>> 17318ba776d3d8836c51666ac2969019093bbef2
 	System.out.printf("testeando ARB:\n");
-	tree=(ARB *)newARB();
-	type = cARB;
-	treeTest(n,range,k,insertcase);
-	freeARB(tree);
+	tree= new ArbolRojoNegro();
+	treeTest(tree,n,range,k,insertcase);
 
 	/*A23 TESTING*/
-	/*
 	System.out.printf("testeando A23:\n");
-	tree=(A23 *)newA23();
-	type = cA23;
-	treeTest(n,range,k,insertcase);
-	freeA23(tree);
+	tree= new Arbol2_3();
+	treeTest(tree,n,range,k,insertcase);
 
 	/*AB TESTING*/
-	/*
 	System.out.printf("testeando AB:\n");
-	tree=(AB *)newAB();
-	type = cAB;
-	treeTest(n,range,k,insertcase);
-	freeAB(tree);
-	*/
+	tree= new ArbolB(256);
+	treeTest(tree,n,range,k,insertcase);
 
 	return;
 }
