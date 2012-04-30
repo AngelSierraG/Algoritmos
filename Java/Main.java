@@ -1,5 +1,5 @@
 import arbol.avl.*; 
-//import arbol.*;
+import arbol.*;
 import tree.*;
 import avlTree.*;
 
@@ -13,7 +13,7 @@ static final int case2=1;
 static final int case3=2;
 static final int case4=3;
 
-private static void treeTest(Tree tree,int n[],int range[],int k[],int[] insertcase) //throws ElementoExisteException, ElementoNoExisteException{
+private static void treeTest(IArbolOrdenado<Integer> tree,int n[],int range[],int k[],int[] insertcase) throws ElementoExisteException, ElementoNoExisteException //throws ElementoExisteException, ElementoNoExisteException{
 {
 	int i,j,r,l;
 	for(i=0; i<2 ; i++){
@@ -32,11 +32,11 @@ private static void treeTest(Tree tree,int n[],int range[],int k[],int[] insertc
 	return;
 }
 
-public static void main(String[] args) //throws ElementoExisteException, ElementoNoExisteException {
+public static void main(String[] args) throws ElementoExisteException, ElementoNoExisteException //throws ElementoExisteException, ElementoNoExisteException {
 {
 	int n[],range[],insertcase[],k[];
-	//IArbolOrdenado<Integer> tree;
-	Tree tree;
+	IArbolOrdenado<Integer> tree;
+	//Tree tree;
 
 	n = new int[2];
 	range = new int[2];
@@ -71,8 +71,8 @@ public static void main(String[] args) //throws ElementoExisteException, Element
 	/*AVL TESTING*/
 	System.out.printf("Testeando AVL:\n");
 
-	//tree = new ArbolAVL<Integer>();
-	tree = new AvlTree();
+	tree = new ArbolAVL<Integer>();
+	//tree = new AvlTree();
 
 	//type = cAVL;
 	//System.out.printf("Testing init:\n");

@@ -1,4 +1,8 @@
 import java.util.Date;
+
+import arbol.ElementoExisteException;
+import arbol.ElementoNoExisteException;
+import arbol.IArbolOrdenado;
 //import arbol.*;
 import tree.*;
 
@@ -19,7 +23,8 @@ public static void createsequence(Test t,int insertcase){
 }
 
 /* Funcion que generara la sequencia , utilizando la distintas funciones de search, eliminar, e insert elementos al arreglo*/
-public static int dosequence(Tree tree,Test t) //throws ElementoExisteException, ElementoNoExisteException{
+public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws ElementoExisteException //throws ElementoExisteException, ElementoNoExisteException{
+, ElementoNoExisteException
 {
 	int i,j,d,s;
 	long timer;
@@ -41,7 +46,7 @@ public static int dosequence(Tree tree,Test t) //throws ElementoExisteException,
 	for(j=0,s=0,d=0; s < t.k*t.n ;){
 		for(i=0;i < t.k;i++){
 			debug.putElem(t.insert.getElem(j));
-			tree.insert(t.insert.getElem(j++));
+			tree.insertar(t.insert.getElem(j++));
 			s++;
 			}
 		
@@ -50,7 +55,7 @@ public static int dosequence(Tree tree,Test t) //throws ElementoExisteException,
 		for(i=0;i < t.k;i++){
 			debug.delElem(t.del.getElem(d));
 			System.out.println("borrando " +t.del.getElem(d));
-			tree.delete(t.del.getElem(d++));
+			tree.eliminar(t.del.getElem(d++));
 			
 			s--;
 			}
@@ -58,7 +63,7 @@ public static int dosequence(Tree tree,Test t) //throws ElementoExisteException,
 
 		for(i=0;i < t.k;i++){
 			debug.putElem(t.insert.getElem(j));
-			tree.insert(t.insert.getElem(j++));
+			tree.insertar(t.insert.getElem(j++));
 			s++;
 			}
 		System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
@@ -67,7 +72,7 @@ public static int dosequence(Tree tree,Test t) //throws ElementoExisteException,
 
 	timer = currentDate.getTime();
 	for(s=0;s< t.n*t.k;s++){
-		tree.find(t.search.getElem(s));
+		tree.buscar(t.search.getElem(s));
 	}
 	System.out.printf("\tTiempo 2da sub secuencia = %d\n", currentDate.getTime()- timer);
 	
@@ -77,13 +82,13 @@ public static int dosequence(Tree tree,Test t) //throws ElementoExisteException,
 			System.out.println("borrando " +t.del.getElem(d));
 			debug.delElem(t.del.getElem(d));
 			//System.out.println("Eliminando :" + t.del.getElem(d));
-			tree.delete(t.del.getElem(d++));
+			tree.eliminar(t.del.getElem(d++));
 			s--;
 			}
 		System.out.println("del Tengo debug " + debug.getNElems() + ":" + debug.print());
 		for(i=0;i < t.k;i++){
 			debug.putElem(t.insert.getElem(j));
-			tree.insert(t.insert.getElem(j++)); 
+			tree.insertar(t.insert.getElem(j++)); 
 			s++;
 			}
 		System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
@@ -91,7 +96,7 @@ public static int dosequence(Tree tree,Test t) //throws ElementoExisteException,
 			System.out.println("borrando " +t.del.getElem(d));
 			debug.delElem(t.del.getElem(d));
 			//System.out.println("Eliminando :" + t.del.getElem(d));
-			tree.delete(t.del.getElem(d++));
+			tree.eliminar(t.del.getElem(d++));
 			s--;
 			}
 		System.out.println("final Tengo debug " + debug.getNElems() + ":" + debug.print());
