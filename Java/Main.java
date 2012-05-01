@@ -37,7 +37,7 @@ private static void treeTest(IArbolOrdenado<Integer> tree,int n[],int range[],in
 		//System.out.printf("Creando test\n");
 		Test t = new Test(n[j],k[r],range[i]);
 		for(l=0 ; l<4 ; l++){
-			System.out.printf("Testeando arbol con: k=%d\tn=%s\trango=%s\tcaso de insercion =%d\n",k[r],n[j],range[i],insertcase[l]);
+			//System.out.printf("Testeando arbol con: k=%d\tn=%s\trango=%s\tcaso de insercion =%d\n",k[r],n[j],range[i],insertcase[l]);
 			Sequence.createsequence(t,insertcase[l]);
 			Sequence.dosequence(tree,t);
 			t.u.restart();

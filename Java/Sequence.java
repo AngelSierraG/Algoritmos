@@ -11,13 +11,13 @@ public class Sequence {
 public static void createsequence(Test t,int insertcase){
 	t.createSequence(t,insertcase);
 	
-	System.out.println("Secuencias Creadas!");
+	//System.out.println("Secuencias Creadas!");
 	
-	System.out.println("Insert " + t.insert.getNElems() + ":" + t.insert.print());
+	//System.out.println("Insert " + t.insert.getNElems() + ":" + t.insert.print());
 	
-	System.out.println("Search " + t.search.getNElems() + ":"  + t.search.print());
+	//System.out.println("Search " + t.search.getNElems() + ":"  + t.search.print());
 	
-	System.out.println("Delete " + t.del.getNElems() + ":" +  t.del.print());
+	//System.out.println("Delete " + t.del.getNElems() + ":" +  t.del.print());
 
 	return;
 }
@@ -50,23 +50,23 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 			s++;
 			}
 		
-		System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
+	//	System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
 
 		for(i=0;i < t.k;i++){
 			debug.delElem(t.del.getElem(d));
-			System.out.println("borrando " +t.del.getElem(d));
+	//		System.out.println("borrando " +t.del.getElem(d));
 			tree.eliminar(t.del.getElem(d++));
 			
 			s--;
 			}
-		System.out.println("del Tengo debug " + debug.getNElems() + ":" + debug.print());
+	//	System.out.println("del Tengo debug " + debug.getNElems() + ":" + debug.print());
 
 		for(i=0;i < t.k;i++){
 			debug.putElem(t.insert.getElem(j));
 			tree.insertar(t.insert.getElem(j++));
 			s++;
 			}
-		System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
+	//	System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
 	}
 	System.out.printf("\tTiempo 1era sub secuencia = %d\n", currentDate.getTime()- timer);
 
@@ -79,27 +79,27 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 	timer = currentDate.getTime();
 	for(s = t.k*t.n - 1; s >= 0 ; ){
 		for(i=0;i < t.k;i++){
-			System.out.println("borrando " +t.del.getElem(d));
+	//		System.out.println("borrando " +t.del.getElem(d));
 			debug.delElem(t.del.getElem(d));
 			//System.out.println("Eliminando :" + t.del.getElem(d));
 			tree.eliminar(t.del.getElem(d++));
 			s--;
 			}
-		System.out.println("del Tengo debug " + debug.getNElems() + ":" + debug.print());
+	//	System.out.println("del Tengo debug " + debug.getNElems() + ":" + debug.print());
 		for(i=0;i < t.k;i++){
 			debug.putElem(t.insert.getElem(j));
 			tree.insertar(t.insert.getElem(j++)); 
 			s++;
 			}
-		System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
+	//	System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
 		for(i=0;i < t.k;i++){
-			System.out.println("borrando " +t.del.getElem(d));
+	//		System.out.println("borrando " +t.del.getElem(d));
 			debug.delElem(t.del.getElem(d));
 			//System.out.println("Eliminando :" + t.del.getElem(d));
 			tree.eliminar(t.del.getElem(d++));
 			s--;
 			}
-		System.out.println("final Tengo debug " + debug.getNElems() + ":" + debug.print());
+	//	System.out.println("final Tengo debug " + debug.getNElems() + ":" + debug.print());
 	}
 	System.out.printf("\tTiempo 3era sub secuencia = %d\n\n", currentDate.getTime()- timer);
 
