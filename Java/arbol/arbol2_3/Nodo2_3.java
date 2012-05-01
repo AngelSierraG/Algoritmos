@@ -2,7 +2,7 @@
 
 package arbol.arbol2_3;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 
 import iterador.IteradorException;
 import iterador.IteradorSimple;

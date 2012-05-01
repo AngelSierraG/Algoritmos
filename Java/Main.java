@@ -38,9 +38,9 @@ private static void treeTest(IArbolOrdenado<Integer> tree,String type[],int n[],
 	for(i=0; i<2 ; i++){
 	for(j=0; j<2 ; j++){
 	for(r=0; r<3 ; r++){
-	for(m=0; m<4 ; m++){
+	for(m=0; m<4 ; m++){ 
 	for(l=0 ; l<4 ; l++){
-		if(m == 2)
+		if(j != 1)
 			continue;
 		
 		System.out.printf("%s con: k=%d  n=%s\trango=%s\tcaso de insercion=%d\t",type[m],k[r],n[j],range[i],insertcase[l]);
@@ -87,9 +87,9 @@ public static void main(String[] args) throws ElementoExisteException, ElementoN
 	range[1] = MyMath.pow(2,24);
 
 	n[0] = MyMath.pow(2,11);
-	//n[0] = 5;
-	n[1] = MyMath.pow(2,19);
-	//n[1] = 8;
+	//n[1] = MyMath.pow(2,19);
+	n[1] = MyMath.pow(2,16);
+	
 
 	k[0] = 3;
 	k[1] = 5;

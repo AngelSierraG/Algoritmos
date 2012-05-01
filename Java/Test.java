@@ -7,7 +7,7 @@ static final int case1=0;
 static final int case2=1;
 static final int case3=2;
 static final int case4=3;
-boolean randomInsert,semiOrdered, needToCreate,needToGrow;
+boolean needToCreate,needToGrow,needToRepeat,needToMinimize,needToExit;
 /*CASE1
 Los elementos a insert son escogidos al azar uniformemente del universo,
  y los a delete,al azar uniformemente del conjunto ya insertado en la estructura
@@ -31,32 +31,36 @@ public Test(){
 	del=null;
 	search=null;
 	needToCreate= false;
-	randomInsert = false;
-	semiOrdered = false;
 	needToGrow = false;
+	needToRepeat = false;
+	needToMinimize = false;
 }
 
 public void setTest(int n2,int k2,int range2){ 
-	if (range2 > range)
+	if (range2 > range){
 		u= new Universe(range2);
-	if(k != k2 || n != n2){
+		/*
 		this.insert = new Array(k2 * n2 * 3);
 		this.del = new Array(k2 * n2 * 3);
 		this.search = new Array(k2*n2);
+		*/
+		this.insert = new Array(n2);
+		this.del = new Array(3*k2*n2);
+		this.search = new Array(n2);
+
+		needToCreate = true;
 	}
-
-	if(range2> range)
-		this.needToCreate = false;
-
-	if(k!=k2 || n>n2)
+	if(n < n2)
 		this.needToGrow = true;
+	if(k2 < k)
+		this.needToMinimize = true;
 	
 	this.n = n2;
 	this.k = k2;
-	this.range = range2;
+	this.range = range2; 
 	
-	this.randomInsert = false;
-	this.semiOrdered = false;
+	//this.randomInsert = false;
+	//this.semiOrdered = false;
 	
 	//System.out.println("insert:" + insert.print());
 }
@@ -70,10 +74,12 @@ public Test(int n2,int k2,int range2){
 	insert = new Array(k2 * n2 * 3);
 	del = new Array(k2 * n2 * 3);
 	search = new Array(k2*n2);
-	randomInsert = false;
-	semiOrdered = false;
+	//randomInsert = false;
+	//semiOrdered = false;
 	needToGrow = true;
 	needToCreate = false;
+	needToRepeat = false;
+	needToMinimize = false;
 	//return this;
 }
 
@@ -93,7 +99,6 @@ void createRandomInsertSeq(){
 		insert.putElem(i,number);
 		}
 		needToCreate = false;
-		randomInsert = true;
 		return;
 	}
 	else if(!needToCreate && needToGrow){
@@ -103,11 +108,9 @@ void createRandomInsertSeq(){
 		insert.putElem(i,number);
 		}
 		needToGrow = false;
-		randomInsert = true;
 		return;
 	}
 	else if(!needToCreate && !needToGrow){
-		return;
 
 	}
 }
@@ -149,70 +152,67 @@ void handleDelSeqCase(Array tengo,int seqcase){
 	}
 	return;
 }
+
+private void checkBounds(Array tengo,int _case){
+	if(_case == 0){ /*inser*/
+		if(tengo.isFull())
+			needToExit = true;
+	}
+	else if(_case == 1){/*borrar*/
+		if(tengo.isEmpty())
+			needToExit = true;
+	}
+}
+
 public void createSequence(int seqcase){
 	int i,j,s,auxelem;
 	Array tengo;
+	boolean needToExit;
+
 	del.setNElem(0);
 	search.setNElem(0);
 	
-	tengo = new Array(k * n);
+	tengo = new Array(k*n);
 	handleInsertSeqCase(seqcase);
 
-	for(j=0,s=0; s< k*n ;){
+	for(j=0,s=0; s< n ;){
 		for(i=0;i < k;i++){
-			////System.out.println("Insertando en tengo n=" + insert.getElem(j));
-			tengo.putElem(insert.getElem(j++));
+			tengo.putElem(insert.getElem(j++ % n));
 			s++;
 		}
 		handleDelSeqCase(tengo,seqcase);
-		//tengo.shuffle(tengo.getNElems()/2);
-		
-		
 		for(i=0;i < k;i++){
-			//System.out.println("Tengo " + tengo.getNElems() + ":" + tengo.print());
-			
-			//System.out.println(tengo.getElem(0));
-			
 			auxelem = tengo.getElem(0);
 			del.putElem(auxelem);
-			//System.out.println("poniendo en del :" + auxelem);
 			tengo.delElemIndex(0);
 			s--;
 		}
 		for(i=0;i < k;i++){
-			////System.out.println("Insertando en tengo n=" + insert.getElem(j));
-			tengo.putElem(insert.getElem(j++));
+			tengo.putElem(insert.getElem(j++ % n));
 			s++;
 			}
 	}
-	//handleDelSeqCase(tengo,seqcase);
 	tengo.shuffle(tengo.getNElems()/2);
-	for(s=0;s< n*k;s++){
-		////System.out.println("Insertando en search n=" + tengo.getElem(s));
+	for(s=0;s< n;s++){
 		search.putElem(tengo.getElem(s));
 	}
 	
-	for(s=k*n-1;s>=0 ;){
+	for(s=n-1;s>=0 ;){
 		handleDelSeqCase(tengo,seqcase);
-		//tengo.shuffle(tengo.getNElems()/2);
 		for(i=0;i < k;i++){
 			auxelem = tengo.getElem(0);
 			del.putElem(auxelem);
-			////System.out.println("Borrando en tengo n=" + auxelem);
 			tengo.delElemIndex(0);
 			s--;
 		}
 		for(i=0;i < k;i++){
-			////System.out.println("Insertando en tengo n=" + insert.getElem(j));
-			tengo.putElem(insert.getElem(j++));
+			tengo.putElem(insert.getElem(j++ % n));
 			s++;
 		}
-		//tengo.shuffle(tengo.getNElems()/2);
 		handleDelSeqCase(tengo,seqcase);
 		for(i=0;i < k;i++){
 			auxelem = tengo.getElem(0);
 			del.putElem(auxelem);
-			////System.out.println("Borrando en tengo n=" + auxelem);
 			tengo.delElemIndex(0);
 			s--;
 		}

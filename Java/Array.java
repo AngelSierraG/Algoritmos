@@ -7,7 +7,7 @@ public class Array {
 private int values[];
 private int length;
 private int nelem;
-private Date currentDate;
+private Date currentDate; 
 private Random generator;
 private SortingA s;
 
@@ -25,13 +25,6 @@ public Array(int len){
 
 public void setNElem(int elem){
 	nelem = elem;
-}
-
-public boolean isEmpty(){
-	if (length == 0)
-		return true;
-	else
-		return false;
 }
 
 private boolean checkIndex(int k){
@@ -174,4 +167,17 @@ String print(){
 	return out;
 }
 
+public boolean isFull(){
+	if(nelem == length)
+		return true;
+	else
+		return false;
+}
+public boolean isEmpty(){
+	if(nelem == 0){
+		return true;
+	}
+	else
+		return false;
+}
 }
