@@ -12,15 +12,19 @@ private Random generator;
 private SortingA s;
 
 public Array(int len){
-	int i;
+	//int i;
 	length = len;
 	values = new int[len];
 	nelem = 0;
-	for(i=0; i< len ; i++){
-		values[i] = -1;
-	}
+	//for(i=0; i< len ; i++){
+	//	values[i] = -1;
+	//}
 	
 	return;
+}
+
+public void setNElem(int elem){
+	nelem = elem;
 }
 
 public boolean isEmpty(){

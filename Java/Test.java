@@ -7,8 +7,7 @@ static final int case1=0;
 static final int case2=1;
 static final int case3=2;
 static final int case4=3;
-boolean randomInsert;
-boolean semiOrdered;
+boolean randomInsert,semiOrdered, needToCreate,needToGrow;
 /*CASE1
 Los elementos a insert son escogidos al azar uniformemente del universo,
  y los a delete,al azar uniformemente del conjunto ya insertado en la estructura
@@ -24,6 +23,43 @@ elegidos al azar uniformemente del conjunto insertado)
 Sólo los elementos a delete están semiordenados (por lo que los elementos a insert son
 elegidos al azar uniformemente del universo)
 */
+public Test(){
+	n=-1;
+	k=-1;
+	range=-1;
+	insert=null;
+	del=null;
+	search=null;
+	needToCreate= false;
+	randomInsert = false;
+	semiOrdered = false;
+	needToGrow = false;
+}
+
+public void setTest(int n2,int k2,int range2){ 
+	if (range2 > range)
+		u= new Universe(range2);
+	if(k != k2 || n != n2){
+		this.insert = new Array(k2 * n2 * 3);
+		this.del = new Array(k2 * n2 * 3);
+		this.search = new Array(k2*n2);
+	}
+
+	if(range2> range)
+		this.needToCreate = false;
+
+	if(k!=k2 || n>n2)
+		this.needToGrow = true;
+	
+	this.n = n2;
+	this.k = k2;
+	this.range = range2;
+	
+	this.randomInsert = false;
+	this.semiOrdered = false;
+	
+	//System.out.println("insert:" + insert.print());
+}
 
 public Test(int n2,int k2,int range2){
 	////System.out.printf("creando estructura de test \n");
@@ -36,6 +72,8 @@ public Test(int n2,int k2,int range2){
 	search = new Array(k2*n2);
 	randomInsert = false;
 	semiOrdered = false;
+	needToGrow = true;
+	needToCreate = false;
 	//return this;
 }
 
@@ -46,34 +84,46 @@ private int getRandomNumber(){
 void createRandomInsertSeq(){
 	int i;
 	int number;
-	
-	insert.deleteAll();
-	
-	//System.out.printf("Creando secuencia aleatoria de inserción\n");
-	for(i=0; i < insert.getLength() ; i++){
+
+	if(needToCreate){
+		insert.setNElem(0);
+		for(i=0; i < insert.getLength() ; i++){
 		number = getRandomNumber();
 		////System.out.println("number=" + number);
 		insert.putElem(i,number);
 		}
-	randomInsert= true;
-	semiOrdered = false;
-	return;
+		needToCreate = false;
+		randomInsert = true;
+		return;
+	}
+	else if(!needToCreate && needToGrow){
+		for(i=insert.getNElems(); i < insert.getLength() ; i++){
+		number = getRandomNumber();
+		////System.out.println("number=" + number);
+		insert.putElem(i,number);
+		}
+		needToGrow = false;
+		randomInsert = true;
+		return;
+	}
+	else if(!needToCreate && !needToGrow){
+		return;
+
+	}
 }
 
 void createSemiOrderInsertSeq(){
-	if(!randomInsert)
-		createRandomInsertSeq();
+	createRandomInsertSeq();
 	//System.out.printf("Creando secuencia semi ordenada de inserción\n");
 	
 	//System.out.println("INSERT " + insert.getNElems() + ":" + insert.print());
-	
 	insert.sort();
 	insert.shuffle(insert.getNElems()/4);
 	
 	//System.out.println("Insert semi ordenado: " + insert.print());
 	
-	randomInsert = false;
-	semiOrdered = true;  
+	//randomInsert = false;
+	//semiOrdered = true;  
 	return;
 }
 
@@ -99,11 +149,11 @@ void handleDelSeqCase(Array tengo,int seqcase){
 	}
 	return;
 }
-void createSequence(Test t,int seqcase){
+public void createSequence(int seqcase){
 	int i,j,s,auxelem;
 	Array tengo;
-	del.deleteAll();
-	search.deleteAll();
+	del.setNElem(0);
+	search.setNElem(0);
 	
 	tengo = new Array(k * n);
 	handleInsertSeqCase(seqcase);
