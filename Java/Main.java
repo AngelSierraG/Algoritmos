@@ -5,7 +5,6 @@ import arbol.*;
 
 
 import iterador.*;
-import range.*;
 import lista.*;
 import colaEncadenada.*;
 import interadorSinMemoria.*;

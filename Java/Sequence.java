@@ -3,8 +3,6 @@ import java.util.Date;
 import arbol.ElementoExisteException;
 import arbol.ElementoNoExisteException; 
 import arbol.IArbolOrdenado;
-//import arbol.*;
-import tree.*;
 
 public class Sequence {
 	public static boolean debug = false;
@@ -72,7 +70,7 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 
 	timer = currentDate.getTime();
 	for(s=0;s< t.n*t.k;s++){
-		tree.buscar(t.search.getElem(s % t.n*t.k));
+		tree.buscar(t.search.getElem(s % t.n));
 	}
 	currentDate = new Date();
 	System.out.printf("2da=%d\t", currentDate.getTime()- timer);
