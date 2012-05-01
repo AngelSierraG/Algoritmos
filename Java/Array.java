@@ -7,27 +7,24 @@ public class Array {
 private int values[];
 private int length;
 private int nelem;
-private Date currentDate;
+private Date currentDate; 
 private Random generator;
 private SortingA s;
 
 public Array(int len){
-	int i;
+	//int i;
 	length = len;
 	values = new int[len];
 	nelem = 0;
-	for(i=0; i< len ; i++){
-		values[i] = -1;
-	}
+	//for(i=0; i< len ; i++){
+	//	values[i] = -1;
+	//}
 	
 	return;
 }
 
-public boolean isEmpty(){
-	if (length == 0)
-		return true;
-	else
-		return false;
+public void setNElem(int elem){
+	nelem = elem;
 }
 
 private boolean checkIndex(int k){
@@ -170,4 +167,17 @@ String print(){
 	return out;
 }
 
+public boolean isFull(){
+	if(nelem == length)
+		return true;
+	else
+		return false;
+}
+public boolean isEmpty(){
+	if(nelem == 0){
+		return true;
+	}
+	else
+		return false;
+}
 }
