@@ -1,7 +1,7 @@
 import java.util.Date;
 
 import arbol.ElementoExisteException;
-import arbol.ElementoNoExisteException;
+import arbol.ElementoNoExisteException; 
 import arbol.IArbolOrdenado;
 //import arbol.*;
 import tree.*;
@@ -45,7 +45,7 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 
 	for(j=0,s=0,d=0; s < t.k*t.n ;){
 		for(i=0;i < t.k;i++){
-			debug.putElem(t.insert.getElem(j));
+			//debug.putElem(t.insert.getElem(j));
 			tree.insertar(t.insert.getElem(j++));
 			s++;
 			}
@@ -53,7 +53,7 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 	//	System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
 
 		for(i=0;i < t.k;i++){
-			debug.delElem(t.del.getElem(d));
+			//debug.delElem(t.del.getElem(d));
 	//		System.out.println("borrando " +t.del.getElem(d));
 			tree.eliminar(t.del.getElem(d++));
 			
@@ -62,46 +62,46 @@ public static int dosequence(IArbolOrdenado<Integer> tree,Test t) throws Element
 	//	System.out.println("del Tengo debug " + debug.getNElems() + ":" + debug.print());
 
 		for(i=0;i < t.k;i++){
-			debug.putElem(t.insert.getElem(j));
+			//debug.putElem(t.insert.getElem(j));
 			tree.insertar(t.insert.getElem(j++));
 			s++;
 			}
 	//	System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
 	}
-	System.out.printf("\tTiempo 1era sub secuencia = %d\n", currentDate.getTime()- timer);
+	System.out.printf("tiempos: 1era=%d\t", currentDate.getTime()- timer);
 
 	timer = currentDate.getTime();
 	for(s=0;s< t.n*t.k;s++){
 		tree.buscar(t.search.getElem(s));
 	}
-	System.out.printf("\tTiempo 2da sub secuencia = %d\n", currentDate.getTime()- timer);
+	System.out.printf("2da=%d\t", currentDate.getTime()- timer);
 	
 	timer = currentDate.getTime();
 	for(s = t.k*t.n - 1; s >= 0 ; ){
 		for(i=0;i < t.k;i++){
 	//		System.out.println("borrando " +t.del.getElem(d));
-			debug.delElem(t.del.getElem(d));
+			//debug.delElem(t.del.getElem(d));
 			//System.out.println("Eliminando :" + t.del.getElem(d));
 			tree.eliminar(t.del.getElem(d++));
 			s--;
 			}
 	//	System.out.println("del Tengo debug " + debug.getNElems() + ":" + debug.print());
 		for(i=0;i < t.k;i++){
-			debug.putElem(t.insert.getElem(j));
+			//debug.putElem(t.insert.getElem(j));
 			tree.insertar(t.insert.getElem(j++)); 
 			s++;
 			}
 	//	System.out.println("ins Tengo debug " + debug.getNElems() + ":" + debug.print());
 		for(i=0;i < t.k;i++){
 	//		System.out.println("borrando " +t.del.getElem(d));
-			debug.delElem(t.del.getElem(d));
+			//debug.delElem(t.del.getElem(d));
 			//System.out.println("Eliminando :" + t.del.getElem(d));
 			tree.eliminar(t.del.getElem(d++));
 			s--;
 			}
 	//	System.out.println("final Tengo debug " + debug.getNElems() + ":" + debug.print());
 	}
-	System.out.printf("\tTiempo 3era sub secuencia = %d\n\n", currentDate.getTime()- timer);
+	System.out.printf("3era=%d\n", currentDate.getTime()- timer);
 
 	//freeTest(t);
 
