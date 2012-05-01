@@ -287,8 +287,9 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
 
         // Verifica que el elemento que llega no se encuentre en el nodo
         if( resultado1 == 0 || ( raizDer != null && resultado2 == 0 ) )
-        {
-            throw new ElementoExisteException( "El elemento ya existe en el �rbol" );
+        {   
+            return false;
+            //throw new ElementoExisteException( "El elemento ya existe en el �rbol" );
         }
         else if( esHoja( ) )
         {
@@ -519,8 +520,8 @@ public class Nodo2_3<T extends Comparable<? super T>> implements Serializable
             return hijoDer.auxEliminar( obj ) ? restaurarHijoDer( ) : false;
         }
         else
-            throw new ElementoNoExisteException( "El elemento especificado no existe en el �rbol" );
-
+            //throw new ElementoNoExisteException( "El elemento especificado no existe en el �rbol" );
+        return false;
     }
 
     /**

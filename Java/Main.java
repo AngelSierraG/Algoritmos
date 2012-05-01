@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import arbol.avl.*; 
 import arbol.arbolRojoNegro.*; 
 import arbol.*;
@@ -10,13 +10,13 @@ import lista.*;
 import colaEncadenada.*;
 import interadorSinMemoria.*;
 import listaEncadenada.*;
-=======
+
 import arbol.*;
 import arbol.avl.*;
 import arbol.arbol2_3.*;
 import arbol.arbolB.*;
 import arbol.arbolRojoNegro.*;
->>>>>>> 17318ba776d3d8836c51666ac2969019093bbef2
+
 
 public class Main {
 static final int cAVL=0;
@@ -91,7 +91,7 @@ public static void main(String[] args) throws ElementoExisteException, ElementoN
 	treeTest(tree,n,range,k,insertcase);
 	
 	/*ARB TESTING*/
-<<<<<<< HEAD
+
 	System.out.printf("Testeando ARB:\n");
 
 	tree = new ArbolRojoNegro<Integer>();
@@ -113,12 +113,12 @@ public static void main(String[] args) throws ElementoExisteException, ElementoN
 
 	/*A23 TESTING*/
 	System.out.printf("testeando A23:\n");
-	tree= new Arbol2_3();
+	tree= new Arbol2_3<Integer>();
 	treeTest(tree,n,range,k,insertcase);
 
 	/*AB TESTING*/
 	System.out.printf("testeando AB:\n");
-	tree= new ArbolB(256);
+	tree= new ArbolB<Integer>(256);
 	treeTest(tree,n,range,k,insertcase);
 
 	return;

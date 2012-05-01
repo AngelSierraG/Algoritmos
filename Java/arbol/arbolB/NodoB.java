@@ -259,7 +259,7 @@ public class NodoB<T extends Comparable<? super T>> implements Serializable
         // Verifica que el elemento que llega no se encuentre en el nodo
         if( raices.contiene( elemento ) )
         {
-            throw new ElementoExisteException( "El elemento ya existe en el árbol" );
+           // throw new ElementoExisteException( "El elemento ya existe en el árbol" );
         }
         else if( esHoja( ) )
         {
@@ -384,8 +384,8 @@ public class NodoB<T extends Comparable<? super T>> implements Serializable
                 }
             }
         }
-        else
-            throw new ElementoNoExisteException( "El elemento especificado no existe en el árbol" );
+        //else
+          //// throw new ElementoNoExisteException( "El elemento especificado no existe en el árbol" );
         return false;
 
     }

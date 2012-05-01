@@ -128,7 +128,7 @@ public class ArbolB<T extends Comparable<? super T>> implements Serializable, IA
         else
         {
             // Caso 2: el �rbol es vac�o
-            throw new ElementoNoExisteException( "El elemento especificado no existe en el �rbol" );
+            //throw new ElementoNoExisteException( "El elemento especificado no existe en el �rbol" );
         }
     }
 
