@@ -3,11 +3,12 @@ public class Test {
 public int type,n,k,range;
 public Array insert,del,search;
 public Universe u;
+private int seqcase;
 static final int case1=0;
 static final int case2=1;
 static final int case3=2;
 static final int case4=3;
-boolean needToCreate,needToGrow,needToRepeat,needToMinimize,needToExit;
+boolean needToCreate,needToGrow,needToRepeat,changedSeq,needToExit;
 /*CASE1
 Los elementos a insert son escogidos al azar uniformemente del universo,
  y los a delete,al azar uniformemente del conjunto ya insertado en la estructura
@@ -32,29 +33,44 @@ public Test(){
 	search=null;
 	needToCreate= false;
 	needToGrow = false;
-	needToRepeat = false;
-	needToMinimize = false;
+	changedSeq = false;
 }
 
-public void setTest(int n2,int k2,int range2){ 
-	if (range2 > range){
+public void setTest(int n2,int k2,int range2,int seqcase){ 
+	if (range2 > range || n2 >n){
 		u= new Universe(range2);
 		/*
 		this.insert = new Array(k2 * n2 * 3);
 		this.del = new Array(k2 * n2 * 3);
 		this.search = new Array(k2*n2);
 		*/
-		this.insert = new Array(n2);
+		Array aux=null;
+
+		if(n2>n && range2 == range){
+			this.needToGrow = true;
+			aux = new Array(n2) ;
+			insert.copy(aux);
+			insert =  aux;
+		}
+		else{
+			this.insert = new Array(n2);
+		}
+		
 		this.del = new Array(3*k2*n2);
 		this.search = new Array(n2);
 
+
+
 		needToCreate = true;
 	}
-	if(n < n2)
-		this.needToGrow = true;
-	if(k2 < k)
-		this.needToMinimize = true;
-	
+	if(this.seqcase != seqcase){
+		changedSeq = true;
+	}
+	else
+		changedSeq = false;
+
+
+	this.seqcase = seqcase;
 	this.n = n2;
 	this.k = k2;
 	this.range = range2; 
@@ -64,7 +80,7 @@ public void setTest(int n2,int k2,int range2){
 	
 	//System.out.println("insert:" + insert.print());
 }
-
+@Deprecated
 public Test(int n2,int k2,int range2){
 	////System.out.printf("creando estructura de test \n");
 	n = n2;
@@ -79,7 +95,6 @@ public Test(int n2,int k2,int range2){
 	needToGrow = true;
 	needToCreate = false;
 	needToRepeat = false;
-	needToMinimize = false;
 	//return this;
 }
 
@@ -130,7 +145,7 @@ void createSemiOrderInsertSeq(){
 	return;
 }
 
-void handleInsertSeqCase(int seqcase){
+void handleInsertSeqCase(){
 	if(seqcase == case1 || seqcase == case4){
 		createRandomInsertSeq();
 	}
@@ -140,7 +155,7 @@ void handleInsertSeqCase(int seqcase){
 	return ;
 }
 
-void handleDelSeqCase(Array tengo,int seqcase){
+void handleDelSeqCase(Array tengo){
 	if(seqcase == case1 || seqcase == case3){
 		tengo.shuffle(tengo.getNElems()/2);
 		//System.out.println("Tengo random " + tengo.getNElems() + ":" + tengo.print());
@@ -153,34 +168,37 @@ void handleDelSeqCase(Array tengo,int seqcase){
 	return;
 }
 
-private void checkBounds(Array tengo,int _case){
-	if(_case == 0){ /*inser*/
+private void checkBounds(Array tengo){
+	if(seqcase == 0){ /*inser*/
 		if(tengo.isFull())
 			needToExit = true;
 	}
-	else if(_case == 1){/*borrar*/
+	else if(seqcase == 1){/*borrar*/
 		if(tengo.isEmpty())
 			needToExit = true;
 	}
 }
 
-public void createSequence(int seqcase){
+public void createSequence(){
 	int i,j,s,auxelem;
 	Array tengo;
-	boolean needToExit;
+	
+	if(!changedSeq && !needToCreate && !needToGrow){
+		return;
+	}
 
 	del.setNElem(0);
 	search.setNElem(0);
 	
 	tengo = new Array(k*n);
-	handleInsertSeqCase(seqcase);
+	handleInsertSeqCase();
 
 	for(j=0,s=0; s< n ;){
 		for(i=0;i < k;i++){
 			tengo.putElem(insert.getElem(j++ % n));
 			s++;
 		}
-		handleDelSeqCase(tengo,seqcase);
+		handleDelSeqCase(tengo);
 		for(i=0;i < k;i++){
 			auxelem = tengo.getElem(0);
 			del.putElem(auxelem);
@@ -193,12 +211,16 @@ public void createSequence(int seqcase){
 			}
 	}
 	tengo.shuffle(tengo.getNElems()/2);
-	for(s=0;s< n;s++){
+	for(s=0;s< n/2;s++){
 		search.putElem(tengo.getElem(s));
 	}
+	for(;s< n;s++){
+		search.putElem(getRandomNumber());
+	}
+
 	
 	for(s=n-1;s>=0 ;){
-		handleDelSeqCase(tengo,seqcase);
+		handleDelSeqCase(tengo);
 		for(i=0;i < k;i++){
 			auxelem = tengo.getElem(0);
 			del.putElem(auxelem);
@@ -209,7 +231,7 @@ public void createSequence(int seqcase){
 			tengo.putElem(insert.getElem(j++ % n));
 			s++;
 		}
-		handleDelSeqCase(tengo,seqcase);
+		handleDelSeqCase(tengo);
 		for(i=0;i < k;i++){
 			auxelem = tengo.getElem(0);
 			del.putElem(auxelem);

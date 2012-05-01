@@ -35,15 +35,13 @@ private static void treeTest(IArbolOrdenado<Integer> tree,String type[],int n[],
 
 	t=new Test();
 	for(i=0; i<2 ; i++){
+	for(l=0 ; l<4 ; l++){
 	for(j=0; j<2 ; j++){
 	for(r=0; r<3 ; r++){
 	for(m=0; m<4 ; m++){ 
-	for(l=0 ; l<4 ; l++){
-		if(j != 1)
-			continue;
 		
 		System.out.printf("%s con: k=%d  n=%s\trango=%s\tcaso de insercion=%d\t",type[m],k[r],n[j],range[i],insertcase[l]);
-		t.setTest(n[j],k[r],range[i]);
+		t.setTest(n[j],k[r],range[i],insertcase[l]);
 		
 		if(m==0){
 			tree = new ArbolAVL<Integer>();
