@@ -3,7 +3,7 @@ public class Quicksort implements SortingA{
 public Quicksort(){
     super();
 }
-private int put(int v[], int b, int t){
+private int put(int v[], int b, int t){  
     int i;
     int valor_pivote;
     int pivote;

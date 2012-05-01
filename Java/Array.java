@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Array {
 
-/*Estructura array*/
+/*Estructura array*/ 
 private int values[];
 private int length;
 private int nelem;
@@ -143,7 +143,7 @@ void delElem(int elem){
 }
 
 /*Arreglo desordenado*/
-int searchElem(int elem){
+int searchElem(int elem){ 
 	int i;
 	for(i=0 ; i < getLength() ; i++)
 		if(getElem(i) == elem )
@@ -153,7 +153,7 @@ int searchElem(int elem){
 
 void sort(){
 	s = new Quicksort();
-	s.sort(values,0,nelem-1);
+	s.sort(values,0,nelem-1); 
 }
 
 String print(){

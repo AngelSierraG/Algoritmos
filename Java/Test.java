@@ -29,7 +29,7 @@ public Test(int n2,int k2,int range2){
 	////System.out.printf("creando estructura de test \n");
 	n = n2;
 	k = k2;
-	range = range2;
+	range = range2; 
 	u= new Universe(range2);
 	insert = new Array(k2 * n2 * 3);
 	del = new Array(k2 * n2 * 3);

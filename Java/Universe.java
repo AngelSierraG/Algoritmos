@@ -7,7 +7,7 @@ private Date currentDate;
 private Random generator;
 
 public Universe(int range2){
-	this.range = range2;
+	this.range = range2; 
 	this.currentDate = new Date();
 	this.generator = new Random(this.currentDate.getTime()); 
 	
