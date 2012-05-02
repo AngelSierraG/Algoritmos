@@ -132,9 +132,13 @@ Los árboles-B poseen un numero variable de nodos hijos con un maximo predifinido
 
 \section{Diseño Experimental}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum. Donec elit tellus, feugiat non facilisis non, faucibus sit amet dolor. Fusce feugiat imperdiet mi, ut iaculis eros lacinia vel. Phasellus vel erat eget metus iaculis adipiscing et eu nulla. Cras nec ligula et magna tristique tempus quis sed magna. Nullam non orci at est dignissim auctor at at dui. Vestibulum molestie ultricies libero, eget sollicitudin metus venenatis eu.
+Para reazlizar este experimento, se comenzara por crear la secuencia de insercion, la cual sera una secuencia semi-ordenada de elementos y al azar de elementos segun los casos a estudiar, luego de esto se crea una secuencia de borrado al azar y semi-ordenada que contendra elementos que seran insertos en el arreglo.
 
-In quis tempor risus. Mauris dapibus porttitor nisl, nec lobortis velit fermentum in. Sed fermentum suscipit orci, at porta lorem fringilla in. Pellentesque et arcu et risus vehicula imperdiet. Sed in lorem ac turpis aliquet laoreet a et ante. Nunc ac libero quis diam semper accumsan. Proin semper lectus sed neque volutpat eget scelerisque dolor placerat. 
+Con estos arreglos se podra testear las secuencias de insercion y borrado que terminaban una vez se acaban las secuencias creadas, marcado su tiempo de ejecucion.
+
+Del mismo modo para los test que requieren de una secuencia de busqueda se crea una secuencia de busqueda de $k/2$ veces la secuencia de insercion, de este modo se tiene un arreglo que posee los elementos a ser buscados en los arboles.
+
+Luego de esto se testean la ejecucion de las instrucciones de insercion, busqueda y borrado y se mide los tiempos de ejecucion para cada estructura de datos.
 
 %-------------------------------------------------------------------------
 
@@ -145,35 +149,38 @@ In quis tempor risus. Mauris dapibus porttitor nisl, nec lobortis velit fermentu
 %-------------------------------------------------------------------------
 \section{Resultados}
 
+\begin{enumerate}
+\item
+Los elementos de insercion y busqueda son escogidos al azar de universo
 \subsection{Arbol AVL}
 \subsubsection{Prueba k=3}
 
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$ = XX ms
+$(i^k d^k i^k)^n$ = 169 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 74 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 66 ms
 \end{enumerate}
 
 \subsubsection{Prueba k=5}
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 118 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 139 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 67 ms
 \end{enumerate}
 \subsubsection{Prueba k=7}
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 168 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 187 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 69 ms
 \end{enumerate}
 
 \subsection{Arbol Rojo-Negro}
@@ -181,30 +188,30 @@ $(d^k i^k d^k )^n$  = XX ms
 
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 544 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$ = XX ms
+$f^{kn}(d^k i^k d^k )^n$ = 136 ms
 \item
-$(d^k i^k d^k )^n$ = XX ms
+$(d^k i^k d^k )^n$ = 150 ms
 \end{enumerate}
 
 \subsubsection{Prueba k=5}
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 93 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 68 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 71 ms
 \end{enumerate}
 \subsubsection{Prueba k=7}
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 101 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 97 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 72 ms
 \end{enumerate}
 
 
@@ -213,30 +220,30 @@ $(d^k i^k d^k )^n$  = XX ms
 
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 1433 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 666 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 253 ms
 \end{enumerate}
 
 \subsubsection{Prueba k=5}
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 260 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 375 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 222 ms
 \end{enumerate}
 \subsubsection{Prueba k=7}
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 226 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 433 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 209 ms
 \end{enumerate}
 
 \subsection{Arbol B}
@@ -244,36 +251,445 @@ $(d^k i^k d^k )^n$  = XX ms
 
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 414 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 115 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 45 ms
 \end{enumerate}
 
 \subsubsection{Prueba k=5}
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 119 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 43 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 36 ms
 \end{enumerate}
 \subsubsection{Prueba k=7}
 \begin{enumerate}
 \item
-$(i^k d^k i^k)^n$  = XX ms
+$(i^k d^k i^k)^n$  = 132 ms
 \item
-$f^{kn}(d^k i^k d^k )^n$  = XX ms
+$f^{kn}(d^k i^k d^k )^n$  = 52 ms
 \item
-$(d^k i^k d^k )^n$  = XX ms
+$(d^k i^k d^k )^n$  = 34 ms
+\end{enumerate}
+\item
+Los elementos de insertar y borrar se encuentran semi-ordenados
+\subsection{Arbol AVL}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$ = 37 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 21 ms
+\item
+$(d^k i^k d^k )^n$  = 17 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 143 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 1349 ms
+\item
+$(d^k i^k d^k )^n$  = 23 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 148 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 2649 ms
+\item
+$(d^k i^k d^k )^n$  = 45 ms
+\end{enumerate}
+
+\subsection{Arbol Rojo-Negro}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 50 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$ = 41 ms
+\item
+$(d^k i^k d^k )^n$ = 40 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 34 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 34 ms
+\item
+$(d^k i^k d^k )^n$  = 78 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 36 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 59 ms
+\item
+$(d^k i^k d^k )^n$  = 39 ms
 \end{enumerate}
 
 
+\subsection{Arbol 2-3}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 134 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 169 ms
+\item
+$(d^k i^k d^k )^n$  = 119 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 145 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 292 ms
+\item
+$(d^k i^k d^k )^n$  = 128 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 191 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 483 ms
+\item
+$(d^k i^k d^k )^n$  = 138 ms
+\end{enumerate}
+
+\subsection{Arbol B}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 33782 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 874 ms
+\item
+$(d^k i^k d^k )^n$  = 85135 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 35996 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 1279 ms
+\item
+$(d^k i^k d^k )^n$  = 92453 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 34420 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 1773 ms
+\item
+$(d^k i^k d^k )^n$  = 95593 ms
+\end{enumerate}
+\item
+Solo elementos a insertar estan semi-ordenados
+\subsection{Arbol AVL}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$ = 144 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 152 ms
+\item
+$(d^k i^k d^k )^n$  = 55 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 142 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 335 ms
+\item
+$(d^k i^k d^k )^n$  = 53 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 144 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 272 ms
+\item
+$(d^k i^k d^k )^n$  = 40 ms
+\end{enumerate}
+
+\subsection{Arbol Rojo-Negro}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 34 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$ = 16 ms
+\item
+$(d^k i^k d^k )^n$ = 27 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 34 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 27 ms
+\item
+$(d^k i^k d^k )^n$  = 26 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 34 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 41 ms
+\item
+$(d^k i^k d^k )^n$  = 25 ms
+\end{enumerate}
+
+
+\subsection{Arbol 2-3}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 168 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 203 ms
+\item
+$(d^k i^k d^k )^n$  = 174 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 166 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 343 ms
+\item
+$(d^k i^k d^k )^n$  = 177 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 164 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 478 ms
+\item
+$(d^k i^k d^k )^n$  = 175 ms
+\end{enumerate}
+
+\subsection{Arbol B}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 62 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 26 ms
+\item
+$(d^k i^k d^k )^n$  = 26 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 81 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 47 ms
+\item
+$(d^k i^k d^k )^n$  = 26 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 94 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 66 ms
+\item
+$(d^k i^k d^k )^n$  = 30 ms
+\end{enumerate}
+\item
+Solo los elementos a borrar estan semi ordenados
+\subsection{Arbol AVL}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$ = 38 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 21 ms
+\item
+$(d^k i^k d^k )^n$  = 18 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 139 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 561 ms
+\item
+$(d^k i^k d^k )^n$  = 21 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 148 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 1226 ms
+\item
+$(d^k i^k d^k )^n$  = 23 ms
+\end{enumerate}
+
+\subsection{Arbol Rojo-Negro}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 35 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$ = 16 ms
+\item
+$(d^k i^k d^k )^n$ = 26 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 35 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 26 ms
+\item
+$(d^k i^k d^k )^n$  = 21 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 34 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 40 ms
+\item
+$(d^k i^k d^k )^n$  = 26 ms
+\end{enumerate}
+
+
+\subsection{Arbol 2-3}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 132 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 168 ms
+\item
+$(d^k i^k d^k )^n$  = 119 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 146 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 288 ms
+\item
+$(d^k i^k d^k )^n$  = 127 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 143 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 389 ms
+\item
+$(d^k i^k d^k )^n$  = 127 ms
+\end{enumerate}
+
+\subsection{Arbol B}
+\subsubsection{Prueba k=3}
+
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 36949 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 747 ms
+\item
+$(d^k i^k d^k )^n$  = 84675 ms
+\end{enumerate}
+
+\subsubsection{Prueba k=5}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 36794 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 1248 ms
+\item
+$(d^k i^k d^k )^n$  = 95008 ms
+\end{enumerate}
+\subsubsection{Prueba k=7}
+\begin{enumerate}
+\item
+$(i^k d^k i^k)^n$  = 38139 ms
+\item
+$f^{kn}(d^k i^k d^k )^n$  = 1778 ms
+\item
+$(d^k i^k d^k )^n$  = 97539 ms
+\end{enumerate}
+\end{enumerate}
+
 \section{Analisis de  Resultados}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum. Donec elit tellus, feugiat non facilisis non, faucibus sit amet dolor. Fusce feugiat imperdiet mi, ut iaculis eros lacinia vel. Phasellus vel erat eget metus iaculis adipiscing et eu nulla. Cras nec ligula et magna tristique tempus quis sed magna. Nullam non orci at est dignissim auctor at at dui. Vestibulum molestie ultricies libero, eget sollicitudin metus venenatis eu.
+De los resultos obtenidos se puede determinar que:
+\begin{enumerate}
+\item 
+Los elementos de insercion y borrado son escogidos al azar\\
+Los resultados del arbol Rojo-Negro son excelentes incluso aumentando el numero de datos, y que al aunmentar los datos mantiene tiempos similares, en cambio el arbol 2-3 y AVL poseen marcas medias y similares, salvo que para el borrado el arbol AVL posee un desempeño mejor.
+Por su parte el arbol B posee resultados muy buenos y mejores que el arbol 2-3 y AVL, pero no comparables con el Rojo-Negro.
+En este experimentos que todas las pruebas realizadas para lso arboles AVL, Rojo-negro y B, poseen marcas similares, mientras que el arbol 2-3 posee ligeramente mayor.
+Esto se puede explicar debido a el autobalance que poseen estos arboles provocando marcas similares.
+
+\item
+Los elementos de insercion y borrado se encuentran semi-ordenados\\
+
+En estos resultados destaca en tiempos el arbol Rojo-negro, mientras el arbol AVL posee tiempos mayores de busqueda.
+Por su parte el arbol 2-3 no posee grnades cambios versus el experimento anterior.
+En cambio el arbol B tiene un resultado critico en lo que refiere a insercion y borrado.
+
+\item
+Solo los elementos a insertar se encuentran semi-ordenados\\
+
+Los resultados del arbol Rojo-Negro son excelentes incluso aumentando el numero de datos, y que al aunmentar los datos mantiene tiempos similares, en cambio el arbol 2-3 y AVL poseen marcas medias y similares, salvo que para el borrado el arbol AVL posee un desempeño mejor.
+Por su parte el arbol B posee resultados muy buenos y mejores que el arbol 2-3 y AVL, pero no comparables con el Rojo-Negro.
+
+\item
+Solo los elementos a borrar se encuentran semi-ordenados\\
+
+El arbol AVL siguiendo su linea posee desempeño estandar, al igual que el arbol 2-3, el cual solo supera al AVL en las busquedas.
+Por su parte el Arbol Rojo-Negro vuelve a demostrar un desempeño excelente en comparacion a los otros arboles.
+En cambio, el arbol B posee una desempeño horrible en comparacion a los otros arboles.
+
+
+
+\end{enumerate}
 
 
 
@@ -282,9 +698,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauri
 \chapter{Conclusiones}
 \section{Conclusiones}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper mauris vel nulla egestas sit amet lobortis mi fermentum. Donec elit tellus, feugiat non facilisis non, faucibus sit amet dolor. Fusce feugiat imperdiet mi, ut iaculis eros lacinia vel. Phasellus vel erat eget metus iaculis adipiscing et eu nulla. Cras nec ligula et magna tristique tempus quis sed magna. Nullam non orci at est dignissim auctor at at dui. Vestibulum molestie ultricies libero, eget sollicitudin metus venenatis eu.
+Del presente informe de experimentacion se puede concluir que los tiempos de busqueda, insercion y borrado, ademas de la estructura a utilizar depende netamente del caso de uso al cual sera sometido, ya que se pudo observar tiempos muy variables para estruturas sometidas a pruebas distintas, ya sea el caso de ordenar arreglos al azar o semi-ordenados.
 
-In quis tempor risus. Mauris dapibus porttitor nisl, nec lobortis velit fermentum in. Sed fermentum suscipit orci, at porta lorem fringilla in. Pellentesque et arcu et risus vehicula imperdiet. Sed in lorem ac turpis aliquet laoreet a et ante. Nunc ac libero quis diam semper accumsan. Proin semper lectus sed neque volutpat eget scelerisque dolor placerat. 
+De esto podemos concluir que los arboles AVL no poseen la mejor perfomace, pero entregan tiempos estables independientes de los casos, por su parte el arbol 2-3 posee tiempos ligeramente mejores que el AVL pero es superado por este en ela busqueda.
+
+Por su parte el arbol Rojo-Negro posee marca promedio para arreglos al azar, pero basta que el arreglo de insercion o busqueda este semi-ordenado para que este obtenga resutados realmente buenos. En cambio el arbol B posee muy buenas marcas cuando el arreglo de borrado es al azar, pero basta que este sea semi-ordenado para que este presente tiempos mediocres e inaceptables.
 
 %-------------------------------------------------------------------------
 
