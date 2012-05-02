@@ -80,7 +80,7 @@ public boolean delElemIndex(int j){
 void copy(Array out){
 	/*copiar a en out*/
 	int i;
-	if(getLength()!= out.getLength())
+	if(getLength() > out.getLength())
 		System.out.printf("Copy out of bounds %d into %d\n", getLength(),out.getLength());
 	for(i=0; i < getLength() ; i++){
 		out.putElem(i,getElem(i));

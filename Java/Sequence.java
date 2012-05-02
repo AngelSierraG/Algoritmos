@@ -8,7 +8,7 @@ public class Sequence {
 	public static boolean debug = false;
  
 public static void createsequence(Test t,int insertcase){
-	t.createSequence(insertcase);
+	t.createSequence();
 	
 	System.out.println("Secuencias Creadas!");
 	
